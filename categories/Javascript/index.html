@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8">
+<title>카테고리: Javascript - Web Developer Hodory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="Web Developer Hodory&#39;s Dev Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web Developer Hodory">
+<meta property="og:url" content="https://blog.hodory.dev/categories/Javascript/index.html">
+<meta property="og:site_name" content="Web Developer Hodory">
+<meta property="og:description" content="Web Developer Hodory&#39;s Dev Blog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://blog.hodory.dev/images/og_image.png">
+<meta property="article:author" content="Hodory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hodory.dev/images/og_image.png">
+<meta property="fb:admins" content="118893982173772">
+<meta property="fb:app_id" content="499229817121224">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans KR:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow-night.css">
+
+
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-100483080-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-100483080-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+<!-- Naver Site Verification -->
+<meta name="naver-site-verification" content="d723a500e9113b8daa9f89742cfe24ce553292f0"/>
+<!-- End Naver Site Verification -->
+<!-- Facebook Pixel Code -->
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(
+                    n, arguments) :
+                n.queue.push(
+                    arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js'
+    );
+    fbq('init', '118893982173772');
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=118893982173772&ev=PageView&noscript=1"
+    />
+</noscript>
+<!-- End Facebook Pixel Code -->
+<!-- onesignal-->
+<link rel="manifest" href="/manifest.json"/>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal ||
+        [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            appId: "e6af580a-28ff-4917-8bf4-6015a7c4aeec",
+        });
+    });
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>	
+    (adsbygoogle = window.adsbygoogle || []).push({	
+        google_ad_client: "ca-pub-2860780921894189",	
+        enable_page_level_ads: true	
+    });	
+</script>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/feed.xml" title="Web Developer Hodory" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Web Developer Hodory" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/hodory">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                    <div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">카테고리</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Javascript</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2020/01/05/Document-Ready-Alternative/" class="image is-7by1">
+            <img class="thumbnail" src="/images/js-logo.svg" alt="[JS]Document.ready 의 대안">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-05T09:16:44.000Z">2020-01-05</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2분 읽기 (나에 대하여 297 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/01/05/Document-Ready-Alternative/">[JS]Document.ready 의 대안</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>jQuery를 사용할 때, DOM이 로드된 후 처리를 위해 아래와 같은 구문을 많이 사용해왔습니다.</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><br><span class="line">    </span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// or</span></span><br><span class="line"></span><br><span class="line">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><br><span class="line">    </span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>이와 같은 동작을 jQuery 없이 사용 할 수 없을까 찾아 보았는데,</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, () => {</span><br><span class="line"></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>위와 같이 작성하면 됩니다.</p>
+<p><code>DOMContentLoaded</code>는 최초로 HTML 문서가 완전히 로드 및 파싱 되었을때 발생되므로,<br><br>모든 리소스(이미지, 스크립트, 스타일 시트 등)가 로드 된 후 발생하는 <code>load</code> 이벤트 보다는 먼저 호출됩니다.</p>
+<p>그렇다면 왜 <code>DOMContentLoaded</code> 이벤트 리스너 대신 <code>$(document).ready()</code>를 사용했을까 알아 보았는데,</p>
+<p><a href="https://caniuse.com/#search=DOMContentLoaded" target="_blank" rel="noopener">CAN-I-USE-DOMContentLoaded</a>를 확인하였더니, IE8까지는 지원을 하지 않았습니다.<br><br>물론 jQuery가 아닌 대안들도 있었겠지만, 브라우저 호환성을 위해 jQuery를 써오던 입장에서는 간단하게 사용할 수 있던 방안이었으리라고 봅니다.</p>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/Events/DOMContentLoaded" target="_blank" rel="noopener" title="해당 링크로 이동">MDN-DOMContentLoaded</a></li>
+<li><a href="https://caniuse.com/#search=DOMContentLoaded" target="_blank" rel="noopener" title="해당 링크로 이동">CAN-I-USE-DOMContentLoaded</a></li>
+</ul>
+</body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/12/13/What-Is-jQuery-Second-Parameter/" class="image is-7by1">
+            <img class="thumbnail" src="/images/js-logo.svg" alt="［JS］jQuery 두번째 파라미터가 뭐지?">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-13T09:56:02.000Z">2019-12-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1분 읽기 (나에 대하여 224 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/13/What-Is-jQuery-Second-Parameter/">［JS］jQuery 두번째 파라미터가 뭐지?</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>jQuery로 작성된 코드를 보는데, <code>$("selectorA", "selectorB")</code> 와 같은 코드가 있었습니다.<br><br>당연히 기존에 자주 접하던 <code>$("selectorA, selectorB")</code> 와 같은 코드인줄 알았으나, 예상과 다르게 동작하여 문서를 확인해 보았습니다.</p>
+<p><a href="https://api.jquery.com/jQuery/#jQuery-selector-context" target="_blank" rel="noopener">jQuery 문서</a>에 따르면, <code>A DOM Element, Document, or jQuery to use as context</code> 가 기재되어있다.</p>
+<p>해당 영역에는 DOM element가 올 수 있는데 <a href="https://api.jquery.com/jQuery/#selector-context" target="_blank" rel="noopener">Selector Context</a>를 확인해보면</p>
+<blockquote>
+<p>selector context is implemented with the .find() method, so $( “span”, this ) is equivalent to $( this ).find( “span” ).</p>
+</blockquote>
+<p>이와 같이 말하고 있습니다.</p>
+<p><a href="https://jsperf.com/jquery-find-vs-context-sel/61" target="_blank" rel="noopener">jQuery .find() vs. context selector</a> 해당 링크에서 퍼포먼스 확인을 해보면<br>아래 이미지와 같이 context selector를 사용 하는 것 보다, 아주 조금이나마 더 빠릅니다.<br><img src="/images/What-Is-jQuery-Second-Parameter/1.png" alt></p>
+</body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/11/26/json-parse-is-faster-than-object-literal/" class="image is-7by1">
+            <img class="thumbnail" src="/images/js-logo.svg" alt="［JS］Object literal 보다 JSON.parse()가 더 빠르다">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-26T13:51:44.000Z">2019-11-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7분 읽기 (나에 대하여 1104 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/26/json-parse-is-faster-than-object-literal/">［JS］Object literal 보다 JSON.parse()가 더 빠르다</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><hr>
+<p>웹에서 몇 kb 크기의 객체를 초기에 렌더링 하는것은 생각보다 많습니다.</p>
+<p>이 javascript 객체가 로드될때까지 클라이언트는 빈 화면을 보게 될 수 있습니다.</p>
+<p>이러한 문제를 해결하기 위해, 서버사이드 렌더링을 활용 하는 방법도 있겠지만<br>다른 방법은 없을까요?</p>
+<p>Chrome Dev Summit에서는 객체를 JSON으로 직렬화 하고, 문자열 리터럴로 변환해 Javscript 객체에 전달하는 것이 성능 향상에 도움이 된다고 이야기합니다.</p>
+<h2 id="무슨-소리일까"><a href="#무슨-소리일까" class="headerlink" title="무슨 소리일까?"></a>무슨 소리일까?</h2><hr>
+<p>아래의 두 코드는 동일한 객체를 생성하지만,<br>Javascript 엔진의 경우, JSON 예제를 스캔하고, 파싱만 하기 때문에 빠르다고합니다.</p>
+<p><img src="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" alt></p>
+<p>Javascript 파서에게 해당 코드는 여러개의 객체 리터럴을 받는 코드이냐, 많은 양의 데이터가 담긴  문자열 단일 리터럴이냐로 구분됩니다.</p>
+<p>해당 예제에서의 객체의 값은 숫자이지만, 자기 자신의 속성과 값을 가진 Object 또는 배열이거나, 더 많은 값을 가진 무엇이든 될 수 있기 때문입니다.</p>
+<p>이렇기 때문에 <strong>자바스크립트 파서는 단지 올바르게 토큰화 하기위해 JSON.parse에 비해 더 많이 동작 해야 합니다.</strong></p>
+<p>또 다른 이유로는 자바스크립트 객체 리터럴은 그 값이 객체문자열이라는것을 미리 알지 못하기때문입니다.</p>
+<p>JSON.parse로 파싱할때에는 간단하게 중괄호 이후에 Object로 시작할지, 아니면 잘못된 JSON 형식인지라는 두가지 옵션에만 중점을 둡니다.</p>
+<p><img src="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" alt></p>
+<p>반면 객체 리터럴은 위의 이미지와 같이 Javscript Object는 중괄호 뒤의 값이 무엇인지를 아직까지는 알 수 없고</p>
+<p><img src="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" alt></p>
+<p>이렇게 되었을때는 첫번째 라인에 선언된 x의 값을 바인딩 한 객체 리터럴을 생성하는것을 알 수 있다.</p>
+<p><img src="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" alt></p>
+<p>하지만 이와 같이  선언 되었을 경우 두번째 라인의 코드에서 첫번째 라인의 x는 전혀 참조되지않습니다.</p>
+<p><img src="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" alt></p>
+<p>이와 같이, 이러한 문맥 의존 문법으로 인해, Javascript 엔진에서의 파싱이 까다롭습니다.</p>
+<p>문자열을 JSON 파싱하는것은 이러한 문제가 없어, 구문 분석이 훨씬 간단해져서 빠를 수 있는것 입니다.</p>
+<h2 id="실제로-얼마나-빠른건데"><a href="#실제로-얼마나-빠른건데" class="headerlink" title="실제로 얼마나 빠른건데?"></a>실제로 얼마나 빠른건데?</h2><hr>
+<p><img src="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" alt></p>
+<p>캐시가 없는 콜드로드 상태에서 8MB에 가까운 페이로드를 기준으로 파싱하였을때,<br>v8과 크롬에서 <code>JSON.parse()</code>가 1.7배정도 빠르다고 한다.</p>
+<p>이는 다른 자바스크립트 엔진이나 브라우저에서도 적용된다고한다.</p>
+<p><a href="https://goo.gle/json-parse-redux" target="_blank" rel="noopener">리덕스앱에 이와 같은 적용을 한 사례</a>에서는 Time To Interactive(TTI)가 18% 개선되었고, Lighthouse 성능 점수가 8포인트 증가하였습니다.</p>
+<p>이러한 작업을 직접 수동으로 하는것 대신 툴을 이용하는것을 추천합니다.<br>코드 베이스에 JSON 모듈을 사용할 경우, <a href="https://goo.gle/json-parse-webpack" target="_blank" rel="noopener">webpack에서는 <code>JSON.parse()</code>기능을 이미 적용 시켰습니다.</a></p>
+<p><a href="http://goo.gle/json-parse-babel" target="_blank" rel="noopener">다른 코드들은 babel 플러그인를 이용해 변환 할 수 있습니다.</a></p>
+<h2 id="맺음말"><a href="#맺음말" class="headerlink" title="맺음말"></a>맺음말</h2><hr>
+<p>페이스북 페이지에서</p>
+<blockquote>
+<p>Faster apps with JSON.parse</p>
+</blockquote>
+<p>해당 문구를 보자마자</p>
+<p>“엥?? <code>JSON.parse()</code>는 느리지 않나??” 라는 생각만을 가지고 관심을 가지며 영상을 보면서 정리한 내용이라 제가 잘못 이해한 부분이 있을 수 있습니다.</p>
+<p>잘못된 부분이 있으면 코멘트 부탁 드리겠습니다.</p>
+<h2 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h2><hr>
+<p><a href="https://youtu.be/ff4fgQxPaO0" target="_blank" rel="noopener">Faster apps with JSON.parse (Chrome Dev Summit 2019)</a></p>
+</body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/05/12/how-to-get-multiple-selected-options-with-vanillajs/" class="image is-7by1">
+            <img class="thumbnail" src="/images/js-logo.svg" alt="［JS］jQuery 없이 Selectbox에서 여러개 선택된 option의 값 추출하기">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-12T05:29:38.000Z">2019-05-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 읽기 (나에 대하여 384 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/12/how-to-get-multiple-selected-options-with-vanillajs/">［JS］jQuery 없이 Selectbox에서 여러개 선택된 option의 값 추출하기</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>DOM을 다룰때 jQuery를 사용하면 매우 편리합니다.</p>
+<p>물론 크로스 브라우저 이슈로도 제이쿼리를 많이 사용합니다.</p>
+<p>하지만 DOM을 핸들링하기 위해서만 jQuery를 쓴다면, 편리함은 챙기겠지만 낭비 아닐까싶습니다.</p>
+<p>저는 위와 같은 생각으로,<br><br>주로 DOM 핸들링에는 jQuery 의존성을 줄이고자 순수 자바스크립트를 사용하려 노력하고 있습니다.</p>
+<p>또한, <code>document.querySelector</code>와 <code>document.querySelectorAll</code> 를 이용한다면,<br><br>jQuery에서 사용하던 복잡한 DOM Selector도 쉽게 사용할 수 있습니다.</p>
+<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag"><<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"user"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user[]"</span> <span class="hljs-attr">multiple</span>=<span class="hljs-string">"multiple"</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">option</span>></span>선택<span class="hljs-tag"></<span class="hljs-name">option</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"foo"</span>></span>Foo<span class="hljs-tag"></<span class="hljs-name">option</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bar"</span>></span>Bar<span class="hljs-tag"></<span class="hljs-name">option</span>></span></span><br><span class="line">    <span class="hljs-tag"><<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"baz"</span>></span>Baz<span class="hljs-tag"></<span class="hljs-name">option</span>></span></span><br><span class="line"><span class="hljs-tag"></<span class="hljs-name">select</span>></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>위와 같은 Multiple SelectBox에서 여러개가 선택되었을 경우 값을 어떻게 가져올까요? </p>
+<p>jQuery를 사용하면 <code>$("#user").val()</code>으로 짧고 간결하게 가져올 수 있습니다.</p>
+<p>선택된 값이 없을 경우 null이 리턴되고, 선택된 값이 있으면 배열 안에 value 값이 담깁니다. </p>
+<p>그렇다면 순수 자바스크립트로는 어떻게 표현할까요?</p>
+<figure class="highlight js hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#user"</span>).selectedOptions, (item)=> {</span><br><span class="line">	<span class="hljs-keyword">return</span> item.value;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>document.querySelector("#user").selectedOptions</code>를 사용하면 ID 값이 user인 DOM을 찾아 selected 된 옵션을 리턴하여줍니다.<br><br>해당 값에서 value 값만 뽑고싶다면 위와 같이 처리할 수 있습니다.</p>
+<p>위와 같이 처리하면 jQuery를 사용할때와 다른점은 선택된 옵션이 없을 경우에는 []를 리턴하여 줍니다.</p>
+</body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/04/18/knex-with-webpack/" class="image is-7by1">
+            <img class="thumbnail" src="/images/js-logo.svg" alt="［JS］Knex와 Webpack을 같이 쓰면서 발생한 오류 처리">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-18T10:10:52.000Z">2019-04-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4분 읽기 (나에 대하여 573 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/18/knex-with-webpack/">［JS］Knex와 Webpack을 같이 쓰면서 발생한 오류 처리</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR in './node_modules/knex/lib/dialects/mssql/index.js'</span><br><span class="line">Module not found: Error : Can't resolve 'mssql/lib/base'</span><br></pre></td></tr></tbody></table></figure>
+
+<p>프로젝트에 웹팩을 도입하여 사용중, <code>knex</code> 라이브러리를 넣고 나서<br><br>웹팩으로 빌드시 해당 에러가 나와서 빌드에 실패 했습니다.</p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/04/18/knex-with-webpack/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2018/08/27/vuejs-eventbus/" class="image is-7by1">
+            <img class="thumbnail" src="/images/vue-logo.png" alt="［VueJS］vue.js에서 이벤트 버스 사용하기">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-08-27T07:51:38.000Z">2018-08-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/Vue-js/">Vue.js</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2분 읽기 (나에 대하여 364 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/08/27/vuejs-eventbus/">［VueJS］vue.js에서 이벤트 버스 사용하기</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>MPA(Multi Page Application)에서 Vue를 적용 시키던중</p>
+<p>부모-자식간의 관계가 아닌 컴포넌트 간의 동작에 따른 데이터 변화와 이벤트 처리가 필요해졌습니다.</p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/08/27/vuejs-eventbus/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2018/04/16/es5-vs-es6/" class="image is-7by1">
+            <img class="thumbnail" src="/images/js-logo.svg" alt="［JS］ ES5와 ES6 뭐가 다를까?">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-04-16T16:26:53.000Z">2018-04-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10분 읽기 (나에 대하여 1498 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/04/16/es5-vs-es6/">［JS］ ES5와 ES6 뭐가 다를까?</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>ES5와 ES6를 비교 할겸<br>ES6를 사용할때 자주 쓰이는 부분만 정리해보았습니다.</p>
+<ul>
+<li><a href="#Const-변수">Const Variables</a></li>
+<li><a href="#let-변수">let Variables</a></li>
+<li><a href="#Block-Scoped-함수">Block-Scoped Function</a></li></ul></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/04/16/es5-vs-es6/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2018/03/11/start-nodejs/" class="image is-7by1">
+            <img class="thumbnail" src="/images/node-logo.png" alt="［Node.js］Express.js로 NodeJS 시작하기">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-03-11T12:57:18.000Z">2018-03-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/NodeJS/">NodeJS</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1분 읽기 (나에 대하여 123 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/03/11/start-nodejs/">［Node.js］Express.js로 NodeJS 시작하기</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h4 id="express-제너레이터-설치"><a href="#express-제너레이터-설치" class="headerlink" title="express 제너레이터 설치"></a>express 제너레이터 설치</h4><figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express-generator</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="ejs-템플릿을-이용하여-myapp-디렉토리에-생성"><a href="#ejs-템플릿을-이용하여-myapp-디렉토리에-생성" class="headerlink" title="ejs 템플릿을 이용하여 myapp 디렉토리에 생성"></a>ejs 템플릿을 이용하여 myapp 디렉토리에 생성</h4><figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express myapp --view=ejs</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="myapp-디렉토리로-이동하여-npm-install-패키지-설치"><a href="#myapp-디렉토리로-이동하여-npm-install-패키지-설치" class="headerlink" title="myapp 디렉토리로 이동하여 npm install(패키지 설치)"></a>myapp 디렉토리로 이동하여 npm install(패키지 설치)</h4><figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd myapp & npm install</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="서버-실행"><a href="#서버-실행" class="headerlink" title="서버 실행"></a>서버 실행</h4><figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm start</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="POST전송시-필요한-body-parser와-express-session-설치"><a href="#POST전송시-필요한-body-parser와-express-session-설치" class="headerlink" title="POST전송시 필요한 body-parser와 express-session 설치"></a>POST전송시 필요한 body-parser와 express-session 설치</h1><figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install body-parser express-session</span><br></pre></td></tr></tbody></table></figure>
+
+<p>기존에는 NodeJS에서 POST 요청 데이터를 추출 할 수 있도록 하기 위하여 bodyParser를 설치해야 했는데 express-generator에 추가 되었다</p>
+</body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+                </div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/logo.png" alt="Hodory">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Hodory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Polyglot Programmer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Seoul, South Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        포스트
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        43
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        카테고리
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        21
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        태그
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        50
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/hodory" target="_blank">
+                팔로우</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hodory">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Instagram" href="https://www.instagram.com/_ho_02">
+                
+                <i class="fab fa-instagram"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/">
+            <span class="level-start">
+                <span class="level-item">ETC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/ETC/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Docker/">
+            <span class="level-start">
+                <span class="level-item">Docker</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/GCP/">
+            <span class="level-start">
+                <span class="level-item">GCP</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Retrospection/">
+            <span class="level-start">
+                <span class="level-item">Retrospection</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/%ED%9A%8C%EA%B3%A0%EB%A1%9D/">
+            <span class="level-start">
+                <span class="level-item">회고록</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hexo/">
+            <span class="level-start">
+                <span class="level-item">Hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Java/">
+            <span class="level-start">
+                <span class="level-item">Java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Java/SpringBoot/">
+            <span class="level-start">
+                <span class="level-item">SpringBoot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/">
+            <span class="level-start">
+                <span class="level-item">Javascript</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/NodeJS/">
+            <span class="level-start">
+                <span class="level-item">NodeJS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/Vue-js/">
+            <span class="level-start">
+                <span class="level-item">Vue.js</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/PHP/">
+            <span class="level-start">
+                <span class="level-item">PHP</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/PHP/PHPUnit/">
+            <span class="level-start">
+                <span class="level-item">PHPUnit</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/AWS/" style="font-size: 11.67px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/Composer/" style="font-size: 11.67px;">Composer</a> <a href="/tags/Conference/" style="font-size: 10px;">Conference</a> <a href="/tags/DataBase/" style="font-size: 10px;">DataBase</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ERROR/" style="font-size: 10px;">ERROR</a> <a href="/tags/ES5/" style="font-size: 10px;">ES5</a> <a href="/tags/ES5-vs-ES6/" style="font-size: 10px;">ES5 vs ES6</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Etc/" style="font-size: 11.67px;">Etc.</a> <a href="/tags/GAE/" style="font-size: 10px;">GAE</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/INI-SET/" style="font-size: 10px;">INI_SET</a> <a href="/tags/JS/" style="font-size: 18.33px;">JS</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Javascript/" style="font-size: 18.33px;">Javascript</a> <a href="/tags/Laravel/" style="font-size: 11.67px;">Laravel</a> <a href="/tags/LogSystem/" style="font-size: 10px;">LogSystem</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/NuxtJS/" style="font-size: 10px;">NuxtJS</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/PHP4/" style="font-size: 10px;">PHP4</a> <a href="/tags/PHP5/" style="font-size: 10px;">PHP5</a> <a href="/tags/PHPUnit/" style="font-size: 11.67px;">PHPUnit</a> <a href="/tags/PSR/" style="font-size: 10px;">PSR</a> <a href="/tags/Packagist/" style="font-size: 11.67px;">Packagist</a> <a href="/tags/Retrospection/" style="font-size: 13.33px;">Retrospection</a> <a href="/tags/Security/" style="font-size: 11.67px;">Security</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/SpringBoot/" style="font-size: 16.67px;">SpringBoot</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/Webpack/" style="font-size: 15px;">Webpack</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/function/" style="font-size: 11.67px;">function</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/pgSQL-vs-MySQL/" style="font-size: 10px;">pgSQL vs MySQL</a> <a href="/tags/pgsql/" style="font-size: 10px;">pgsql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/str-pad/" style="font-size: 11.67px;">str_pad</a> <a href="/tags/%EB%8F%84%EC%BB%A4/" style="font-size: 10px;">도커</a> <a href="/tags/%ED%9A%8C%EA%B3%A0%EB%A1%9D/" style="font-size: 10px;">회고록</a>
+    </div>
+    <div>
+        <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-1h7lf4urzs4kx" 
+ data-ad-width   = "320" 
+ data-ad-height  = "100"></ins>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/11/21/ssl-connection-error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/terminal-logo.svg" alt="SSL Connection Error 발생">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-21T14:42:03.000Z">2020-11-21</time></div>
+                    <a href="/2020/11/21/ssl-connection-error/" class="has-link-black-ter is-size-6">SSL Connection Error 발생</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/14/composer-error-on-windows/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/php-logo-svg-vector.svg" alt="윈도우 컴포저 패키지 설치시 오류 처리 방법">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T14:38:07.000Z">2020-04-14</time></div>
+                    <a href="/2020/04/14/composer-error-on-windows/" class="has-link-black-ter is-size-6">윈도우 컴포저 패키지 설치시 오류 처리 방법</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] 원격 브랜치명으로 새로운 브랜치 생성하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T14:20:20.000Z">2020-03-09</time></div>
+                    <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="has-link-black-ter is-size-6">[Git] 원격 브랜치명으로 새로운 브랜치 생성하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] Git Merge 또는 Git checkout 오류 해결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-18T14:36:40.000Z">2020-02-18</time></div>
+                    <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="has-link-black-ter is-size-6">[Git] Git Merge 또는 Git checkout 오류 해결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/retrospection-logo.jpg" alt="[AWS] S3 호스팅에 도메인 연결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T13:54:12.000Z">2020-01-14</time></div>
+                    <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="has-link-black-ter is-size-6">[AWS] S3 호스팅에 도메인 연결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            <div class="media-content">
+                <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+    new PartnersCoupang.G({ id:115806 });
+</script>
+
+            </div>
+        </article>
+    </div>
+</div>
+
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/11/21/ssl-connection-error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/terminal-logo.svg" alt="SSL Connection Error 발생">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-21T14:42:03.000Z">2020-11-21</time></div>
+                    <a href="/2020/11/21/ssl-connection-error/" class="has-link-black-ter is-size-6">SSL Connection Error 발생</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/14/composer-error-on-windows/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/php-logo-svg-vector.svg" alt="윈도우 컴포저 패키지 설치시 오류 처리 방법">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T14:38:07.000Z">2020-04-14</time></div>
+                    <a href="/2020/04/14/composer-error-on-windows/" class="has-link-black-ter is-size-6">윈도우 컴포저 패키지 설치시 오류 처리 방법</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] 원격 브랜치명으로 새로운 브랜치 생성하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T14:20:20.000Z">2020-03-09</time></div>
+                    <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="has-link-black-ter is-size-6">[Git] 원격 브랜치명으로 새로운 브랜치 생성하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] Git Merge 또는 Git checkout 오류 해결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-18T14:36:40.000Z">2020-02-18</time></div>
+                    <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="has-link-black-ter is-size-6">[Git] Git Merge 또는 Git checkout 오류 해결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/retrospection-logo.jpg" alt="[AWS] S3 호스팅에 도메인 연결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T13:54:12.000Z">2020-01-14</time></div>
+                    <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="has-link-black-ter is-size-6">[AWS] S3 호스팅에 도메인 연결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            <div class="media-content">
+                <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+    new PartnersCoupang.G({ id:115806 });
+</script>
+
+            </div>
+        </article>
+    </div>
+</div>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Web Developer Hodory" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Hodory&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/hodory">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

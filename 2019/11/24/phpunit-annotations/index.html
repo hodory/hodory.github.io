@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8">
+<title>PHPUnit Annotation 정리 - Web Developer Hodory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+    <meta name="description" content="서론 PHP Unit을 사용하면서도 잘 모르는 어노테이션을 PHPUnit v8.4 기준(2019-11-19 최신버전)으로 정리하였습니다. @author테스트를 작성자별 그룹화 필터링 할 때 @group 어노테이션의 별칭으로, 테스트를 작성자별로 그룹화하여 필터링 하는데 사용할 수 있습니다. @after각 테스트가 끝난 뒤 실행 하려 할 때 각 테스트 메소드">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHPUnit Annotation 정리">
+<meta property="og:url" content="https://blog.hodory.dev/2019/11/24/phpunit-annotations/index.html">
+<meta property="og:site_name" content="Web Developer Hodory">
+<meta property="og:description" content="서론 PHP Unit을 사용하면서도 잘 모르는 어노테이션을 PHPUnit v8.4 기준(2019-11-19 최신버전)으로 정리하였습니다. @author테스트를 작성자별 그룹화 필터링 할 때 @group 어노테이션의 별칭으로, 테스트를 작성자별로 그룹화하여 필터링 하는데 사용할 수 있습니다. @after각 테스트가 끝난 뒤 실행 하려 할 때 각 테스트 메소드">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://blog.hodory.dev/images/php-logo-svg-vector.svg">
+<meta property="article:published_time" content="2019-11-24T16:18:24.000Z">
+<meta property="article:modified_time" content="2020-11-21T14:45:01.754Z">
+<meta property="article:author" content="Hodory">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="PHPUnit">
+<meta property="article:tag" content="annotation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hodory.dev/images/php-logo-svg-vector.svg">
+<meta property="fb:admins" content="118893982173772">
+<meta property="fb:app_id" content="499229817121224">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans KR:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow-night.css">
+
+
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-100483080-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-100483080-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+<!-- Naver Site Verification -->
+<meta name="naver-site-verification" content="d723a500e9113b8daa9f89742cfe24ce553292f0"/>
+<!-- End Naver Site Verification -->
+<!-- Facebook Pixel Code -->
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(
+                    n, arguments) :
+                n.queue.push(
+                    arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js'
+    );
+    fbq('init', '118893982173772');
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=118893982173772&ev=PageView&noscript=1"
+    />
+</noscript>
+<!-- End Facebook Pixel Code -->
+<!-- onesignal-->
+<link rel="manifest" href="/manifest.json"/>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal ||
+        [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            appId: "e6af580a-28ff-4917-8bf4-6015a7c4aeec",
+        });
+    });
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>	
+    (adsbygoogle = window.adsbygoogle || []).push({	
+        google_ad_client: "ca-pub-2860780921894189",	
+        enable_page_level_ads: true	
+    });	
+</script>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/feed.xml" title="Web Developer Hodory" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="PHPUnit Annotation 정리" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/hodory">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                    <div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/php-logo-svg-vector.svg" alt="PHPUnit Annotation 정리">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-24T16:18:24.000Z">2019-11-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/PHP/PHPUnit/">PHPUnit</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    25분 읽기 (나에 대하여 3777 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                PHPUnit Annotation 정리
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><hr>
+<p>PHP Unit을 사용하면서도 잘 모르는 어노테이션을 PHPUnit v8.4 기준(2019-11-19 최신버전)으로 정리하였습니다.</p>
+<h2 id="author"><a href="#author" class="headerlink" title="@author"></a>@author</h2><h3 id="테스트를-작성자별-그룹화-필터링-할-때"><a href="#테스트를-작성자별-그룹화-필터링-할-때" class="headerlink" title="테스트를 작성자별 그룹화 필터링 할 때"></a>테스트를 작성자별 그룹화 필터링 할 때</h3><hr>
+<p><code>@group</code> 어노테이션의 별칭으로, 테스트를 작성자별로 그룹화하여 필터링 하는데 사용할 수 있습니다.</p>
+<h2 id="after"><a href="#after" class="headerlink" title="@after"></a>@after</h2><h3 id="각-테스트가-끝난-뒤-실행-하려-할-때"><a href="#각-테스트가-끝난-뒤-실행-하려-할-때" class="headerlink" title="각 테스트가 끝난 뒤 실행 하려 할 때"></a>각 테스트가 끝난 뒤 실행 하려 할 때</h3><hr>
+<p>각 테스트 메소드들이 실행 된 후, 특정 메소드를 실행하고자 할때 사용할 수 있습니다.</p>
+<p>각 테스트가 끝난 뒤 트랜잭션 커밋or롤백을 한다거나, 생성된 파일을 삭제하는 등의 처리를 하는데 사용하면 좋을 것 같습니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Tests</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@after</span></span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">afterDo</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"After Method Called"</span> . PHP_EOL;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test1 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertTrue(<span class="hljs-keyword">true</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test2 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertTrue(<span class="hljs-keyword">true</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 출력 결과</span></span><br><span class="line">test1 Method Called</span><br><span class="line">After Method Called</span><br><span class="line">test2 Method Called</span><br><span class="line">After Method Called</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<a id="more"></a>
+
+<h2 id="afterClass"><a href="#afterClass" class="headerlink" title="@afterClass"></a>@afterClass</h2><h3 id="모든-테스트가-끝난-후-실행-하려-할-때"><a href="#모든-테스트가-끝난-후-실행-하려-할-때" class="headerlink" title="모든 테스트가 끝난 후 실행 하려 할 때"></a>모든 테스트가 끝난 후 실행 하려 할 때</h3><hr>
+<p>모든 테스트가 끝난 후, 공유된 자원들을 정리하기 위해 호출할 정적 메소드를 지정 할 수 있습니다.</p>
+<p>해당 부분에서 테스트 실행시 만든 DB 커넥션을 회수하거나, 전체 트랜잭션을 처리 하거나, 소켓을 닫는 등의 처리를 할 수 있을것 같습니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Tests</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@afterClass</span></span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">afterClassDo</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"After Class Method Called"</span> . PHP_EOL;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test1 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertTrue(<span class="hljs-keyword">true</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test2 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertTrue(<span class="hljs-keyword">true</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 출력 결과</span></span><br><span class="line">test1 Method Called</span><br><span class="line">test2 Method Called</span><br><span class="line">After <span class="hljs-class"><span class="hljs-keyword">Class</span> <span class="hljs-title">Method</span> <span class="hljs-title">Called</span></span></span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="backupGlobals"><a href="#backupGlobals" class="headerlink" title="@backupGlobals"></a>@backupGlobals</h2><h3 id="글로벌-변수를-유지하고-싶다면"><a href="#글로벌-변수를-유지하고-싶다면" class="headerlink" title="글로벌 변수를 유지하고 싶다면"></a>글로벌 변수를 유지하고 싶다면</h3><hr>
+<p>모든 글로벌 변수를 각 테스트 전에 백업하고, 각 테스트 이후 해당 백업을 복원시킵니다.</p>
+<p>메소드 레벨에서 재정의가 가능합니다.</p>
+<p>해당 설명만으로는 이해가 잘 되지 않아서 직접 예제 코드를 만들어 보았습니다.<br>클래스 스코프 밖에 정의된 글로벌 변수인 <code>$className</code>을 <code>@backupGlobals</code> 어노테이션이 enabled 되어 있는 테스트 코드에서는 실행이전 값을 백업하여두고 테스트가 끝나면 복원이 되어,<br>두번째 테스트코드에서도 “MyTest”라는 값을 가지고 있게됩니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Tests</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line">$className = <span class="hljs-string">"MyTest"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@backupGlobals</span> enabled</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_</span>글로벌변수를<span class="hljs-title">_</span>백업하고<span class="hljs-title">_</span>변경<span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">global</span> $className;</span><br><span class="line">        <span class="hljs-keyword">$this</span>->assertEquals($className, <span class="hljs-string">"MyTest"</span>);</span><br><span class="line">        $className = <span class="hljs-string">"Foo"</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@backupGlobals</span> disabled</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_</span>글로벌변수를<span class="hljs-title">_</span>백업하지<span class="hljs-title">_</span>않고<span class="hljs-title">_</span>변경<span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">global</span> $className;</span><br><span class="line">        <span class="hljs-keyword">$this</span>->assertEquals($className, <span class="hljs-string">"MyTest"</span>);</span><br><span class="line">        $className = <span class="hljs-string">"Bar"</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_</span>글로벌변수를<span class="hljs-title">_</span>백업되어있는지<span class="hljs-title">_</span>체크<span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">global</span> $className;</span><br><span class="line">        <span class="hljs-keyword">$this</span>->assertEquals($className, <span class="hljs-string">"Bar"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="backupStaticAttributes"><a href="#backupStaticAttributes" class="headerlink" title="@backupStaticAttributes"></a>@backupStaticAttributes</h2><h3 id="정적-속성을-사용하려-할-때"><a href="#정적-속성을-사용하려-할-때" class="headerlink" title="정적 속성을 사용하려 할 때"></a><del>정적 속성을 사용하려 할 때</del></h3><hr>
+<p><del>선언된 클래스들 안의 모든 정적 속성을 각 테스트 전에 백업하고, 각 테스트 후에 해당 백업을 복원 시킵니다.</del></p>
+<p><del>클래스 레벨에도 선언 가능하며, 각 테스트 메소드에서 추가 제어 가능합니다.</del></p>
+<details>
+    <summary>예제 코드</summary>
+    **아래 코드는 정상 동작 안 합니다.**
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line">        </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@backupStaticAttributes</span> enabled</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_</span>정적속성을<span class="hljs-title">_</span>사용하는<span class="hljs-title">_</span>테스트<span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-comment">// ...</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@backupStaticAttributes</span> disabled</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_</span>정적속성을<span class="hljs-title">_</span>사용하지<span class="hljs-title">_</span>않는<span class="hljs-title">_</span>테스트<span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-comment">// ...</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="before"><a href="#before" class="headerlink" title="@before"></a>@before</h2><h3 id="각-테스트-실행전에-실행-하려-할-때"><a href="#각-테스트-실행전에-실행-하려-할-때" class="headerlink" title="각 테스트 실행전에 실행 하려 할 때"></a>각 테스트 실행전에 실행 하려 할 때</h3><hr>
+<p>각 테스트 메소드가 호출되기 전에 실행할 메소드를 지정할 수 있습니다.</p>
+<p>아래와 같이 beforeMethod는 각 메소드 호출전에 실행되지만,<br>users 배열의 값이 증가되지는 않습니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-keyword">protected</span> $users = [];</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@before</span></span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">beforeMethod</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"Before Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">$this</span>->users[] = [</span><br><span class="line">            <span class="hljs-string">'name'</span> => <span class="hljs-string">'홍길동'</span></span><br><span class="line">        ];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test1 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertCount(<span class="hljs-number">1</span>, <span class="hljs-keyword">$this</span>->users);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test2 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertCount(<span class="hljs-number">1</span>, <span class="hljs-keyword">$this</span>->users);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 출력 결과</span></span><br><span class="line">Before Method Called</span><br><span class="line">test1 Method Called</span><br><span class="line">Before Method Called</span><br><span class="line">test2 Method Called</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="beforeClass"><a href="#beforeClass" class="headerlink" title="@beforeClass"></a>@beforeClass</h2><h3 id="테스트-실행전-공유-속성을-만들-때"><a href="#테스트-실행전-공유-속성을-만들-때" class="headerlink" title="테스트 실행전 공유 속성을 만들 때"></a>테스트 실행전 공유 속성을 만들 때</h3><hr>
+<p>해당 클래스에서 테스트가 실행되기전 공유 하기 위한 정보를 설정하기 위해 호출 할 static 메소드에 지정하여 사용할 수 있습니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-keyword">protected</span> $users = [];</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@beforeClass</span></span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">beforeClass</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"Before Class Called"</span> . PHP_EOL;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@before</span></span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">beforeMethod</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"Before Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">$this</span>->users[] = [</span><br><span class="line">            <span class="hljs-string">'name'</span> => <span class="hljs-string">'홍길동'</span></span><br><span class="line">        ];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test1 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertCount(<span class="hljs-number">1</span>, <span class="hljs-keyword">$this</span>->users);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> <span class="hljs-string">"test2 Method Called"</span> . PHP_EOL;</span><br><span class="line">        <span class="hljs-keyword">self</span>::assertCount(<span class="hljs-number">1</span>, <span class="hljs-keyword">$this</span>->users);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 출력 결과</span></span><br><span class="line">Before <span class="hljs-class"><span class="hljs-keyword">Class</span> <span class="hljs-title">Called</span></span></span><br><span class="line"><span class="hljs-class"><span class="hljs-title">Before</span> <span class="hljs-title">Method</span> <span class="hljs-title">Called</span></span></span><br><span class="line"><span class="hljs-class"><span class="hljs-title">test1</span> <span class="hljs-title">Method</span> <span class="hljs-title">Called</span></span></span><br><span class="line"><span class="hljs-class"><span class="hljs-title">Before</span> <span class="hljs-title">Method</span> <span class="hljs-title">Called</span></span></span><br><span class="line"><span class="hljs-class"><span class="hljs-title">test2</span> <span class="hljs-title">Method</span> <span class="hljs-title">Called</span></span></span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="codeCoverageIgnore"><a href="#codeCoverageIgnore" class="headerlink" title="@codeCoverageIgnore*"></a>@codeCoverageIgnore*</h2><hr>
+<p>코드 커버리지 분석시 제외할 라인에 사용할 수 있습니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@codeCoverageIgnore</span></span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bar</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@codeCoverageIgnore</span></span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">false</span>) {</span><br><span class="line">    <span class="hljs-comment">// @codeCoverageIgnoreStart</span></span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">'*'</span>;</span><br><span class="line">    <span class="hljs-comment">// @codeCoverageIgnoreEnd</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">exit</span>; <span class="hljs-comment">// @codeCoverageIgnore</span></span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="covers"><a href="#covers" class="headerlink" title="@covers"></a>@covers</h2><h3 id="테스트-영역을-명시하려-할-때"><a href="#테스트-영역을-명시하려-할-때" class="headerlink" title="테스트 영역을 명시하려 할 때"></a>테스트 영역을 명시하려 할 때</h3><hr>
+<p>어떤 영역을 테스트 하고자 하는지 명시하고자 할 때 사용합니다.</p>
+<p>이와 같이 명시 하면 IDE(PHPStorm)에서 연결되어 있어 ctrl+shift+T 를 이용해 테스트로 바로 이동이 가능해지고, usage로 찾을 수 있어 메소드명 수정시 같이 반영됩니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@covers</span> \App\Services\Member::getMember</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_</span>회원정보에<span class="hljs-title">_</span>나이<span class="hljs-title">_</span>정보가<span class="hljs-title">_</span>있는지<span class="hljs-title">_</span>체크<span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">    <span class="hljs-keyword">$this</span>->assertArrayHasKey(<span class="hljs-string">'age'</span>, <span class="hljs-keyword">$this</span>->member->getMember(<span class="hljs-number">1</span>));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="coversDefaultClass"><a href="#coversDefaultClass" class="headerlink" title="@coversDefaultClass"></a>@coversDefaultClass</h2><h3 id="너무-긴-네임스페이스와-클래스명을-반복해서-쓰고-싶지-않을-때"><a href="#너무-긴-네임스페이스와-클래스명을-반복해서-쓰고-싶지-않을-때" class="headerlink" title="너무 긴 네임스페이스와 클래스명을 반복해서 쓰고 싶지 않을 때"></a>너무 긴 네임스페이스와 클래스명을 반복해서 쓰고 싶지 않을 때</h3><hr>
+<p>기본 네임스페이스나 클래스명을 명시하는데 사용할 수 있어, <code>@covers</code> 어노테이션에 긴 네임스페이스나, 클래스명을 반복해서 사용할 필요가 없어집니다.</p>
+<p>해당 어노테이션에는 정규화 된 클래스명을 사용해야하기때문에,<br>모호하지 않도록 클래스명 맨 앞에 <code>\</code> 로 시작하는것을 추천합니다.</p>
+<p>아래 예제 코드와 같이 <code>@covers \Foo\CoveredClass::publicMethod</code> 를 <code>@covers ::publicMethod</code>로 줄여 쓸 수 있는 이점을 얻게 됩니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@coversDefaultClass</span> \Foo\CoveredClass</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CoversDefaultClassTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@covers</span> ::publicMethod</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testSomething</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        $o = <span class="hljs-keyword">new</span> Foo\CoveredClass;</span><br><span class="line">        $o->publicMethod();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="coversNothing"><a href="#coversNothing" class="headerlink" title="@coversNothing"></a>@coversNothing</h2><h3 id="작성예정"><a href="#작성예정" class="headerlink" title="작성예정"></a>작성예정</h3><hr>
+<p>클래스나 메소드레벨에서 사용할 수 있고 <code>@covers</code> 어노테이션을 덮어 씁니다.</p>
+<h2 id="DataProvider"><a href="#DataProvider" class="headerlink" title="@DataProvider"></a>@DataProvider</h2><h3 id="메소드를-이용해-파라미터를-주입하고-싶을때"><a href="#메소드를-이용해-파라미터를-주입하고-싶을때" class="headerlink" title="메소드를 이용해 파라미터를 주입하고 싶을때"></a>메소드를 이용해 파라미터를 주입하고 싶을때</h3><hr>
+<p><code>@dataProvider</code> 를 사용하면 메소드의 파라미터로 전달할 수 있습니다.<br>Java Junit 패키지에서 JunitParams를 이용하여 <code>@Parameters</code> 어노테이션을 사용하는것과 동일한 효과를 얻을 수 있습니다.</p>
+<ul>
+<li><p>예제 코드</p>
+<ul>
+<li><p>아래 예제 코드와 같은 테스트는 배열의 각 값 들이 <code>$a</code>, <code>$b</code>, <code>$expected</code> 로 바인딩 되며,<br>총 4개의 배열이 자동 주입되어 테스트가 4회 수행됩니다.</p>
+<ul>
+<li><pre><code class="php">  <span class="meta"><?php</span>
+  <span class="keyword">use</span> <span class="title">PHPUnit</span>\<span class="title">Framework</span>\<span class="title">TestCase</span>;
+
+  <span class="class"><span class="keyword">class</span> <span class="title">DataTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span></span>
+<span class="class">  </span>{
+      <span class="comment">/**</span>
+<span class="comment">       * <span class="doctag">@dataProvider</span> additionProvider</span>
+<span class="comment">       */</span>
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">testAdd</span><span class="params">($a, $b, $expected)</span></span>
+<span class="function">      </span>{
+          <span class="keyword">$this</span>->assertSame($expected, $a + $b);
+      }
+
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">additionProvider</span><span class="params">()</span></span>
+<span class="function">      </span>{
+          <span class="keyword">return</span> [
+              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],
+              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>],
+              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],
+              [<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>]
+          ];
+      }
+  }
+  <!--￼<span class="number">9</span>-->
+<span class="comment">## @depends</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="테스트-코드간의-종속성-정의"><a href="#테스트-코드간의-종속성-정의" class="headerlink" title="테스트 코드간의 종속성 정의"></a>테스트 코드간의 종속성 정의</h3><hr>
+<p><code>@depends</code> 어노테이션 사용시 테스트 코드간의 종속성을 선언 할 수 있습니다.</p>
+<p>실행순서를 정의하는것은 아니지만, <code>@depends</code>에 정의된 테스트의 리턴값의 레퍼런스를 전달합니다.</p>
+<p>레퍼런스 전달이 아닌 값의 깊은 복사를 원할 경우  <code>@depends clone</code> 를 이용하고,<br>PHP에서 clone으로 불리는 얕은 복사를 원할 경우 <code>@depends shallowClone</code> 를 이용하면 됩니다.</p>
+<h2 id="doesNotPerformAssertions"><a href="#doesNotPerformAssertions" class="headerlink" title="@doesNotPerformAssertions"></a>@doesNotPerformAssertions</h2><h3 id="값에-대한-assertion-없이-테스트-코드를-실행만-하고자-할때"><a href="#값에-대한-assertion-없이-테스트-코드를-실행만-하고자-할때" class="headerlink" title="값에 대한 assertion 없이 테스트 코드를 실행만 하고자 할때"></a>값에 대한 assertion 없이 테스트 코드를 실행만 하고자 할때</h3><hr>
+<p>아래와 같이 테스트를 수행하지 않을 경우 <code>This test did not perform any assertions</code>와 같은 Warning이 발생됩니다.</p>
+<p>해당 어노테이션을 사용하면 Risky 없이 <code>OK (1 test, 0 assertions)</code>로 성공 처리됩니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Tests</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testAddSlashes</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">        <span class="hljs-keyword">echo</span> addslashes(<span class="hljs-string">"name='1'"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 출력 결과</span></span><br><span class="line"></span><br><span class="line">This test did not perform any assertions</span><br><span class="line"></span><br><span class="line">/opt/project/tests/MyTest.php:<span class="hljs-number">9</span></span><br><span class="line">name=\<span class="hljs-string">'1\'</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">OK, but incomplete, skipped, or risky tests!</span></span><br><span class="line"><span class="hljs-string">Tests: 1, Assertions: 0, Risky: 1.</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string"><?php</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">namespace Tests;</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">use PHPUnit\Framework\TestCase;</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">class MyTest extends TestCase</span></span><br><span class="line"><span class="hljs-string">{</span></span><br><span class="line"><span class="hljs-string">    /**</span></span><br><span class="line"><span class="hljs-string">     * @doesNotPerformAssertions</span></span><br><span class="line"><span class="hljs-string">     */</span></span><br><span class="line"><span class="hljs-string">    public function testAddSlashes()</span></span><br><span class="line"><span class="hljs-string">    {</span></span><br><span class="line"><span class="hljs-string">        echo addslashes("name='</span><span class="hljs-number">1</span><span class="hljs-string">'");</span></span><br><span class="line"><span class="hljs-string">    }</span></span><br><span class="line"><span class="hljs-string">}</span></span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="group"><a href="#group" class="headerlink" title="@group"></a>@group</h2><h3 id="테스트-코드에-태그를-달고-싶을때"><a href="#테스트-코드에-태그를-달고-싶을때" class="headerlink" title="테스트 코드에 태그를 달고 싶을때"></a>테스트 코드에 태그를 달고 싶을때</h3><hr>
+<p><code>@group</code>어노테이션을 이용하여, 테스트 코드에 1개 이상의 태그와 같이 묶음 필터를 추가할 수 있습니다.</p>
+<p>XML 설정 파일 주입을 이용 하거나 CLI에서 실행시 <code>--group</code> 과 <code>--exclude-group</code> 를 이용해서 테스트 실행 대상 또는 제외그룹을 설정할 수 있습니다.</p>
+<h2 id="large"><a href="#large" class="headerlink" title="@large"></a>@large</h2><h3 id="60초-이상-실행-되면-실패-처리-하고자-할-때"><a href="#60초-이상-실행-되면-실패-처리-하고자-할-때" class="headerlink" title="60초 이상 실행 되면 실패 처리 하고자 할 때"></a>60초 이상 실행 되면 실패 처리 하고자 할 때</h3><hr>
+<p><code>@group large</code>의 별칭으로,<code>PHP_Invoker</code> 패키지가 설치되어 있고, strict mode가 실행되어 있으면 <strong>60초</strong> 이상 실행 될 경우 실패 처리됩니다.<br>해당 타임아웃에 관한 정보는 설정 정보 XML의 <code>timeoutForLargeTests</code>속성을 통해 설정 할 수 있습니다.</p>
+<h2 id="medium"><a href="#medium" class="headerlink" title="@medium"></a>@medium</h2><h3 id="10초-이상-실행-되면-실패-처리-하고자-할-때"><a href="#10초-이상-실행-되면-실패-처리-하고자-할-때" class="headerlink" title="10초 이상 실행 되면 실패 처리 하고자 할 때"></a>10초 이상 실행 되면 실패 처리 하고자 할 때</h3><hr>
+<p><code>@group medium</code>의 별칭으로, <code>PHP_Invoker</code> 패키지가 설치되어 있고, strict mode가 실행되어 있으면 <strong>10초</strong> 이상 실행 될 경우 실패 처리됩니다.<br>해당 타임아웃에 관한 정보는 설정 정보 XML의 <code>timeoutForMediumTests</code>속성을 통해 설정 할 수 있습니다.</p>
+<p>Medium 테스트는 <code>@large</code> 테스트에 의존적이여서는 안됩니다.</p>
+<h2 id="preserveGlobalState"><a href="#preserveGlobalState" class="headerlink" title="@preserveGlobalState"></a>@preserveGlobalState</h2><h3 id="테스트가-별도의-프로세스에서-실행될때-직렬화-오류-방지"><a href="#테스트가-별도의-프로세스에서-실행될때-직렬화-오류-방지" class="headerlink" title="테스트가 별도의 프로세스에서 실행될때 직렬화 오류 방지"></a>테스트가 별도의 프로세스에서 실행될때 직렬화 오류 방지</h3><hr>
+<p>테스트가 별도의 프로세스에서 실행될 때, PHPUnit은부모 프로세스에서 글로벌 state를 직렬화 한 값을 자식 프로세스에서 역직렬화하여 상태를 보존합니다.</p>
+<p>부모 프로세스에서 직렬화 할 수 없는 글로벌 state가 있는 경우, 해당 옵션을 <code>disable</code> 처리하여 방지할 수 있습니다.</p>
+<h2 id="requires"><a href="#requires" class="headerlink" title="@requires"></a>@requires</h2><h3 id="특정-조건일때만-테스트를-수행하고자-할-때"><a href="#특정-조건일때만-테스트를-수행하고자-할-때" class="headerlink" title="특정 조건일때만 테스트를 수행하고자 할 때"></a>특정 조건일때만 테스트를 수행하고자 할 때</h3><hr>
+<p>PHP의 버전이나 extensions 설치여부 등 전제 조건을 체크하여 테스트를 건너뛸 수 있습니다.</p>
+<p><code><</code>, <code><=</code>, <code>></code>, <code>>=</code>, <code>=</code>, <code>==</code>, <code>!=</code>, <code><></code> 등의 비교 연산자를 사용하여 버전을 비교할 수 있습니다.</p>
+<p>해당 어노테이션을 이용해 체크 가능한 항목은 아래와 같습니다.</p>
+<ul>
+<li>체크 가능한 조건<ul>
+<li>PHP<ul>
+<li>PHP 버전</li>
+</ul>
+</li>
+<li>PHPUnit<ul>
+<li>PHP Unit 버전</li>
+</ul>
+</li>
+<li>OS<ul>
+<li><code>PHP_OS</code> 상수와 정규식으로 매칭되는 값입니다.<br>ex) WIN32|WINNT</li>
+</ul>
+</li>
+<li>OSFAMILY<ul>
+<li><code>PHP_OS_FAMILY</code> 상수와 매칭되는 값으로 PHP 7.2.0부터 사용가능합니다.<br>ex) Windows</li>
+</ul>
+</li>
+<li>function<ul>
+<li>함수 존재 여부 → function_exists()</li>
+</ul>
+</li>
+<li>extension<ul>
+<li>extension 설치 여부 및 버전 체크</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"><span class="hljs-keyword">use</span> <span class="hljs-title">PHPUnit</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">TestCase</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@requires</span> extension mysqli</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DatabaseTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TestCase</span></span></span><br><span class="line"><span class="hljs-class"></span>{</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@requires</span> PHP >= 5.3</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testConnection</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">    </span>{</span><br><span class="line">                <span class="hljs-comment">// 해당 테스트는 mysqli 확장프로그램이 설치되어 있고, PHP 버전이 5.3 이상일때 실행됩니다.</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 추가적인 테스트를 작성하였을때에도 mysqli 확장프로그램이 필요합니다.</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<h2 id="runTestsInSeparateProcesses"><a href="#runTestsInSeparateProcesses" class="headerlink" title="@runTestsInSeparateProcesses"></a>@runTestsInSeparateProcesses</h2><h3 id="테스트-클래스-내의-모든-테스트-메소드가-별도-PHP프로세스에서-테스트코드를-실행-하는것을-명시할-때"><a href="#테스트-클래스-내의-모든-테스트-메소드가-별도-PHP프로세스에서-테스트코드를-실행-하는것을-명시할-때" class="headerlink" title="테스트 클래스 내의 모든 테스트 메소드가 별도 PHP프로세스에서 테스트코드를 실행 하는것을 명시할 때"></a>테스트 클래스 내의 모든 테스트 메소드가 별도 PHP프로세스에서 테스트코드를 실행 하는것을 명시할 때</h3><hr>
+<p>해당 테스트 클래스 내의 모든 테스트 메소드들이 별도의 PHP 프로세스에서 실행되어야 함을 표시 할 때 사용합니다.</p>
+<p>PHPUnit은 직렬화를 통해 Global state를 유지하려 하기 때문에, 직렬화가 불가능한 부분은 <code>@preserveGlobalState</code>를 참조하세요.</p>
+<h2 id="runInSeparateProcess"><a href="#runInSeparateProcess" class="headerlink" title="@runInSeparateProcess"></a>@runInSeparateProcess</h2><hr>
+<p>해당 테스트 메소드가 별도의 PHP 프로세스에서 실행되어야 함을 표시 할 때 사용합니다.</p>
+<p>PHPUnit은 직렬화를 통해 Global state를 유지하려 하기 때문에, 직렬화가 불가능한 부분은 <code>@preserveGlobalState</code>를 참조하세요.</p>
+<h2 id="small"><a href="#small" class="headerlink" title="@small"></a>@small</h2><hr>
+<p><code>@group small</code>의 별칭으로, <code>PHP_Invoker</code> 패키지가 설치되어 있고, strict mode가 실행되어 있으면 <strong>1초</strong> 이상 실행 될 경우 실패 처리됩니다.<br>해당 타임아웃에 관한 정보는 설정 정보 XML의 <code>timeoutForSmallTests</code>속성을 통해 설정 할 수 있습니다.</p>
+<p>Medium 테스트는 <code>@large</code> 와 <code>@medium</code>로 마킹된 테스트에 의존적이여서는 안됩니다.</p>
+<p>※ <strong>테스트의 실행 시간 제어를 하고자 할 때, <code>@small</code>, <code>@medium</code>, <code>@large</code> 와 같은 어노테이션을 명시적으로 사용해야합니다.</strong></p>
+<h2 id="test"><a href="#test" class="headerlink" title="@test"></a>@test</h2><h3 id="테스트-메소드명을-test로-시작하고싶지-않을-때"><a href="#테스트-메소드명을-test로-시작하고싶지-않을-때" class="headerlink" title="테스트 메소드명을 test로 시작하고싶지 않을 때"></a>테스트 메소드명을 test로 시작하고싶지 않을 때</h3><hr>
+<p>테스트 메소드는 메소드명의 prefix로 test를 사용합니다.</p>
+<p>테스트 메소드명의 prefix로 <code>test</code>를 사용하지 않는 대안으로, 주석에 <code>@test</code> 어노테이션을 사용하면 테스트 메소드라고 인식됩니다.</p>
+<p><img src="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" alt></p>
+<p><img src="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" alt></p>
+<h2 id="testdox"><a href="#testdox" class="headerlink" title="@testdox"></a>@testdox</h2><h3 id="testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때"><a href="#testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때" class="headerlink" title="testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때"></a>testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때</h3><hr>
+<p><code>--testdox</code>를 옵션으로 주었을때, 메소드의 이름으로부터 만들어진 설명을 오버라이딩 할 수 있습니다.</p>
+<p>클래스 또는 메소드의 설명을 더 명확히 만들어 agile document를 만들 수 있습니다.</p>
+<p><strong>주의할 점으로는 PHPUnit v7.0까지는 어노테이션 파싱 오류로, @test로 인식되어 동작합니다.</strong></p>
+<h2 id="testWith"><a href="#testWith" class="headerlink" title="@testWith"></a>@testWith</h2><h3 id="주석을-이용해-파라미터를-주입하고-싶을때"><a href="#주석을-이용해-파라미터를-주입하고-싶을때" class="headerlink" title="주석을 이용해 파라미터를 주입하고 싶을때"></a>주석을 이용해 파라미터를 주입하고 싶을때</h3><hr>
+<p><code>@dataProvider</code>는 호출될 메소드를 필요로 하지만, 주석만을 이용해 테스트하고자 할 때에는<br><code>@testWith</code>를 사용할 수 있습니다.</p>
+<p>JSON 포맷은 연관배열로 주입됩니다.</p>
+<p><strong>주의 할 점은 여러개의 dataset을 정의할 때에는 라인당 하나씩 지정해야합니다.</strong></p>
+<p>아래의 두개의 코드는 동일하게 동작합니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta"><?php</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> string    $input</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> int       $expectedLength</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@testWith</span>        ["test", 4]</span></span><br><span class="line"><span class="hljs-comment"> *                  ["longer-string", 13]</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testStringLength</span><span class="hljs-params">(string $input, int $expectedLength)</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">    <span class="hljs-keyword">$this</span>->assertSame($expectedLength, strlen($input));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> string    $input</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> int       $expectedLength</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@dataProvider</span>    additionProvider</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testStringLengthWithDataProvider</span><span class="hljs-params">(string $input, int $expectedLength)</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">    <span class="hljs-keyword">$this</span>->assertSame($expectedLength, strlen($input));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">additionProvider</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">        <span class="hljs-keyword">return</span> [</span><br><span class="line">                [<span class="hljs-string">"test"</span>, <span class="hljs-number">4</span>],</span><br><span class="line">                [<span class="hljs-string">"longer-string"</span>, <span class="hljs-number">13</span>]</span><br><span class="line">        ];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> array     $array</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> array     $keys</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@testWith</span>        [{"day": "monday", "conditions": "sunny"}, ["day", "conditions"]]</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testArrayKeys</span><span class="hljs-params">($array, $keys)</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">    <span class="hljs-keyword">$this</span>->assertSame($keys, array_keys($array));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> array     $array</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> array     $keys</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@dataProvider</span>    additionProvider</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testArrayKeysWithDataProvider</span><span class="hljs-params">($array, $keys)</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">    <span class="hljs-keyword">$this</span>->assertSame($keys, array_keys($array));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">additionProvider</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">        <span class="hljs-keyword">return</span> [</span><br><span class="line">                [[<span class="hljs-string">"day"</span> => <span class="hljs-string">"monday"</span>, <span class="hljs-string">"conditions"</span> => <span class="hljs-string">"sunny"</span>], [<span class="hljs-string">"day"</span>, <span class="hljs-string">"conditions"</span>]]</span><br><span class="line">        ];</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+
+<h2 id="ticket"><a href="#ticket" class="headerlink" title="@ticket"></a>@ticket</h2><h3 id="Ticket-ID-JIRA-이슈-코드와-같은-로-테스트를-필터링-할-때"><a href="#Ticket-ID-JIRA-이슈-코드와-같은-로-테스트를-필터링-할-때" class="headerlink" title="Ticket ID(JIRA 이슈 코드와 같은)로 테스트를 필터링 할 때"></a>Ticket ID(JIRA 이슈 코드와 같은)로 테스트를 필터링 할 때</h3><hr>
+<p><code>@group</code> 어노테이션의 별칭. ticket ID를 이용하여 테스트를 필터링 할 수 있도록 하여줍니다.</p>
+<h2 id="uses"><a href="#uses" class="headerlink" title="@uses"></a>@uses</h2><hr>
+<p>테스트에 의해 실행될 코드를 지정합니다.</p>
+<p>좋은 예제는 아래와 같이 유닛 테스트 코드에 필요한 Object 값 입니다.</p>
+<details>
+    <summary>예제 코드</summary>
+    <figure class="highlight php hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@covers</span> \BankAccount</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@uses</span>   \Money</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testMoneyCanBeDepositedInAccount</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>{</span><br><span class="line">    <span class="hljs-comment">// ...</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</details>
+
+<p>해당 어노테이션에는 정규화 된 클래스명을 사용해야하기때문에,<br>모호하지 않도록 클래스명 맨 앞에 <code>\</code> 로 시작하는것을 추천합니다.</p>
+</body></html>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/PHP/" rel="tag">PHP</a>, <a class="has-link-grey -link" href="/tags/PHPUnit/" rel="tag">PHPUnit</a>, <a class="has-link-grey -link" href="/tags/annotation/" rel="tag">annotation</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share" target="_blank" rel="noopener"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/11/26/json-parse-is-faster-than-object-literal/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">［JS］Object literal 보다 JSON.parse()가 더 빠르다</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/26/AWS-DEVDAY-2019-%EB%A9%94%EB%AA%A8/">
+                <span class="level-item">AWS Dev Day Seoul, 2019 메모</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-width="100%" data-href="https://blog.hodory.dev/2019/11/24/phpunit-annotations/" data-num-posts="5"></div>
+
+    </div>
+</div>
+
+
+                </div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/logo.png" alt="Hodory">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Hodory
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Polyglot Programmer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Seoul, South Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        포스트
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        43
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        카테고리
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        21
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        태그
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        50
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/hodory" target="_blank">
+                팔로우</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/hodory">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Instagram" href="https://www.instagram.com/_ho_02">
+                
+                <i class="fab fa-instagram"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/">
+            <span class="level-start">
+                <span class="level-item">ETC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/ETC/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Docker/">
+            <span class="level-start">
+                <span class="level-item">Docker</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/GCP/">
+            <span class="level-start">
+                <span class="level-item">GCP</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/Retrospection/">
+            <span class="level-start">
+                <span class="level-item">Retrospection</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ETC/%ED%9A%8C%EA%B3%A0%EB%A1%9D/">
+            <span class="level-start">
+                <span class="level-item">회고록</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hexo/">
+            <span class="level-start">
+                <span class="level-item">Hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Java/">
+            <span class="level-start">
+                <span class="level-item">Java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Java/SpringBoot/">
+            <span class="level-start">
+                <span class="level-item">SpringBoot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/">
+            <span class="level-start">
+                <span class="level-item">Javascript</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/NodeJS/">
+            <span class="level-start">
+                <span class="level-item">NodeJS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/Vue-js/">
+            <span class="level-start">
+                <span class="level-item">Vue.js</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/PHP/">
+            <span class="level-start">
+                <span class="level-item">PHP</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/PHP/PHPUnit/">
+            <span class="level-start">
+                <span class="level-item">PHPUnit</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/AWS/" style="font-size: 11.67px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a> <a href="/tags/Composer/" style="font-size: 11.67px;">Composer</a> <a href="/tags/Conference/" style="font-size: 10px;">Conference</a> <a href="/tags/DataBase/" style="font-size: 10px;">DataBase</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/ERROR/" style="font-size: 10px;">ERROR</a> <a href="/tags/ES5/" style="font-size: 10px;">ES5</a> <a href="/tags/ES5-vs-ES6/" style="font-size: 10px;">ES5 vs ES6</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Etc/" style="font-size: 11.67px;">Etc.</a> <a href="/tags/GAE/" style="font-size: 10px;">GAE</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Git/" style="font-size: 11.67px;">Git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/INI-SET/" style="font-size: 10px;">INI_SET</a> <a href="/tags/JS/" style="font-size: 18.33px;">JS</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Javascript/" style="font-size: 18.33px;">Javascript</a> <a href="/tags/Laravel/" style="font-size: 11.67px;">Laravel</a> <a href="/tags/LogSystem/" style="font-size: 10px;">LogSystem</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/NuxtJS/" style="font-size: 10px;">NuxtJS</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/PHP4/" style="font-size: 10px;">PHP4</a> <a href="/tags/PHP5/" style="font-size: 10px;">PHP5</a> <a href="/tags/PHPUnit/" style="font-size: 11.67px;">PHPUnit</a> <a href="/tags/PSR/" style="font-size: 10px;">PSR</a> <a href="/tags/Packagist/" style="font-size: 11.67px;">Packagist</a> <a href="/tags/Retrospection/" style="font-size: 13.33px;">Retrospection</a> <a href="/tags/Security/" style="font-size: 11.67px;">Security</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/SpringBoot/" style="font-size: 16.67px;">SpringBoot</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/Webpack/" style="font-size: 15px;">Webpack</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/function/" style="font-size: 11.67px;">function</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/pgSQL-vs-MySQL/" style="font-size: 10px;">pgSQL vs MySQL</a> <a href="/tags/pgsql/" style="font-size: 10px;">pgsql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/str-pad/" style="font-size: 11.67px;">str_pad</a> <a href="/tags/%EB%8F%84%EC%BB%A4/" style="font-size: 10px;">도커</a> <a href="/tags/%ED%9A%8C%EA%B3%A0%EB%A1%9D/" style="font-size: 10px;">회고록</a>
+    </div>
+    <div>
+        <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-1h7lf4urzs4kx" 
+ data-ad-width   = "320" 
+ data-ad-height  = "100"></ins>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#서론">
+        <span class="has-mr-6">1</span>
+        <span>서론</span>
+        </a></li><li>
+        <a class="is-flex" href="#author">
+        <span class="has-mr-6">2</span>
+        <span>@author</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트를-작성자별-그룹화-필터링-할-때">
+        <span class="has-mr-6">2.1</span>
+        <span>테스트를 작성자별 그룹화 필터링 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#after">
+        <span class="has-mr-6">3</span>
+        <span>@after</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#각-테스트가-끝난-뒤-실행-하려-할-때">
+        <span class="has-mr-6">3.1</span>
+        <span>각 테스트가 끝난 뒤 실행 하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#afterClass">
+        <span class="has-mr-6">4</span>
+        <span>@afterClass</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#모든-테스트가-끝난-후-실행-하려-할-때">
+        <span class="has-mr-6">4.1</span>
+        <span>모든 테스트가 끝난 후 실행 하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#backupGlobals">
+        <span class="has-mr-6">5</span>
+        <span>@backupGlobals</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#글로벌-변수를-유지하고-싶다면">
+        <span class="has-mr-6">5.1</span>
+        <span>글로벌 변수를 유지하고 싶다면</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#backupStaticAttributes">
+        <span class="has-mr-6">6</span>
+        <span>@backupStaticAttributes</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#정적-속성을-사용하려-할-때">
+        <span class="has-mr-6">6.1</span>
+        <span>정적 속성을 사용하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#before">
+        <span class="has-mr-6">7</span>
+        <span>@before</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#각-테스트-실행전에-실행-하려-할-때">
+        <span class="has-mr-6">7.1</span>
+        <span>각 테스트 실행전에 실행 하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#beforeClass">
+        <span class="has-mr-6">8</span>
+        <span>@beforeClass</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-실행전-공유-속성을-만들-때">
+        <span class="has-mr-6">8.1</span>
+        <span>테스트 실행전 공유 속성을 만들 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#codeCoverageIgnore">
+        <span class="has-mr-6">9</span>
+        <span>@codeCoverageIgnore*</span>
+        </a></li><li>
+        <a class="is-flex" href="#covers">
+        <span class="has-mr-6">10</span>
+        <span>@covers</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-영역을-명시하려-할-때">
+        <span class="has-mr-6">10.1</span>
+        <span>테스트 영역을 명시하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#coversDefaultClass">
+        <span class="has-mr-6">11</span>
+        <span>@coversDefaultClass</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#너무-긴-네임스페이스와-클래스명을-반복해서-쓰고-싶지-않을-때">
+        <span class="has-mr-6">11.1</span>
+        <span>너무 긴 네임스페이스와 클래스명을 반복해서 쓰고 싶지 않을 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#coversNothing">
+        <span class="has-mr-6">12</span>
+        <span>@coversNothing</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#작성예정">
+        <span class="has-mr-6">12.1</span>
+        <span>작성예정</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#DataProvider">
+        <span class="has-mr-6">13</span>
+        <span>@DataProvider</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#메소드를-이용해-파라미터를-주입하고-싶을때">
+        <span class="has-mr-6">13.1</span>
+        <span>메소드를 이용해 파라미터를 주입하고 싶을때</span>
+        </a></li><li>
+        <a class="is-flex" href="#테스트-코드간의-종속성-정의">
+        <span class="has-mr-6">13.2</span>
+        <span>테스트 코드간의 종속성 정의</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#doesNotPerformAssertions">
+        <span class="has-mr-6">14</span>
+        <span>@doesNotPerformAssertions</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#값에-대한-assertion-없이-테스트-코드를-실행만-하고자-할때">
+        <span class="has-mr-6">14.1</span>
+        <span>값에 대한 assertion 없이 테스트 코드를 실행만 하고자 할때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#group">
+        <span class="has-mr-6">15</span>
+        <span>@group</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-코드에-태그를-달고-싶을때">
+        <span class="has-mr-6">15.1</span>
+        <span>테스트 코드에 태그를 달고 싶을때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#large">
+        <span class="has-mr-6">16</span>
+        <span>@large</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#60초-이상-실행-되면-실패-처리-하고자-할-때">
+        <span class="has-mr-6">16.1</span>
+        <span>60초 이상 실행 되면 실패 처리 하고자 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#medium">
+        <span class="has-mr-6">17</span>
+        <span>@medium</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#10초-이상-실행-되면-실패-처리-하고자-할-때">
+        <span class="has-mr-6">17.1</span>
+        <span>10초 이상 실행 되면 실패 처리 하고자 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#preserveGlobalState">
+        <span class="has-mr-6">18</span>
+        <span>@preserveGlobalState</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트가-별도의-프로세스에서-실행될때-직렬화-오류-방지">
+        <span class="has-mr-6">18.1</span>
+        <span>테스트가 별도의 프로세스에서 실행될때 직렬화 오류 방지</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#requires">
+        <span class="has-mr-6">19</span>
+        <span>@requires</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#특정-조건일때만-테스트를-수행하고자-할-때">
+        <span class="has-mr-6">19.1</span>
+        <span>특정 조건일때만 테스트를 수행하고자 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#runTestsInSeparateProcesses">
+        <span class="has-mr-6">20</span>
+        <span>@runTestsInSeparateProcesses</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-클래스-내의-모든-테스트-메소드가-별도-PHP프로세스에서-테스트코드를-실행-하는것을-명시할-때">
+        <span class="has-mr-6">20.1</span>
+        <span>테스트 클래스 내의 모든 테스트 메소드가 별도 PHP프로세스에서 테스트코드를 실행 하는것을 명시할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#runInSeparateProcess">
+        <span class="has-mr-6">21</span>
+        <span>@runInSeparateProcess</span>
+        </a></li><li>
+        <a class="is-flex" href="#small">
+        <span class="has-mr-6">22</span>
+        <span>@small</span>
+        </a></li><li>
+        <a class="is-flex" href="#test">
+        <span class="has-mr-6">23</span>
+        <span>@test</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-메소드명을-test로-시작하고싶지-않을-때">
+        <span class="has-mr-6">23.1</span>
+        <span>테스트 메소드명을 test로 시작하고싶지 않을 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#testdox">
+        <span class="has-mr-6">24</span>
+        <span>@testdox</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때">
+        <span class="has-mr-6">24.1</span>
+        <span>testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#testWith">
+        <span class="has-mr-6">25</span>
+        <span>@testWith</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#주석을-이용해-파라미터를-주입하고-싶을때">
+        <span class="has-mr-6">25.1</span>
+        <span>주석을 이용해 파라미터를 주입하고 싶을때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#ticket">
+        <span class="has-mr-6">26</span>
+        <span>@ticket</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Ticket-ID-JIRA-이슈-코드와-같은-로-테스트를-필터링-할-때">
+        <span class="has-mr-6">26.1</span>
+        <span>Ticket ID(JIRA 이슈 코드와 같은)로 테스트를 필터링 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#uses">
+        <span class="has-mr-6">27</span>
+        <span>@uses</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/11/21/ssl-connection-error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/terminal-logo.svg" alt="SSL Connection Error 발생">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-21T14:42:03.000Z">2020-11-21</time></div>
+                    <a href="/2020/11/21/ssl-connection-error/" class="has-link-black-ter is-size-6">SSL Connection Error 발생</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/14/composer-error-on-windows/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/php-logo-svg-vector.svg" alt="윈도우 컴포저 패키지 설치시 오류 처리 방법">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T14:38:07.000Z">2020-04-14</time></div>
+                    <a href="/2020/04/14/composer-error-on-windows/" class="has-link-black-ter is-size-6">윈도우 컴포저 패키지 설치시 오류 처리 방법</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] 원격 브랜치명으로 새로운 브랜치 생성하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T14:20:20.000Z">2020-03-09</time></div>
+                    <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="has-link-black-ter is-size-6">[Git] 원격 브랜치명으로 새로운 브랜치 생성하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] Git Merge 또는 Git checkout 오류 해결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-18T14:36:40.000Z">2020-02-18</time></div>
+                    <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="has-link-black-ter is-size-6">[Git] Git Merge 또는 Git checkout 오류 해결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/retrospection-logo.jpg" alt="[AWS] S3 호스팅에 도메인 연결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T13:54:12.000Z">2020-01-14</time></div>
+                    <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="has-link-black-ter is-size-6">[AWS] S3 호스팅에 도메인 연결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            <div class="media-content">
+                <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+    new PartnersCoupang.G({ id:115806 });
+</script>
+
+            </div>
+        </article>
+    </div>
+</div>
+
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#서론">
+        <span class="has-mr-6">1</span>
+        <span>서론</span>
+        </a></li><li>
+        <a class="is-flex" href="#author">
+        <span class="has-mr-6">2</span>
+        <span>@author</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트를-작성자별-그룹화-필터링-할-때">
+        <span class="has-mr-6">2.1</span>
+        <span>테스트를 작성자별 그룹화 필터링 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#after">
+        <span class="has-mr-6">3</span>
+        <span>@after</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#각-테스트가-끝난-뒤-실행-하려-할-때">
+        <span class="has-mr-6">3.1</span>
+        <span>각 테스트가 끝난 뒤 실행 하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#afterClass">
+        <span class="has-mr-6">4</span>
+        <span>@afterClass</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#모든-테스트가-끝난-후-실행-하려-할-때">
+        <span class="has-mr-6">4.1</span>
+        <span>모든 테스트가 끝난 후 실행 하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#backupGlobals">
+        <span class="has-mr-6">5</span>
+        <span>@backupGlobals</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#글로벌-변수를-유지하고-싶다면">
+        <span class="has-mr-6">5.1</span>
+        <span>글로벌 변수를 유지하고 싶다면</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#backupStaticAttributes">
+        <span class="has-mr-6">6</span>
+        <span>@backupStaticAttributes</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#정적-속성을-사용하려-할-때">
+        <span class="has-mr-6">6.1</span>
+        <span>정적 속성을 사용하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#before">
+        <span class="has-mr-6">7</span>
+        <span>@before</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#각-테스트-실행전에-실행-하려-할-때">
+        <span class="has-mr-6">7.1</span>
+        <span>각 테스트 실행전에 실행 하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#beforeClass">
+        <span class="has-mr-6">8</span>
+        <span>@beforeClass</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-실행전-공유-속성을-만들-때">
+        <span class="has-mr-6">8.1</span>
+        <span>테스트 실행전 공유 속성을 만들 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#codeCoverageIgnore">
+        <span class="has-mr-6">9</span>
+        <span>@codeCoverageIgnore*</span>
+        </a></li><li>
+        <a class="is-flex" href="#covers">
+        <span class="has-mr-6">10</span>
+        <span>@covers</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-영역을-명시하려-할-때">
+        <span class="has-mr-6">10.1</span>
+        <span>테스트 영역을 명시하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#coversDefaultClass">
+        <span class="has-mr-6">11</span>
+        <span>@coversDefaultClass</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#너무-긴-네임스페이스와-클래스명을-반복해서-쓰고-싶지-않을-때">
+        <span class="has-mr-6">11.1</span>
+        <span>너무 긴 네임스페이스와 클래스명을 반복해서 쓰고 싶지 않을 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#coversNothing">
+        <span class="has-mr-6">12</span>
+        <span>@coversNothing</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#작성예정">
+        <span class="has-mr-6">12.1</span>
+        <span>작성예정</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#DataProvider">
+        <span class="has-mr-6">13</span>
+        <span>@DataProvider</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#메소드를-이용해-파라미터를-주입하고-싶을때">
+        <span class="has-mr-6">13.1</span>
+        <span>메소드를 이용해 파라미터를 주입하고 싶을때</span>
+        </a></li><li>
+        <a class="is-flex" href="#테스트-코드간의-종속성-정의">
+        <span class="has-mr-6">13.2</span>
+        <span>테스트 코드간의 종속성 정의</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#doesNotPerformAssertions">
+        <span class="has-mr-6">14</span>
+        <span>@doesNotPerformAssertions</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#값에-대한-assertion-없이-테스트-코드를-실행만-하고자-할때">
+        <span class="has-mr-6">14.1</span>
+        <span>값에 대한 assertion 없이 테스트 코드를 실행만 하고자 할때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#group">
+        <span class="has-mr-6">15</span>
+        <span>@group</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-코드에-태그를-달고-싶을때">
+        <span class="has-mr-6">15.1</span>
+        <span>테스트 코드에 태그를 달고 싶을때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#large">
+        <span class="has-mr-6">16</span>
+        <span>@large</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#60초-이상-실행-되면-실패-처리-하고자-할-때">
+        <span class="has-mr-6">16.1</span>
+        <span>60초 이상 실행 되면 실패 처리 하고자 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#medium">
+        <span class="has-mr-6">17</span>
+        <span>@medium</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#10초-이상-실행-되면-실패-처리-하고자-할-때">
+        <span class="has-mr-6">17.1</span>
+        <span>10초 이상 실행 되면 실패 처리 하고자 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#preserveGlobalState">
+        <span class="has-mr-6">18</span>
+        <span>@preserveGlobalState</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트가-별도의-프로세스에서-실행될때-직렬화-오류-방지">
+        <span class="has-mr-6">18.1</span>
+        <span>테스트가 별도의 프로세스에서 실행될때 직렬화 오류 방지</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#requires">
+        <span class="has-mr-6">19</span>
+        <span>@requires</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#특정-조건일때만-테스트를-수행하고자-할-때">
+        <span class="has-mr-6">19.1</span>
+        <span>특정 조건일때만 테스트를 수행하고자 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#runTestsInSeparateProcesses">
+        <span class="has-mr-6">20</span>
+        <span>@runTestsInSeparateProcesses</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-클래스-내의-모든-테스트-메소드가-별도-PHP프로세스에서-테스트코드를-실행-하는것을-명시할-때">
+        <span class="has-mr-6">20.1</span>
+        <span>테스트 클래스 내의 모든 테스트 메소드가 별도 PHP프로세스에서 테스트코드를 실행 하는것을 명시할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#runInSeparateProcess">
+        <span class="has-mr-6">21</span>
+        <span>@runInSeparateProcess</span>
+        </a></li><li>
+        <a class="is-flex" href="#small">
+        <span class="has-mr-6">22</span>
+        <span>@small</span>
+        </a></li><li>
+        <a class="is-flex" href="#test">
+        <span class="has-mr-6">23</span>
+        <span>@test</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#테스트-메소드명을-test로-시작하고싶지-않을-때">
+        <span class="has-mr-6">23.1</span>
+        <span>테스트 메소드명을 test로 시작하고싶지 않을 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#testdox">
+        <span class="has-mr-6">24</span>
+        <span>@testdox</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때">
+        <span class="has-mr-6">24.1</span>
+        <span>testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#testWith">
+        <span class="has-mr-6">25</span>
+        <span>@testWith</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#주석을-이용해-파라미터를-주입하고-싶을때">
+        <span class="has-mr-6">25.1</span>
+        <span>주석을 이용해 파라미터를 주입하고 싶을때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#ticket">
+        <span class="has-mr-6">26</span>
+        <span>@ticket</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Ticket-ID-JIRA-이슈-코드와-같은-로-테스트를-필터링-할-때">
+        <span class="has-mr-6">26.1</span>
+        <span>Ticket ID(JIRA 이슈 코드와 같은)로 테스트를 필터링 할 때</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#uses">
+        <span class="has-mr-6">27</span>
+        <span>@uses</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/11/21/ssl-connection-error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/terminal-logo.svg" alt="SSL Connection Error 발생">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-21T14:42:03.000Z">2020-11-21</time></div>
+                    <a href="/2020/11/21/ssl-connection-error/" class="has-link-black-ter is-size-6">SSL Connection Error 발생</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/14/composer-error-on-windows/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/php-logo-svg-vector.svg" alt="윈도우 컴포저 패키지 설치시 오류 처리 방법">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T14:38:07.000Z">2020-04-14</time></div>
+                    <a href="/2020/04/14/composer-error-on-windows/" class="has-link-black-ter is-size-6">윈도우 컴포저 패키지 설치시 오류 처리 방법</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] 원격 브랜치명으로 새로운 브랜치 생성하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T14:20:20.000Z">2020-03-09</time></div>
+                    <a href="/2020/03/09/git-new-branch-from-remote-branch/" class="has-link-black-ter is-size-6">[Git] 원격 브랜치명으로 새로운 브랜치 생성하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/git-logo.svg" alt="[Git] Git Merge 또는 Git checkout 오류 해결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-18T14:36:40.000Z">2020-02-18</time></div>
+                    <a href="/2020/02/18/error-Your-local-changes-would-be-overwritten-by-merge/" class="has-link-black-ter is-size-6">[Git] Git Merge 또는 Git checkout 오류 해결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/retrospection-logo.jpg" alt="[AWS] S3 호스팅에 도메인 연결하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-14T13:54:12.000Z">2020-01-14</time></div>
+                    <a href="/2020/01/14/setting-domain-for-s3-static-web-hosting/" class="has-link-black-ter is-size-6">[AWS] S3 호스팅에 도메인 연결하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            <div class="media-content">
+                <script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+    new PartnersCoupang.G({ id:115806 });
+</script>
+
+            </div>
+        </article>
+    </div>
+</div>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="PHPUnit Annotation 정리" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Hodory&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/hodory">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
