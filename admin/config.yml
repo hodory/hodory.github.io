@@ -1,0 +1,84 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: source/images
+public_folder: /images
+publish_mode: editorial_workflow
+collections:
+  - name: all_posts
+    fields: &ref_0
+      - label: Thumbnail
+        name: thumb
+        widget: image
+        required: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+        dateFormat: YYYY-MM-DD
+        timeFormat: HH:mm:ss
+        format: YYYY-MM-DD HH:mm:ss
+        required: false
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+      - label: Categories
+        name: categories
+        widget: list
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
+        required: false
+      - label: Permalink
+        name: permalink
+        widget: string
+        required: false
+      - label: Comments
+        name: comments
+        widget: boolean
+        default: true
+        required: false
+    label: Post
+    folder: source/_posts
+    create: true
+    editor:
+      preview: true
+  - name: posts
+    fields: *ref_0
+    label: Post
+    folder: source/_posts
+    create: true
+    editor:
+      preview: true
+  - label: Page
+    name: pages
+    delete: false
+    files:
+      - name: OneSignalSDKUpdaterWorker.js
+        label: ''
+        file: source/OneSignalSDKUpdaterWorker.js
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: OneSignalSDKWorker.js
+        label: ''
+        file: source/OneSignalSDKWorker.js
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: manifest.json
+        label: ''
+        file: source/manifest.json
+        editor:
+          preview: true
+        fields: *ref_0
+      - name: about-index.html
+        label: ''
+        file: source/about/index.html
+        editor:
+          preview: true
+        fields: *ref_0
