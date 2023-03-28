@@ -1,1 +1,4 @@
-{"name":"Web Developer Hodory","short_name":"Hodory's Dev Blog","start_url":"https://blog.hodory.dev","theme_color":null,"background_color":null,"display":"standalone","icons":[{"src":"","sizes":"","type":null}]}
+{
+  "gcm_sender_id": "482941778795",
+  "gcm_sender_id_comment": "Do not change the GCM Sender ID"
+}

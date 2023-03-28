@@ -1,0 +1,7 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Docker - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/docker/</link><description>Docker - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 01 Sep 2017 16:31:39 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/docker/" rel="self" type="application/rss+xml"/><item><title>［Docker］명령어 정리</title><link>http://blog.hodory.dev/2017/09/docker%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A0%95%EB%A6%AC/</link><pubDate>Fri, 01 Sep 2017 16:31:39 +0000</pubDate><author>hodory</author><guid>http://blog.hodory.dev/2017/09/docker%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A0%95%EB%A6%AC/</guid><description><![CDATA[이미지 다운로드
+$ docker pull [다운로드 할 이미지명]: latest 이미지를 컨테이너로 만들때
+$ docker run -i -t --name [컨테이너명] -d [이미지명] 컨테이너상태 확인 (&quot;a&quot;옵션은 정지된 컨테이너도 보여줌)
+$ docker ps [-a] 컨테이너를 실행
+$ docker start [컨테이너명] 컨테이너에 별칭을 주기
+$ docker run -it --name &lt;별칭&gt; &lt;이미지명&gt; ex) $ docker run -it --name nginx richarvey/nginx-php-fpm 컨테이너 특정 포트 연결
+$ docker run -p &lt;로컬 포트 번호&gt;:&lt;컨테이너 포트 번호&gt; &lt;이미지명&gt; ex) $ docker run -p 8000:80 richarvey/nginx-php-fpm 컨테이너 정지]]></description></item></channel></rss>
