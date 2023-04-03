@@ -1,4 +1,4 @@
-<!doctype html><html lang=ko-kr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>［JS］Object literal 보다 JSON.parse()가 더 빠르다 - Web Developer Hodory</title><meta name=Description content="Web Developer Hodory's Dev Blog"><meta property="og:title" content="［JS］Object literal 보다 JSON.parse()가 더 빠르다"><meta property="og:description" content="서론 웹에서 몇 kb 크기의 객체를 초기에 렌더링 하는것은 생각보다 많습니다.
+<!doctype html><html lang=ko-kr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>［JS］Object literal 보다 JSON.parse()가 더 빠르다 - Web Developer Hodory</title><meta name=Description content><meta property="og:title" content="［JS］Object literal 보다 JSON.parse()가 더 빠르다"><meta property="og:description" content="서론 웹에서 몇 kb 크기의 객체를 초기에 렌더링 하는것은 생각보다 많습니다.
 이 javascript 객체가 로드될때까지 클라이언트는 빈 화면을 보게 될 수 있습니다.
 이러한 문제를 해결하기 위해, 서버사이드 렌더링을 활용 하는 방법도 있겠지만 다른 방법은 없을까요?
 Chrome Dev Summit에서는 객체를 JSON으로 직렬화 하고, 문자열 리터럴로 변환해 Javscript 객체에 전달하는 것이 성능 향상에 도움이 된다고 이야기합니다.

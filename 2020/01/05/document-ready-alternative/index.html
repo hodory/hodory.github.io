@@ -1,4 +1,4 @@
-<!doctype html><html lang=ko-kr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>[JS]Document.ready 의 대안 - Web Developer Hodory</title><meta name=Description content="Web Developer Hodory's Dev Blog"><meta property="og:title" content="[JS]Document.ready 의 대안"><meta property="og:description" content="jQuery를 사용할 때, DOM이 로드된 후 처리를 위해 아래와 같은 구문을 많이 사용해왔습니다.
+<!doctype html><html lang=ko-kr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>[JS]Document.ready 의 대안 - Web Developer Hodory</title><meta name=Description content><meta property="og:title" content="[JS]Document.ready 의 대안"><meta property="og:description" content="jQuery를 사용할 때, DOM이 로드된 후 처리를 위해 아래와 같은 구문을 많이 사용해왔습니다.
 $(function(){ }); // or $(document).ready(function(){ }); 이와 같은 동작을 jQuery 없이 사용 할 수 없을까 찾아 보았는데,
 document.addEventListener('DOMContentLoaded', () => { }) 위와 같이 작성하면 됩니다.
 DOMContentLoaded는 최초로 HTML 문서가 완전히 로드 및 파싱 되었을때 발생되므로, 모든 리소스(이미지, 스크립트, 스타일 시트 등)가 로드 된 후 발생하는 load 이벤트 보다는 먼저 호출됩니다.
