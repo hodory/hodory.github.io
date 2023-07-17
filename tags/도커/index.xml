@@ -1,7 +1,30 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>도커 - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/%EB%8F%84%EC%BB%A4/</link><description>도커 - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 01 Sep 2017 16:31:39 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/%EB%8F%84%EC%BB%A4/" rel="self" type="application/rss+xml"/><item><title>［Docker］명령어 정리</title><link>http://blog.hodory.dev/2017/09/01/docker-command/</link><pubDate>Fri, 01 Sep 2017 16:31:39 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2017/09/01/docker-command/</guid><description><![CDATA[이미지 다운로드
-$ docker pull [다운로드 할 이미지명]: latest 이미지를 컨테이너로 만들때
-$ docker run -i -t --name [컨테이너명] -d [이미지명] 컨테이너상태 확인 (&quot;a&quot;옵션은 정지된 컨테이너도 보여줌)
-$ docker ps [-a] 컨테이너를 실행
-$ docker start [컨테이너명] 컨테이너에 별칭을 주기
-$ docker run -it --name &lt;별칭&gt; &lt;이미지명&gt; ex) $ docker run -it --name nginx richarvey/nginx-php-fpm 컨테이너 특정 포트 연결
-$ docker run -p &lt;로컬 포트 번호&gt;:&lt;컨테이너 포트 번호&gt; &lt;이미지명&gt; ex) $ docker run -p 8000:80 richarvey/nginx-php-fpm 컨테이너 정지]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>도커 - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/%EB%8F%84%EC%BB%A4/</link><description>도커 - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Fri, 01 Sep 2017 16:31:39 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/%EB%8F%84%EC%BB%A4/" rel="self" type="application/rss+xml"/><item><title>［Docker］명령어 정리</title><link>http://blog.hodory.dev/2017/09/01/docker-command/</link><pubDate>Fri, 01 Sep 2017 16:31:39 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2017/09/01/docker-command/</guid><description><![CDATA[<p><code>이미지 다운로드</code></p>
+<pre tabindex="0"><code>$ docker pull [다운로드 할 이미지명]: latest
+</code></pre><p><code>이미지를 컨테이너로 만들때</code></p>
+<pre tabindex="0"><code>$ docker run -i -t --name [컨테이너명] -d [이미지명]
+</code></pre><!-- raw HTML omitted -->
+<p><code>컨테이너상태 확인 (&quot;a&quot;옵션은 정지된 컨테이너도 보여줌)</code></p>
+<pre tabindex="0"><code>$ docker ps [-a]
+</code></pre><p><code>컨테이너를 실행</code></p>
+<pre tabindex="0"><code>$ docker start [컨테이너명]
+</code></pre><p><code>컨테이너에 별칭을 주기</code></p>
+<pre tabindex="0"><code>$ docker run -it --name &lt;별칭&gt; &lt;이미지명&gt;
+ex) $ docker run -it --name nginx richarvey/nginx-php-fpm
+</code></pre><p><code>컨테이너 특정 포트 연결</code></p>
+<pre tabindex="0"><code>$ docker run -p &lt;로컬 포트 번호&gt;:&lt;컨테이너 포트 번호&gt; &lt;이미지명&gt;
+ex) $ docker run -p 8000:80 richarvey/nginx-php-fpm
+</code></pre><p><code>컨테이너 정지</code></p>
+<pre tabindex="0"><code>$ docker stop [컨테이너명]
+</code></pre><p><code>bash shell로 명령실행가능하게함</code></p>
+<pre tabindex="0"><code>$ docker exec -it &lt;컨테이너 이름&gt; /bin/bash
+</code></pre><p><code>컨테이너 삭제</code></p>
+<pre tabindex="0"><code>$ docker rm &lt;컨테이너이름&gt;
+</code></pre><p><code>태그를 입력하지않으면 모든태그가 삭제됨</code></p>
+<pre tabindex="0"><code>$ docker rmi &lt;이미지 이름&gt;:&lt;태그&gt;
+</code></pre><p><code>윈도우 드라이브 공유</code></p>
+<pre tabindex="0"><code>docker run -v &lt;윈도우 경로&gt;:&lt;컨테이너 경로&gt; -it &lt;컨테이너명&gt;
+ex) $ docker run -v /c/User/Administrator/PHP:/home/hodory -it nginx
+</code></pre><p><code>아래와 같이 여러가지 조합도 가능하다</code></p>
+<pre tabindex="0"><code>docker run -it --name &lt;별칭&gt; -d -p &lt;로컬포트&gt;:&lt;컨테이너포트&gt; -v &lt;로컬경로&gt;:&lt;컨테이너경로&gt; &lt;이미지명&gt;
+ex) $ docker run -it --name nginx -d -p 8000:80 -v /c/User/Administrator/PHP:/home/hodory richarvey/nginx-php-fpm
+</code></pre>]]></description></item></channel></rss>

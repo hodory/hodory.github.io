@@ -1,2 +1,28 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>DataBase - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/database/</link><description>DataBase - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 23 Apr 2018 17:22:45 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/database/" rel="self" type="application/rss+xml"/><item><title>［Database］ postgresql와 mysql 뭐가 다를까?</title><link>http://blog.hodory.dev/2018/04/23/pgsql-vs-mysql/</link><pubDate>Mon, 23 Apr 2018 17:22:45 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/04/23/pgsql-vs-mysql/</guid><description> PostgreSQL 과 MySQL의 차이점 PostgreSQL은 기본적으로 트랜잭션을 지원합니다(MySQL의 경우 테이블이 InnoDB 타입일 경우에만 지원합니다.) Databse의 하위개념으로 Schema가 있습니다.(MySQL의 Database의 개념은 PostgreSQL의 스키마와 개념이 비슷합니다.) 스키마를 별도로 지정하지 않을 경우, public이라는 스키마를 기본적으로 사용합니다. 데이터베이스가 다르면 물리적으로 분리되어있다는것을 의미합니다. 서로 다른 Schema간에는 JOIN이 가능합니다. 구조 참고자료
-postgreSQL 구조 이미지 - 구루비 postgreSQL 소개</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>DataBase - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/database/</link><description>DataBase - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Mon, 23 Apr 2018 17:22:45 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/database/" rel="self" type="application/rss+xml"/><item><title>［Database］ postgresql와 mysql 뭐가 다를까?</title><link>http://blog.hodory.dev/2018/04/23/pgsql-vs-mysql/</link><pubDate>Mon, 23 Apr 2018 17:22:45 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/04/23/pgsql-vs-mysql/</guid><description><![CDATA[<h3 id="postgresql-과-mysql의-차이점" class="headerLink">
+    <a href="#postgresql-%ea%b3%bc-mysql%ec%9d%98-%ec%b0%a8%ec%9d%b4%ec%a0%90" class="header-mark"></a>PostgreSQL 과 MySQL의 차이점</h3><ul>
+<li>PostgreSQL은 기본적으로 트랜잭션을 지원합니다(MySQL의 경우 테이블이 InnoDB 타입일 경우에만 지원합니다.)</li>
+<li>Databse의 하위개념으로 Schema가 있습니다.(MySQL의 Database의 개념은 PostgreSQL의 스키마와 개념이 비슷합니다.)</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>스키마를 별도로 지정하지 않을 경우, public이라는 스키마를 기본적으로 사용합니다.</li>
+<li>데이터베이스가 다르면 물리적으로 분리되어있다는것을 의미합니다.</li>
+<li>서로 다른 Schema간에는 JOIN이 가능합니다.</li>
+<li>구조 <figure><a class="lightgallery" href="/images/postgresql-structure.jpg" title="pgSQL 구조 이미지" data-thumbnail="/images/postgresql-structure.jpg">
+        <img
+            
+            loading="lazy"
+            src="/images/postgresql-structure.jpg"
+            srcset="/images/postgresql-structure.jpg, /images/postgresql-structure.jpg 1.5x, /images/postgresql-structure.jpg 2x"
+            sizes="auto"
+            alt="pgSQL 구조 이미지">
+    </a></figure></li>
+</ul>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="http://www.gurubee.net/lecture/2942" title="해당 페이지로 이동" target="_blank" rel="noopener noreferrer">postgreSQL 구조 이미지 - 구루비</a></li>
+<li><a href="http://blog.naver.com/alice_k106/220847310053" title="해당 페이지로 이동" target="_blank" rel="noopener noreferrer">postgreSQL 소개</a></li>
+</ul>
+]]></description></item></channel></rss>

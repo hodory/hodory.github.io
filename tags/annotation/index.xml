@@ -1,6 +1,718 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>annotation - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/annotation/</link><description>annotation - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 25 Nov 2019 01:18:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/annotation/" rel="self" type="application/rss+xml"/><item><title>PHPUnit Annotation 정리</title><link>http://blog.hodory.dev/2019/11/25/phpunit-annotations/</link><pubDate>Mon, 25 Nov 2019 01:18:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/11/25/phpunit-annotations/</guid><description>서론 PHP Unit을 사용하면서도 잘 모르는 어노테이션을 PHPUnit v8.4 기준(2019-11-19 최신버전)으로 정리하였습니다.
-@author 테스트를 작성자별 그룹화 필터링 할 때 @group 어노테이션의 별칭으로, 테스트를 작성자별로 그룹화하여 필터링 하는데 사용할 수 있습니다.
-@after 각 테스트가 끝난 뒤 실행 하려 할 때 각 테스트 메소드들이 실행 된 후, 특정 메소드를 실행하고자 할때 사용할 수 있습니다.
-각 테스트가 끝난 뒤 트랜잭션 커밋or롤백을 한다거나, 생성된 파일을 삭제하는 등의 처리를 하는데 사용하면 좋을 것 같습니다.</description></item><item><title>［Java］@AllArgsConstructor의 잘못된 사용</title><link>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</link><pubDate>Tue, 28 May 2019 23:29:30 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</guid><description><![CDATA[Consider defining a bean of type java.lang.String in your configuration.스프링부트로 서비스를 개발중에 @Value 어노테이션을 이용하여 application.yml 파일에 저장해둔 환경변수에 접근하고 싶었는데, 아래와 같은 오류가 발생하였습니다.
-Parameter 2 of constructor in com.hodory.v1.service.MyService required a bean of type &#39;java.lang.String&#39; that could not be found. Consider defining a bean of type &#39;java.lang.String&#39; in your configuration. Retrofit을 사용하기위해 apiBaseUrl을 가져오려 작성한 코드는 아래와 같습니다.
-@Slf4j @Service @AllArgsConstructor public class MyService { private final MyRepository myRepository; private final ModelMapper modelMapper; @Value(&#34;${config.]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>annotation - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/annotation/</link><description>annotation - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Mon, 25 Nov 2019 01:18:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/annotation/" rel="self" type="application/rss+xml"/><item><title>PHPUnit Annotation 정리</title><link>http://blog.hodory.dev/2019/11/25/phpunit-annotations/</link><pubDate>Mon, 25 Nov 2019 01:18:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/11/25/phpunit-annotations/</guid><description><![CDATA[<h2 id="서론" class="headerLink">
+    <a href="#%ec%84%9c%eb%a1%a0" class="header-mark"></a>서론</h2><hr>
+<p>PHP Unit을 사용하면서도 잘 모르는 어노테이션을 PHPUnit v8.4 기준(2019-11-19 최신버전)으로 정리하였습니다.</p>
+<h2 id="author" class="headerLink">
+    <a href="#author" class="header-mark"></a>@author</h2><h3 id="테스트를-작성자별-그룹화-필터링-할-때" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ec%9e%91%ec%84%b1%ec%9e%90%eb%b3%84-%ea%b7%b8%eb%a3%b9%ed%99%94-%ed%95%84%ed%84%b0%eb%a7%81-%ed%95%a0-%eb%95%8c" class="header-mark"></a>테스트를 작성자별 그룹화 필터링 할 때</h3><hr>
+<p><code>@group</code> 어노테이션의 별칭으로, 테스트를 작성자별로 그룹화하여 필터링 하는데 사용할 수 있습니다.</p>
+<h2 id="after" class="headerLink">
+    <a href="#after" class="header-mark"></a>@after</h2><h3 id="각-테스트가-끝난-뒤-실행-하려-할-때" class="headerLink">
+    <a href="#%ea%b0%81-%ed%85%8c%ec%8a%a4%ed%8a%b8%ea%b0%80-%eb%81%9d%eb%82%9c-%eb%92%a4-%ec%8b%a4%ed%96%89-%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>각 테스트가 끝난 뒤 실행 하려 할 때</h3><hr>
+<p>각 테스트 메소드들이 실행 된 후, 특정 메소드를 실행하고자 할때 사용할 수 있습니다.</p>
+<p>각 테스트가 끝난 뒤 트랜잭션 커밋or롤백을 한다거나, 생성된 파일을 삭제하는 등의 처리를 하는데 사용하면 좋을 것 같습니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+
+class MyTest extends TestCase
+{
+    /**
+     * @after
+     */
+    public function afterDo()
+    {
+        echo &quot;After Method Called&quot; . PHP_EOL;
+    }
+
+    public function test1()
+    {
+        echo &quot;test1 Method Called&quot; . PHP_EOL;
+        self::assertTrue(true);
+    }
+
+    public function test2()
+    {
+        echo &quot;test2 Method Called&quot; . PHP_EOL;
+        self::assertTrue(true);
+    }
+}
+
+// 출력 결과
+test1 Method Called
+After Method Called
+test2 Method Called
+After Method Called
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="afterclass" class="headerLink">
+    <a href="#afterclass" class="header-mark"></a>@afterClass</h2><h3 id="모든-테스트가-끝난-후-실행-하려-할-때" class="headerLink">
+    <a href="#%eb%aa%a8%eb%93%a0-%ed%85%8c%ec%8a%a4%ed%8a%b8%ea%b0%80-%eb%81%9d%eb%82%9c-%ed%9b%84-%ec%8b%a4%ed%96%89-%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>모든 테스트가 끝난 후 실행 하려 할 때</h3><hr>
+<p>모든 테스트가 끝난 후, 공유된 자원들을 정리하기 위해 호출할 정적 메소드를 지정 할 수 있습니다.</p>
+<p>해당 부분에서 테스트 실행시 만든 DB 커넥션을 회수하거나, 전체 트랜잭션을 처리 하거나, 소켓을 닫는 등의 처리를 할 수 있을것 같습니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+
+class MyTest extends TestCase
+{
+    /**
+     * @afterClass
+     */
+    public static function afterClassDo()
+    {
+        echo &quot;After Class Method Called&quot; . PHP_EOL;
+    }
+
+    public function test1()
+    {
+        echo &quot;test1 Method Called&quot; . PHP_EOL;
+        self::assertTrue(true);
+    }
+
+    public function test2()
+    {
+        echo &quot;test2 Method Called&quot; . PHP_EOL;
+        self::assertTrue(true);
+    }
+}
+
+// 출력 결과
+test1 Method Called
+test2 Method Called
+After Class Method Called
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="backupglobals" class="headerLink">
+    <a href="#backupglobals" class="header-mark"></a>@backupGlobals</h2><h3 id="글로벌-변수를-유지하고-싶다면" class="headerLink">
+    <a href="#%ea%b8%80%eb%a1%9c%eb%b2%8c-%eb%b3%80%ec%88%98%eb%a5%bc-%ec%9c%a0%ec%a7%80%ed%95%98%ea%b3%a0-%ec%8b%b6%eb%8b%a4%eb%a9%b4" class="header-mark"></a>글로벌 변수를 유지하고 싶다면</h3><hr>
+<p>모든 글로벌 변수를 각 테스트 전에 백업하고, 각 테스트 이후 해당 백업을 복원시킵니다.</p>
+<p>메소드 레벨에서 재정의가 가능합니다.</p>
+<p>해당 설명만으로는 이해가 잘 되지 않아서 직접 예제 코드를 만들어 보았습니다.
+클래스 스코프 밖에 정의된 글로벌 변수인 <code>$className</code>을 <code>@backupGlobals</code> 어노테이션이 enabled 되어 있는 테스트 코드에서는 실행이전 값을 백업하여두고 테스트가 끝나면 복원이 되어,
+두번째 테스트코드에서도 &ldquo;MyTest&quot;라는 값을 가지고 있게됩니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+
+$className = &quot;MyTest&quot;;
+
+/**
+ * @backupGlobals enabled
+ */
+class MyTest extends TestCase
+{
+    public function test_글로벌변수를_백업하고_변경()
+    {
+        global $className;
+        $this-&gt;assertEquals($className, &quot;MyTest&quot;);
+        $className = &quot;Foo&quot;;
+    }
+
+    /**
+     * @backupGlobals disabled
+     */
+    public function test_글로벌변수를_백업하지_않고_변경()
+    {
+        global $className;
+        $this-&gt;assertEquals($className, &quot;MyTest&quot;);
+        $className = &quot;Bar&quot;;
+    }
+
+    public function test_글로벌변수를_백업되어있는지_체크()
+    {
+        global $className;
+        $this-&gt;assertEquals($className, &quot;Bar&quot;);
+    }
+}
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="backupstaticattributes" class="headerLink">
+    <a href="#backupstaticattributes" class="header-mark"></a>@backupStaticAttributes</h2><h3 id="정적-속성을-사용하려-할-때" class="headerLink">
+    <a href="#%ec%a0%95%ec%a0%81-%ec%86%8d%ec%84%b1%ec%9d%84-%ec%82%ac%ec%9a%a9%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a><del>정적 속성을 사용하려 할 때</del></h3><hr>
+<p><del>선언된 클래스들 안의 모든 정적 속성을 각 테스트 전에 백업하고, 각 테스트 후에 해당 백업을 복원 시킵니다.</del></p>
+<p><del>클래스 레벨에도 선언 가능하며, 각 테스트 메소드에서 추가 제어 가능합니다.</del></p>
+<!-- raw HTML omitted -->
+<pre><code>use PHPUnit\Framework\TestCase;
+        
+/**
+ * @backupStaticAttributes enabled
+ */
+class MyTest extends TestCase
+{
+    public function test_정적속성을_사용하는_테스트()
+    {
+        // ...
+    }
+
+    /**
+     * @backupStaticAttributes disabled
+     */
+    public function test_정적속성을_사용하지_않는_테스트()
+    {
+        // ...
+    }
+}
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="before" class="headerLink">
+    <a href="#before" class="header-mark"></a>@before</h2><h3 id="각-테스트-실행전에-실행-하려-할-때" class="headerLink">
+    <a href="#%ea%b0%81-%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%8b%a4%ed%96%89%ec%a0%84%ec%97%90-%ec%8b%a4%ed%96%89-%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>각 테스트 실행전에 실행 하려 할 때</h3><hr>
+<p>각 테스트 메소드가 호출되기 전에 실행할 메소드를 지정할 수 있습니다.</p>
+<p>아래와 같이 beforeMethod는 각 메소드 호출전에 실행되지만,
+users 배열의 값이 증가되지는 않습니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>class MyTest extends TestCase
+{
+    protected $users = [];
+
+    /**
+     * @before
+     */
+    public function beforeMethod()
+    {
+        echo &quot;Before Method Called&quot; . PHP_EOL;
+        $this-&gt;users[] = [
+            'name' =&gt; '홍길동'
+        ];
+    }
+
+    public function test1()
+    {
+        echo &quot;test1 Method Called&quot; . PHP_EOL;
+        self::assertCount(1, $this-&gt;users);
+    }
+
+    public function test2()
+    {
+        echo &quot;test2 Method Called&quot; . PHP_EOL;
+        self::assertCount(1, $this-&gt;users);
+    }
+}
+
+// 출력 결과
+Before Method Called
+test1 Method Called
+Before Method Called
+test2 Method Called
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="beforeclass" class="headerLink">
+    <a href="#beforeclass" class="header-mark"></a>@beforeClass</h2><h3 id="테스트-실행전-공유-속성을-만들-때" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%8b%a4%ed%96%89%ec%a0%84-%ea%b3%b5%ec%9c%a0-%ec%86%8d%ec%84%b1%ec%9d%84-%eb%a7%8c%eb%93%a4-%eb%95%8c" class="header-mark"></a>테스트 실행전 공유 속성을 만들 때</h3><hr>
+<p>해당 클래스에서 테스트가 실행되기전 공유 하기 위한 정보를 설정하기 위해 호출 할 static 메소드에 지정하여 사용할 수 있습니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>class MyTest extends TestCase
+{
+    protected $users = [];
+
+    /**
+     * @beforeClass
+     */
+    public static function beforeClass()
+    {
+        echo &quot;Before Class Called&quot; . PHP_EOL;
+    }
+
+    /**
+     * @before
+     */
+    public function beforeMethod()
+    {
+        echo &quot;Before Method Called&quot; . PHP_EOL;
+        $this-&gt;users[] = [
+            'name' =&gt; '홍길동'
+        ];
+    }
+
+    public function test1()
+    {
+        echo &quot;test1 Method Called&quot; . PHP_EOL;
+        self::assertCount(1, $this-&gt;users);
+    }
+
+    public function test2()
+    {
+        echo &quot;test2 Method Called&quot; . PHP_EOL;
+        self::assertCount(1, $this-&gt;users);
+    }
+}
+
+// 출력 결과
+Before Class Called
+Before Method Called
+test1 Method Called
+Before Method Called
+test2 Method Called
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="codecoverageignore" class="headerLink">
+    <a href="#codecoverageignore" class="header-mark"></a>@codeCoverageIgnore*</h2><hr>
+<p>코드 커버리지 분석시 제외할 라인에 사용할 수 있습니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>/**
+ * @codeCoverageIgnore
+ */
+class Foo
+{
+    public function bar()
+    {
+    }
+}
+
+class Bar
+{
+    /**
+     * @codeCoverageIgnore
+     */
+    public function foo()
+    {
+    }
+}
+
+if (false) {
+    // @codeCoverageIgnoreStart
+    print '*';
+    // @codeCoverageIgnoreEnd
+}
+
+exit; // @codeCoverageIgnore
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="covers" class="headerLink">
+    <a href="#covers" class="header-mark"></a>@covers</h2><h3 id="테스트-영역을-명시하려-할-때" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%98%81%ec%97%ad%ec%9d%84-%eb%aa%85%ec%8b%9c%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>테스트 영역을 명시하려 할 때</h3><hr>
+<p>어떤 영역을 테스트 하고자 하는지 명시하고자 할 때 사용합니다.</p>
+<p>이와 같이 명시 하면 IDE(PHPStorm)에서 연결되어 있어 ctrl+shift+T 를 이용해 테스트로 바로 이동이 가능해지고, usage로 찾을 수 있어 메소드명 수정시 같이 반영됩니다.</p>
+<!-- raw HTML omitted -->
+<h2 id="coversdefaultclass" class="headerLink">
+    <a href="#coversdefaultclass" class="header-mark"></a>@coversDefaultClass</h2><h3 id="너무-긴-네임스페이스와-클래스명을-반복해서-쓰고-싶지-않을-때" class="headerLink">
+    <a href="#%eb%84%88%eb%ac%b4-%ea%b8%b4-%eb%84%a4%ec%9e%84%ec%8a%a4%ed%8e%98%ec%9d%b4%ec%8a%a4%ec%99%80-%ed%81%b4%eb%9e%98%ec%8a%a4%eb%aa%85%ec%9d%84-%eb%b0%98%eb%b3%b5%ed%95%b4%ec%84%9c-%ec%93%b0%ea%b3%a0-%ec%8b%b6%ec%a7%80-%ec%95%8a%ec%9d%84-%eb%95%8c" class="header-mark"></a>너무 긴 네임스페이스와 클래스명을 반복해서 쓰고 싶지 않을 때</h3><hr>
+<p>기본 네임스페이스나 클래스명을 명시하는데 사용할 수 있어, <code>@covers</code> 어노테이션에 긴 네임스페이스나, 클래스명을 반복해서 사용할 필요가 없어집니다.</p>
+<p>해당 어노테이션에는 정규화 된 클래스명을 사용해야하기때문에,
+모호하지 않도록 클래스명 맨 앞에 <code>\</code> 로 시작하는것을 추천합니다.</p>
+<p>아래 예제 코드와 같이 <code>@covers \Foo\CoveredClass::publicMethod</code> 를 <code>@covers ::publicMethod</code>로 줄여 쓸 수 있는 이점을 얻게 됩니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>/**
+ * @coversDefaultClass \Foo\CoveredClass
+ */
+class CoversDefaultClassTest extends TestCase
+{
+    /**
+     * @covers ::publicMethod
+     */
+    public function testSomething()
+    {
+        $o = new Foo\CoveredClass;
+        $o-&gt;publicMethod();
+    }
+}
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="coversnothing" class="headerLink">
+    <a href="#coversnothing" class="header-mark"></a>@coversNothing</h2><h3 id="작성예정" class="headerLink">
+    <a href="#%ec%9e%91%ec%84%b1%ec%98%88%ec%a0%95" class="header-mark"></a>작성예정</h3><hr>
+<p>클래스나 메소드레벨에서 사용할 수 있고 <code>@covers</code> 어노테이션을 덮어 씁니다.</p>
+<h2 id="dataprovider" class="headerLink">
+    <a href="#dataprovider" class="header-mark"></a>@DataProvider</h2><h3 id="메소드를-이용해-파라미터를-주입하고-싶을때" class="headerLink">
+    <a href="#%eb%a9%94%ec%86%8c%eb%93%9c%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%b4-%ed%8c%8c%eb%9d%bc%eb%af%b8%ed%84%b0%eb%a5%bc-%ec%a3%bc%ec%9e%85%ed%95%98%ea%b3%a0-%ec%8b%b6%ec%9d%84%eb%95%8c" class="header-mark"></a>메소드를 이용해 파라미터를 주입하고 싶을때</h3><hr>
+<p><code>@dataProvider</code> 를 사용하면 메소드의 파라미터로 전달할 수 있습니다.
+Java Junit 패키지에서 JunitParams를 이용하여 <code>@Parameters</code> 어노테이션을 사용하는것과 동일한 효과를 얻을 수 있습니다.</p>
+<ul>
+<li>예제 코드
+<ul>
+<li>
+<p>아래 예제 코드와 같은 테스트는 배열의 각 값 들이 <code>$a</code>, <code>$b</code>, <code>$expected</code> 로 바인딩 되며,
+총 4개의 배열이 자동 주입되어 테스트가 4회 수행됩니다.</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">  <span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">  <span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">DataTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">       * @dataProvider additionProvider
+</span></span></span><span class="line"><span class="cl"><span class="sd">       */</span>
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">function</span> <span class="nf">testAdd</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="nv">$expected</span><span class="p">,</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">function</span> <span class="nf">additionProvider</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>아래와 같이 이름이 정의된 dataset을 사용할 수도 있습니다.</p>
+<ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">  <span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">  <span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">DataTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">       * @dataProvider additionProvider
+</span></span></span><span class="line"><span class="cl"><span class="sd">       */</span>
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">function</span> <span class="nf">testAdd</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="nv">$expected</span><span class="p">,</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">public</span> <span class="k">function</span> <span class="nf">additionProvider</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;adding zeros&#39;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;zero plus one&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;one plus zero&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;one plus one&#39;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="depends" class="headerLink">
+    <a href="#depends" class="header-mark"></a>@depends</h2><h3 id="테스트-코드간의-종속성-정의" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%bd%94%eb%93%9c%ea%b0%84%ec%9d%98-%ec%a2%85%ec%86%8d%ec%84%b1-%ec%a0%95%ec%9d%98" class="header-mark"></a>테스트 코드간의 종속성 정의</h3><hr>
+<p><code>@depends</code> 어노테이션 사용시 테스트 코드간의 종속성을 선언 할 수 있습니다.</p>
+<p>실행순서를 정의하는것은 아니지만, <code>@depends</code>에 정의된 테스트의 리턴값의 레퍼런스를 전달합니다.</p>
+<p>레퍼런스 전달이 아닌 값의 깊은 복사를 원할 경우  <code>@depends clone</code> 를 이용하고,
+PHP에서 clone으로 불리는 얕은 복사를 원할 경우 <code>@depends shallowClone</code> 를 이용하면 됩니다.</p>
+<h2 id="doesnotperformassertions" class="headerLink">
+    <a href="#doesnotperformassertions" class="header-mark"></a>@doesNotPerformAssertions</h2><h3 id="값에-대한-assertion-없이-테스트-코드를-실행만-하고자-할때" class="headerLink">
+    <a href="#%ea%b0%92%ec%97%90-%eb%8c%80%ed%95%9c-assertion-%ec%97%86%ec%9d%b4-%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%bd%94%eb%93%9c%eb%a5%bc-%ec%8b%a4%ed%96%89%eb%a7%8c-%ed%95%98%ea%b3%a0%ec%9e%90-%ed%95%a0%eb%95%8c" class="header-mark"></a>값에 대한 assertion 없이 테스트 코드를 실행만 하고자 할때</h3><hr>
+<p>아래와 같이 테스트를 수행하지 않을 경우 <code>This test did not perform any assertions</code>와 같은 Warning이 발생됩니다.</p>
+<p>해당 어노테이션을 사용하면 Risky 없이 <code>OK (1 test, 0 assertions)</code>로 성공 처리됩니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+
+class MyTest extends TestCase
+{
+    public function testAddSlashes()
+    {
+        echo addslashes(&quot;name='1'&quot;);
+    }
+}
+
+// 출력 결과
+
+This test did not perform any assertions
+
+/opt/project/tests/MyTest.php:9
+name=\'1\'
+
+OK, but incomplete, skipped, or risky tests!
+Tests: 1, Assertions: 0, Risky: 1.
+
+&lt;?php
+
+namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+
+class MyTest extends TestCase
+{
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testAddSlashes()
+    {
+        echo addslashes(&quot;name='1'&quot;);
+    }
+}
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="group" class="headerLink">
+    <a href="#group" class="header-mark"></a>@group</h2><h3 id="테스트-코드에-태그를-달고-싶을때" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%ec%bd%94%eb%93%9c%ec%97%90-%ed%83%9c%ea%b7%b8%eb%a5%bc-%eb%8b%ac%ea%b3%a0-%ec%8b%b6%ec%9d%84%eb%95%8c" class="header-mark"></a>테스트 코드에 태그를 달고 싶을때</h3><hr>
+<p><code>@group</code>어노테이션을 이용하여, 테스트 코드에 1개 이상의 태그와 같이 묶음 필터를 추가할 수 있습니다.</p>
+<p>XML 설정 파일 주입을 이용 하거나 CLI에서 실행시 <code>--group</code> 과 <code>--exclude-group</code> 를 이용해서 테스트 실행 대상 또는 제외그룹을 설정할 수 있습니다.</p>
+<h2 id="large" class="headerLink">
+    <a href="#large" class="header-mark"></a>@large</h2><h3 id="60초-이상-실행-되면-실패-처리-하고자-할-때" class="headerLink">
+    <a href="#60%ec%b4%88-%ec%9d%b4%ec%83%81-%ec%8b%a4%ed%96%89-%eb%90%98%eb%a9%b4-%ec%8b%a4%ed%8c%a8-%ec%b2%98%eb%a6%ac-%ed%95%98%ea%b3%a0%ec%9e%90-%ed%95%a0-%eb%95%8c" class="header-mark"></a>60초 이상 실행 되면 실패 처리 하고자 할 때</h3><hr>
+<p><code>@group large</code>의 별칭으로,<code>PHP_Invoker</code> 패키지가 설치되어 있고, strict mode가 실행되어 있으면 <strong>60초</strong> 이상 실행 될 경우 실패 처리됩니다.
+해당 타임아웃에 관한 정보는 설정 정보 XML의 <code>timeoutForLargeTests</code>속성을 통해 설정 할 수 있습니다.</p>
+<h2 id="medium" class="headerLink">
+    <a href="#medium" class="header-mark"></a>@medium</h2><h3 id="10초-이상-실행-되면-실패-처리-하고자-할-때" class="headerLink">
+    <a href="#10%ec%b4%88-%ec%9d%b4%ec%83%81-%ec%8b%a4%ed%96%89-%eb%90%98%eb%a9%b4-%ec%8b%a4%ed%8c%a8-%ec%b2%98%eb%a6%ac-%ed%95%98%ea%b3%a0%ec%9e%90-%ed%95%a0-%eb%95%8c" class="header-mark"></a>10초 이상 실행 되면 실패 처리 하고자 할 때</h3><hr>
+<p><code>@group medium</code>의 별칭으로, <code>PHP_Invoker</code> 패키지가 설치되어 있고, strict mode가 실행되어 있으면 <strong>10초</strong> 이상 실행 될 경우 실패 처리됩니다.
+해당 타임아웃에 관한 정보는 설정 정보 XML의 <code>timeoutForMediumTests</code>속성을 통해 설정 할 수 있습니다.</p>
+<p>Medium 테스트는 <code>@large</code> 테스트에 의존적이여서는 안됩니다.</p>
+<h2 id="preserveglobalstate" class="headerLink">
+    <a href="#preserveglobalstate" class="header-mark"></a>@preserveGlobalState</h2><h3 id="테스트가-별도의-프로세스에서-실행될때-직렬화-오류-방지" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8%ea%b0%80-%eb%b3%84%eb%8f%84%ec%9d%98-%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4%ec%97%90%ec%84%9c-%ec%8b%a4%ed%96%89%eb%90%a0%eb%95%8c-%ec%a7%81%eb%a0%ac%ed%99%94-%ec%98%a4%eb%a5%98-%eb%b0%a9%ec%a7%80" class="header-mark"></a>테스트가 별도의 프로세스에서 실행될때 직렬화 오류 방지</h3><hr>
+<p>테스트가 별도의 프로세스에서 실행될 때, PHPUnit은부모 프로세스에서 글로벌 state를 직렬화 한 값을 자식 프로세스에서 역직렬화하여 상태를 보존합니다.</p>
+<p>부모 프로세스에서 직렬화 할 수 없는 글로벌 state가 있는 경우, 해당 옵션을 <code>disable</code> 처리하여 방지할 수 있습니다.</p>
+<h2 id="requires" class="headerLink">
+    <a href="#requires" class="header-mark"></a>@requires</h2><h3 id="특정-조건일때만-테스트를-수행하고자-할-때" class="headerLink">
+    <a href="#%ed%8a%b9%ec%a0%95-%ec%a1%b0%ea%b1%b4%ec%9d%bc%eb%95%8c%eb%a7%8c-%ed%85%8c%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ec%88%98%ed%96%89%ed%95%98%ea%b3%a0%ec%9e%90-%ed%95%a0-%eb%95%8c" class="header-mark"></a>특정 조건일때만 테스트를 수행하고자 할 때</h3><hr>
+<p>PHP의 버전이나 extensions 설치여부 등 전제 조건을 체크하여 테스트를 건너뛸 수 있습니다.</p>
+<p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>=</code>, <code>==</code>, <code>!=</code>, <code>&lt;&gt;</code> 등의 비교 연산자를 사용하여 버전을 비교할 수 있습니다.</p>
+<p>해당 어노테이션을 이용해 체크 가능한 항목은 아래와 같습니다.</p>
+<ul>
+<li>체크 가능한 조건
+<ul>
+<li>PHP
+<ul>
+<li>PHP 버전</li>
+</ul>
+</li>
+<li>PHPUnit
+<ul>
+<li>PHP Unit 버전</li>
+</ul>
+</li>
+<li>OS
+<ul>
+<li><code>PHP_OS</code> 상수와 정규식으로 매칭되는 값입니다.
+ex) WIN32|WINNT</li>
+</ul>
+</li>
+<li>OSFAMILY
+<ul>
+<li><code>PHP_OS_FAMILY</code> 상수와 매칭되는 값으로 PHP 7.2.0부터 사용가능합니다.
+ex) Windows</li>
+</ul>
+</li>
+<li>function
+<ul>
+<li>함수 존재 여부 → function_exists()</li>
+</ul>
+</li>
+<li>extension
+<ul>
+<li>extension 설치 여부 및 버전 체크</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<pre><code>/**
+ * @requires extension mysqli
+ */
+class DatabaseTest extends TestCase
+{
+    /**
+     * @requires PHP &gt;= 5.3
+     */
+    public function testConnection()
+    {
+                // 해당 테스트는 mysqli 확장프로그램이 설치되어 있고, PHP 버전이 5.3 이상일때 실행됩니다.
+    }
+
+    // 추가적인 테스트를 작성하였을때에도 mysqli 확장프로그램이 필요합니다.
+}
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="runtestsinseparateprocesses" class="headerLink">
+    <a href="#runtestsinseparateprocesses" class="header-mark"></a>@runTestsInSeparateProcesses</h2><h3 id="테스트-클래스-내의-모든-테스트-메소드가-별도-php프로세스에서-테스트코드를-실행-하는것을-명시할-때" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%ed%81%b4%eb%9e%98%ec%8a%a4-%eb%82%b4%ec%9d%98-%eb%aa%a8%eb%93%a0-%ed%85%8c%ec%8a%a4%ed%8a%b8-%eb%a9%94%ec%86%8c%eb%93%9c%ea%b0%80-%eb%b3%84%eb%8f%84-php%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4%ec%97%90%ec%84%9c-%ed%85%8c%ec%8a%a4%ed%8a%b8%ec%bd%94%eb%93%9c%eb%a5%bc-%ec%8b%a4%ed%96%89-%ed%95%98%eb%8a%94%ea%b2%83%ec%9d%84-%eb%aa%85%ec%8b%9c%ed%95%a0-%eb%95%8c" class="header-mark"></a>테스트 클래스 내의 모든 테스트 메소드가 별도 PHP프로세스에서 테스트코드를 실행 하는것을 명시할 때</h3><hr>
+<p>해당 테스트 클래스 내의 모든 테스트 메소드들이 별도의 PHP 프로세스에서 실행되어야 함을 표시 할 때 사용합니다.</p>
+<p>PHPUnit은 직렬화를 통해 Global state를 유지하려 하기 때문에, 직렬화가 불가능한 부분은 <code>@preserveGlobalState</code>를 참조하세요.</p>
+<h2 id="runinseparateprocess" class="headerLink">
+    <a href="#runinseparateprocess" class="header-mark"></a>@runInSeparateProcess</h2><hr>
+<p>해당 테스트 메소드가 별도의 PHP 프로세스에서 실행되어야 함을 표시 할 때 사용합니다.</p>
+<p>PHPUnit은 직렬화를 통해 Global state를 유지하려 하기 때문에, 직렬화가 불가능한 부분은 <code>@preserveGlobalState</code>를 참조하세요.</p>
+<h2 id="small" class="headerLink">
+    <a href="#small" class="header-mark"></a>@small</h2><hr>
+<p><code>@group small</code>의 별칭으로, <code>PHP_Invoker</code> 패키지가 설치되어 있고, strict mode가 실행되어 있으면 <strong>1초</strong> 이상 실행 될 경우 실패 처리됩니다.
+해당 타임아웃에 관한 정보는 설정 정보 XML의 <code>timeoutForSmallTests</code>속성을 통해 설정 할 수 있습니다.</p>
+<p>Medium 테스트는 <code>@large</code> 와 <code>@medium</code>로 마킹된 테스트에 의존적이여서는 안됩니다.</p>
+<p>※ <strong>테스트의 실행 시간 제어를 하고자 할 때, <code>@small</code>, <code>@medium</code>, <code>@large</code> 와 같은 어노테이션을 명시적으로 사용해야합니다.</strong></p>
+<h2 id="test" class="headerLink">
+    <a href="#test" class="header-mark"></a>@test</h2><h3 id="테스트-메소드명을-test로-시작하고싶지-않을-때" class="headerLink">
+    <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%eb%a9%94%ec%86%8c%eb%93%9c%eb%aa%85%ec%9d%84-test%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%ec%8b%b6%ec%a7%80-%ec%95%8a%ec%9d%84-%eb%95%8c" class="header-mark"></a>테스트 메소드명을 test로 시작하고싶지 않을 때</h3><hr>
+<p>테스트 메소드는 메소드명의 prefix로 test를 사용합니다.</p>
+<p>테스트 메소드명의 prefix로 <code>test</code>를 사용하지 않는 대안으로, 주석에 <code>@test</code> 어노테이션을 사용하면 테스트 메소드라고 인식됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" title="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" data-thumbnail="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png">
+        <img
+            
+            loading="lazy"
+            src="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
+            srcset="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 1.5x, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 2x"
+            sizes="auto"
+            alt="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png">
+    </a></figure></p>
+<p><figure><a class="lightgallery" href="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" title="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" data-thumbnail="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png">
+        <img
+            
+            loading="lazy"
+            src="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
+            srcset="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 1.5x, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 2x"
+            sizes="auto"
+            alt="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png">
+    </a></figure></p>
+<h2 id="testdox" class="headerLink">
+    <a href="#testdox" class="header-mark"></a>@testdox</h2><h3 id="testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때" class="headerLink">
+    <a href="#testdox-%ec%98%b5%ec%85%98%ec%9c%bc%eb%a1%9c-%ec%83%9d%ec%84%b1%eb%90%98%eb%8a%94-%eb%ac%b8%ec%84%9c%ec%9d%98-%ec%84%a4%eb%aa%85%ec%9d%84-%eb%8c%80%ec%b2%b4%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때</h3><hr>
+<p><code>--testdox</code>를 옵션으로 주었을때, 메소드의 이름으로부터 만들어진 설명을 오버라이딩 할 수 있습니다.</p>
+<p>클래스 또는 메소드의 설명을 더 명확히 만들어 agile document를 만들 수 있습니다.</p>
+<p><strong>주의할 점으로는 PHPUnit v7.0까지는 어노테이션 파싱 오류로, @test로 인식되어 동작합니다.</strong></p>
+<h2 id="testwith" class="headerLink">
+    <a href="#testwith" class="header-mark"></a>@testWith</h2><h3 id="주석을-이용해-파라미터를-주입하고-싶을때" class="headerLink">
+    <a href="#%ec%a3%bc%ec%84%9d%ec%9d%84-%ec%9d%b4%ec%9a%a9%ed%95%b4-%ed%8c%8c%eb%9d%bc%eb%af%b8%ed%84%b0%eb%a5%bc-%ec%a3%bc%ec%9e%85%ed%95%98%ea%b3%a0-%ec%8b%b6%ec%9d%84%eb%95%8c" class="header-mark"></a>주석을 이용해 파라미터를 주입하고 싶을때</h3><hr>
+<p><code>@dataProvider</code>는 호출될 메소드를 필요로 하지만, 주석만을 이용해 테스트하고자 할 때에는
+<code>@testWith</code>를 사용할 수 있습니다.</p>
+<p>JSON 포맷은 연관배열로 주입됩니다.</p>
+<p><strong>주의 할 점은 여러개의 dataset을 정의할 때에는 라인당 하나씩 지정해야합니다.</strong></p>
+<p>아래의 두개의 코드는 동일하게 동작합니다.</p>
+<!-- raw HTML omitted -->
+<pre><code>/**
+ * @param string    $input
+ * @param int       $expectedLength
+ *
+ * @testWith        [&quot;test&quot;, 4]
+ *                  [&quot;longer-string&quot;, 13]
+ */
+public function testStringLength(string $input, int $expectedLength)
+{
+    $this-&gt;assertSame($expectedLength, strlen($input));
+}
+
+/**
+ * @param string    $input
+ * @param int       $expectedLength
+ *
+ * @dataProvider    additionProvider
+ */
+public function testStringLengthWithDataProvider(string $input, int $expectedLength)
+{
+    $this-&gt;assertSame($expectedLength, strlen($input));
+}
+
+public function additionProvider()
+{
+        return [
+                [&quot;test&quot;, 4],
+                [&quot;longer-string&quot;, 13]
+        ];
+}
+
+/**
+ * @param array     $array
+ * @param array     $keys
+ *
+ * @testWith        [{&quot;day&quot;: &quot;monday&quot;, &quot;conditions&quot;: &quot;sunny&quot;}, [&quot;day&quot;, &quot;conditions&quot;]]
+ */
+public function testArrayKeys($array, $keys)
+{
+    $this-&gt;assertSame($keys, array_keys($array));
+}
+
+/**
+ * @param array     $array
+ * @param array     $keys
+ *
+ * @dataProvider    additionProvider
+ */
+public function testArrayKeysWithDataProvider($array, $keys)
+{
+    $this-&gt;assertSame($keys, array_keys($array));
+}
+
+public function additionProvider()
+{
+        return [
+                [[&quot;day&quot; =&gt; &quot;monday&quot;, &quot;conditions&quot; =&gt; &quot;sunny&quot;], [&quot;day&quot;, &quot;conditions&quot;]]
+        ];
+}
+```
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="ticket" class="headerLink">
+    <a href="#ticket" class="header-mark"></a>@ticket</h2><h3 id="ticket-idjira-이슈-코드와-같은로-테스트를-필터링-할-때" class="headerLink">
+    <a href="#ticket-idjira-%ec%9d%b4%ec%8a%88-%ec%bd%94%eb%93%9c%ec%99%80-%ea%b0%99%ec%9d%80%eb%a1%9c-%ed%85%8c%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ed%95%84%ed%84%b0%eb%a7%81-%ed%95%a0-%eb%95%8c" class="header-mark"></a>Ticket ID(JIRA 이슈 코드와 같은)로 테스트를 필터링 할 때</h3><hr>
+<p><code>@group</code> 어노테이션의 별칭. ticket ID를 이용하여 테스트를 필터링 할 수 있도록 하여줍니다.</p>
+<h2 id="uses" class="headerLink">
+    <a href="#uses" class="header-mark"></a>@uses</h2><hr>
+<p>테스트에 의해 실행될 코드를 지정합니다.</p>
+<p>좋은 예제는 아래와 같이 유닛 테스트 코드에 필요한 Object 값 입니다.</p>
+<!-- raw HTML omitted -->
+<p>해당 어노테이션에는 정규화 된 클래스명을 사용해야하기때문에,
+모호하지 않도록 클래스명 맨 앞에 <code>\</code> 로 시작하는것을 추천합니다.</p>
+]]></description></item><item><title>［Java］@AllArgsConstructor의 잘못된 사용</title><link>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</link><pubDate>Tue, 28 May 2019 23:29:30 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</guid><description><![CDATA[<h1 id="consider-defining-a-bean-of-type-javalangstring-in-your-configuration" class="headerLink">
+    <a href="#consider-defining-a-bean-of-type-javalangstring-in-your-configuration" class="header-mark"></a>Consider defining a bean of type java.lang.String in your configuration.</h1><p>스프링부트로 서비스를 개발중에 <code>@Value</code> 어노테이션을 이용하여 application.yml 파일에 저장해둔 환경변수에 접근하고 싶었는데,<!-- raw HTML omitted -->
+아래와 같은 오류가 발생하였습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Parameter <span class="m">2</span> of constructor in com.hodory.v1.service.MyService required a bean of <span class="nb">type</span> <span class="s1">&#39;java.lang.String&#39;</span> that could not be found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Consider defining a bean of <span class="nb">type</span> <span class="s1">&#39;java.lang.String&#39;</span> in your configuration.
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Retrofit을 사용하기위해 apiBaseUrl을 가져오려 작성한 코드는 아래와 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@AllArgsConstructor</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyService</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">MyRepository</span> <span class="n">myRepository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ModelMapper</span> <span class="n">modelMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${config.endpoint.url}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">serviceUrl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>필드에 <code>@Autowired</code>를 사용하는것은 권장하지 않는다는 IDE에서 나오는 메세지때문에 이 방식은 사용하지 않았습니다.</p>
+<p>생성자를 이용한 주입이 아닌 <code>@AllArgsConstructor</code> 어노테이션을 사용한 이유는<!-- raw HTML omitted -->
+이전에 사용하였을때, 생성자를 이용해 직접 주입하는 방식보다, 의존성 주입 할 대상이 많아졌을때 훨씬 더 깔끔하였던 경험이 있어,<!-- raw HTML omitted -->
+해당 어노테이션을 사용하였습니다.</p>
+<p><code>private String serviceUrl</code> 을 추가하고나서부터 해당 오류가 나타났습니다.</p>
+<p>한참을 고민하다가 팀원들의 도움을 받아 원인을 알게 되었는데,</p>
+<p><code>serviceUrl</code>이라는 값은 <code>String</code> 타입의 변수일 뿐, 스프링에서 관리하는 Bean이 아니기 때문에 의존성 자동 주입이 될 수 없다는것이였습니다.</p>
+<p><code>@Value</code>를 사용하면 자동 주입이 되는줄 알았는데, 제가 생각했던것과 달랐습니다.</p>
+<p>아래와 같이 스프링 애플리케이션에 의해 자동 주입 가능한 필드들을 파라미터로 가진 생성자를 만들어 필드에 매핑하도록 수정 하였더니,<!-- raw HTML omitted -->
+오류 없이 serviceUrl에 application.yml파일에 있던 url도 설정 되어 있었습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyService</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">MyRepository</span> <span class="n">myRepository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ModelMapper</span> <span class="n">modelMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${config.endpoint.url}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">serviceUrl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">MyService</span><span class="o">(</span><span class="n">MyRepository</span> <span class="n">repository</span><span class="o">,</span> <span class="n">ModelMapper</span> <span class="n">modelMapper</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">myRepository</span> <span class="o">=</span> <span class="n">repository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">modelMapper</span> <span class="o">=</span> <span class="n">modelMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>위와 같이 생성자에 직접 필요한 Bean들을 명시하여 주입 하는 방식 말고도<!-- raw HTML omitted -->
+기존 코드에서 <code>@AllArgsConstructor</code> 대신 <code>@RequiredArgsConstructor</code> 어노테이션을 사용하기만 하면,<!-- raw HTML omitted -->
+<code>final</code>로 선언된 필드나 <code>@NonNull</code> 어노테이션을 사용한 필드만을 필요로 하는 생성자를 만들어주기 때문에,<!-- raw HTML omitted -->
+이 경우에는 원하는 결과를 얻을 수 있었습니다.</p>
+<p>자바에도 익숙 하지 않고, 의존성 주입이라는 개념에 대해 익숙하지 않은데,<!-- raw HTML omitted -->
+원리를 파악하지 않고, 남들을 따라하는 기존의 자세에 반성하는 계기가 되었으며,</p>
+<p>어노테이션을 사용 할 때 해당 어노테이션이 해주는 기능만 파악 하는 것 만큼<!-- raw HTML omitted -->
+어떻게 동작하는지(예를 들어 <code>lombok</code>의 경우 어떤 코드를 생성 해주는지)등을 유의하며 사용해야겠다고 느꼈습니다.</p>
+]]></description></item></channel></rss>

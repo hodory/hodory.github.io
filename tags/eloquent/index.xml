@@ -1,6 +1,111 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Eloquent - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/eloquent/</link><description>Eloquent - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 27 Apr 2019 00:15:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/eloquent/" rel="self" type="application/rss+xml"/><item><title>［Laravel］with() | has() | whereHas() 뭐가 다를까</title><link>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</link><pubDate>Sat, 27 Apr 2019 00:15:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</guid><description><![CDATA[ORM도 익숙하지 않지만, Eloquent ORM은 처음 접해보면서,
-쿼리빌더를 사용하는것은 ORM스럽지 못하다 느껴 최대한 ORM으로 풀고 싶었습니다
-검색으로 알아보던중 Eloquent:Relations에 대해 알게되었습니다.
-라라벨 공식 문서 : 관계의 존재 여부 쿼리 질의하기
-예를들어 User가 여러개의 Post 를 가지고 있다면, User 클래스에 $this-&gt;hasMany('App\Post');를 설정해 두었을 것이라는 가정하에 설명을 진행하도록 하겠습니다.
-with() user id name post id user_id title 이와 같은 테이블 구조에서 유저가 작성한 글의 제목을 조회하려면 $users = selectAll(&#34;select * from `user`); foreach ($users as $user) { $user[&#39;post_title&#39;] = selectOne(&#34;select `title` from `post` where `post`.]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Eloquent - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/eloquent/</link><description>Eloquent - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Sat, 27 Apr 2019 00:15:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/eloquent/" rel="self" type="application/rss+xml"/><item><title>［Laravel］with() | has() | whereHas() 뭐가 다를까</title><link>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</link><pubDate>Sat, 27 Apr 2019 00:15:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</guid><description><![CDATA[<p>ORM도 익숙하지 않지만, Eloquent ORM은 처음 접해보면서,</p>
+<p>쿼리빌더를 사용하는것은 ORM스럽지 못하다 느껴 최대한 ORM으로 풀고 싶었습니다</p>
+<p>검색으로 알아보던중 <a href="https://laravel.kr/docs/5.8/eloquent-relationships" target="_blank" rel="noopener noreferrer">Eloquent:Relations</a>에 대해 알게되었습니다.</p>
+<p><a href="https://laravel.kr/docs/5.8/eloquent-relationships#%EA%B4%80%EA%B3%84%EC%9D%98%20%EC%A1%B4%EC%9E%AC%20%EC%97%AC%EB%B6%80%20%EC%BF%BC%EB%A6%AC%20%EC%A7%88%EC%9D%98%ED%95%98%EA%B8%B0" target="_blank" rel="noopener noreferrer">라라벨 공식 문서 : 관계의 존재 여부 쿼리 질의하기</a></p>
+<p>예를들어 <code>User</code>가 여러개의 <code>Post</code> 를 가지고 있다면,<!-- raw HTML omitted -->
+<code>User</code> 클래스에 <code>$this-&gt;hasMany('App\Post');</code>를 설정해 두었을 것이라는 가정하에 설명을 진행하도록 하겠습니다.</p>
+<!-- raw HTML omitted -->
+<h2 id="with" class="headerLink">
+    <a href="#with" class="header-mark"></a>with()</h2><ul>
+<li>user
+<ul>
+<li>id</li>
+<li>name</li>
+</ul>
+</li>
+<li>post
+<ul>
+<li>id</li>
+<li>user_id</li>
+<li>title
+이와 같은 테이블 구조에서 유저가 작성한 글의 제목을 조회하려면</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$users</span> <span class="o">=</span> <span class="nx">selectAll</span><span class="p">(</span><span class="s2">&#34;select * from `user`);
+</span></span></span><span class="line"><span class="cl"><span class="s2">foreach (</span><span class="si">$users</span><span class="s2"> as </span><span class="si">$user</span><span class="s2">) {
+</span></span></span><span class="line"><span class="cl"><span class="s2">    </span><span class="si">$user[&#39;post_title&#39;]</span><span class="s2"> = selectOne(&#34;</span><span class="nx">select</span> <span class="sb">`title`</span> <span class="nx">from</span> <span class="sb">`post`</span> <span class="nx">where</span> <span class="sb">`post`</span><span class="o">.</span><span class="sb">`user_id`</span> <span class="o">=</span> <span class="p">{</span><span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]}</span><span class="s2">&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s2">}
+</span></span></span></code></pre></div><p>회원을 조회하고, 회원들을 순회하며 게시물을 조회하는 코드입니다.<!-- raw HTML omitted -->
+이 경우 회원이 1000명일 경우 쿼리는 1001번 실행하게 됩니다.<!-- raw HTML omitted -->
+이것을 <a href="https://zetawiki.com/wiki/N%2B1_%EC%BF%BC%EB%A6%AC_%EB%AC%B8%EC%A0%9C" target="_blank" rel="noopener noreferrer">N+1쿼리 문제</a> 라고 합니다.</p>
+<p>사람들에 따라 직관적이여서 선호하기도 하고,<!-- raw HTML omitted -->
+join으로 실행시 쿼리가 오래 걸리면 이와 같이 분리하여 사용하기도 합니다.
+또는 join으로 해결할 수 없는 상황에서도 사용합니다.</p>
+<p>이 문제를 해결 하기 위해</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">$</span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selectAll</span><span class="p">(</span><span class="s2">&#34;select `user`.*,`post`.`title` as post_title from `user` left join `post` on `post`.`user_id` = `user`.`id`&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span></code></pre></div><p>join으로 해결할 수 없는 경우를 제외 하고는 위와 같이 join을 사용해서 조회 할 수 있습니다.</p>
+<p>또한 이 문제는 ORM에서 주로 발생 합니다.<!-- raw HTML omitted -->
+ORM을 사용하면 user와 post의 관계를 설정하고, 아래와 같이 사용할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">all</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>해당 코드는</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><p>user를 조회하고, user의 수 만큼 post를 조회합니다.<!-- raw HTML omitted -->
+위의 N+1 문제와 같은 문제입니다.</p>
+<p>이 문제를 해결 하기 위한 방안으로는 <a href="https://zetawiki.com/wiki/%EC%A6%89%EC%8B%9C_%EB%A1%9C%EB%94%A9" target="_blank" rel="noopener noreferrer">즉시 로딩(Eager Loading)</a>이 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>이와같이 <code>with()</code>를 사용하면 미리 선언한 관계를 사용하여 같이 가져올수있습니다.<!-- raw HTML omitted -->
+언뜻 보기엔 별 다를바 없어 보이는 코드이지만 with 메소드를 사용하면, user와 연관된 post를 미리 로드합니다.</p>
+<p>실행되는 쿼리는</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w">
+</span></span></span></code></pre></div><p>위와 같이 쿼리 2개만 실행이 되어 쿼리 실행을 최소화 할 수 있습니다.</p>
+<p><code>with()</code> 메소드의 2번째 파라미터를 사용해 제한 할 수도 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">foreach</span><span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">with</span><span class="p">([</span><span class="s1">&#39;posts&#39;</span> <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;치킨%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">;</span>
+</span></span></code></pre></div><p><code>user</code>를 조회할 때, <code>치킨</code>으로 시작하는 <code>post</code>를 같이 미리 로드 할 수 있습니다.</p>
+<h2 id="has" class="headerLink">
+    <a href="#has" class="header-mark"></a>has()</h2><p><code>has()</code> 메소드를 이용하면, 해당 관계에서 최소 한개를 가지고 있는 결과를 조회합니다</p>
+<p><code>User::has('posts')-&gt;get();</code>을 사용하면 post를 한개라도 작성한 회원을 조회할것입니다.</p>
+<p>쿼리로 표현한다면, 아래와 비슷할것 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">join</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w">
+</span></span></span></code></pre></div><p>has 메소드는 2번째 파라미터에 <code>operator</code> 와 3번째 파라미터에 <code>count</code>를 사용할 수 있습니다.<!-- raw HTML omitted --></p>
+<p>이 파라미터를 사용하면 예로 5개 이상의 글을 작성한 회원을 찾을 수 있습니다.
+Eloquent를 사용하면 이와같이 작성 할 수 있습니다.<!-- raw HTML omitted -->
+<code>User::has('posts', '&gt;=', 5)-&gt;get();</code></p>
+<h2 id="wherehas" class="headerLink">
+    <a href="#wherehas" class="header-mark"></a>whereHas()</h2><p>그렇다면 <code>whereHas()</code>는 뭐가 다를까요? <!-- raw HTML omitted -->
+<code>whereHas()</code> 메소드는 두번째 파라미터로 콜백을 받아 더 복잡한 쿼리를 처리할 수 있습니다.</p>
+<p>위와 같은 모델링에서 게시글의 제목이 <code>치킨</code>으로 시작하는 글을 작성한 회원을 찾는다면 아래와 같을것 입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">User</span><span class="o">::</span><span class="na">whereHas</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;치킨%&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</span></span></code></pre></div><p>쿼리로 표현한다면</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">join</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">on</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">and</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;치킨%&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">OR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">join</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;치킨%&#39;</span><span class="w">
+</span></span></span></code></pre></div><p>이와 같이 표현할 수 있을것 같습니다.</p>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="https://stackoverflow.com/questions/30231862/laravel-eloquent-has-with-wherehas-what-do-they-mean?answertab=votes#tab-top" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">Stack Overflow -&gt; Laravel - Eloquent “Has”, “With”, “WhereHas” - What do they mean?</a></li>
+<li><a href="https://laravel.kr/docs/5.8/eloquent-relationships" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">Laravel 공식 문서 -&gt; Eloquent: Relationships - 관계</a></li>
+</ul>
+]]></description></item></channel></rss>

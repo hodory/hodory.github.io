@@ -1,7 +1,31 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>GAE - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/gae/</link><description>GAE - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 20 Jul 2018 14:45:42 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/gae/" rel="self" type="application/rss+xml"/><item><title>［GCP］ Nuxt.js GAE에 배포 이슈사항</title><link>http://blog.hodory.dev/2018/07/20/deploy-nuxt-to-gae/</link><pubDate>Fri, 20 Jul 2018 14:45:42 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/07/20/deploy-nuxt-to-gae/</guid><description><![CDATA[502 Bad Gateway배포 후 링크 접속시 502 Bad Gateway 에러가 발생하였는데
-에러 로그를 보니 localhost:8080로 접근하고 있었다
-검색 결과 NuxtJS의 실행 포트를 변경할 수 있는 방법이 소개 되어있었다.
-package.json에 다음과 같이 작성하면 된다.
-{ ... &#34;config&#34;: { &#34;nuxt&#34;: { &#34;host&#34;: &#34;0.0.0.0&#34;, &#34;port&#34;: &#34;8080&#34; } } } 또는
-{ &#34;scripts&#34;: { ... &#34;start&#34;: &#34;HOST=0.0.0.0 PORT=8080 nuxt build &amp;&amp; nuxt start&#34; } } 으로 작성하여 다시 deploy 하면 정상적으로 동작한다.
-참고자료]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>GAE - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/gae/</link><description>GAE - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Fri, 20 Jul 2018 14:45:42 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/gae/" rel="self" type="application/rss+xml"/><item><title>［GCP］ Nuxt.js GAE에 배포 이슈사항</title><link>http://blog.hodory.dev/2018/07/20/deploy-nuxt-to-gae/</link><pubDate>Fri, 20 Jul 2018 14:45:42 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/07/20/deploy-nuxt-to-gae/</guid><description><![CDATA[<h2 id="502-bad-gateway" class="headerLink">
+    <a href="#502-bad-gateway" class="header-mark"></a>502 Bad Gateway</h2><p>배포 후 링크 접속시 502 Bad Gateway 에러가 발생하였는데</p>
+<p>에러 로그를 보니 localhost:8080로 접근하고 있었다</p>
+<!-- raw HTML omitted -->
+<p>검색 결과 NuxtJS의 실행 포트를 변경할 수 있는 방법이 소개 되어있었다.</p>
+<p>package.json에 다음과 같이 작성하면 된다.</p>
+<pre tabindex="0"><code>{
+  ...
+  &#34;config&#34;: {
+    &#34;nuxt&#34;: {
+      &#34;host&#34;: &#34;0.0.0.0&#34;,
+      &#34;port&#34;: &#34;8080&#34;
+    }
+  }
+}
+</code></pre><p>또는</p>
+<pre tabindex="0"><code>{
+  &#34;scripts&#34;: {
+    ...
+    &#34;start&#34;: &#34;HOST=0.0.0.0 PORT=8080 nuxt build &amp;&amp; nuxt start&#34;
+  }
+}
+</code></pre><p>으로 작성하여 다시 deploy 하면 정상적으로 동작한다.</p>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/nuxt/nuxt.js/issues/344" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">NuxtJS Github ISSUE - 334(Google Cloud Deployment)</a></li>
+<li><a href="https://ko.nuxtjs.org/faq/host-port/" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">NuxtJS FAQ - host 와 port 번호를 변경하려면?</a></li>
+</ul>
+]]></description></item></channel></rss>

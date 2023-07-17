@@ -1,9 +1,193 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Laravel - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/laravel/</link><description>Laravel - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 10 Jan 2020 00:36:54 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/laravel/" rel="self" type="application/rss+xml"/><item><title>[PHP] InvalidArgumentException : Unable to locate factory with name [default]</title><link>http://blog.hodory.dev/2020/01/10/unable-to-locale-factory-with-name-default/</link><pubDate>Fri, 10 Jan 2020 00:36:54 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2020/01/10/unable-to-locale-factory-with-name-default/</guid><description><![CDATA[발단Laravel Framework로 TDD를 진행중에 Unit Test를 하기 위해 artisan 콘솔을 이용하여 TaskTest 라는 이름의 테스트 클래스를 생성하였습니다.
-$ php artisan make:test TaskTest --unit 코드는 간단했습니다.
-&lt;?php namespace Tests\Unit; use App\Project; use Illuminate\Foundation\Testing\RefreshDatabase; use PHPUnit\Framework\TestCase; class TaskTest extends TestCase { use RefreshDatabase; /** * @test */ public function it_belongs_to_a_project() { $task = factory(&#39;App\Task&#39;)-&gt;create(); $this-&gt;assertInstanceOf(Project::class, $task-&gt;project); } } 해당 테스트를 생성 후 아래와 같이 PHPUnit으로 해당 테스트를 실행하였더니
-$ ./vendor/bin/phpunit --filter it_belongs_to_a_project 아래 이미지와 같은 에러가 나왔습니다.]]></description></item><item><title>［Laravel］with() | has() | whereHas() 뭐가 다를까</title><link>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</link><pubDate>Sat, 27 Apr 2019 00:15:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</guid><description><![CDATA[ORM도 익숙하지 않지만, Eloquent ORM은 처음 접해보면서,
-쿼리빌더를 사용하는것은 ORM스럽지 못하다 느껴 최대한 ORM으로 풀고 싶었습니다
-검색으로 알아보던중 Eloquent:Relations에 대해 알게되었습니다.
-라라벨 공식 문서 : 관계의 존재 여부 쿼리 질의하기
-예를들어 User가 여러개의 Post 를 가지고 있다면, User 클래스에 $this-&gt;hasMany('App\Post');를 설정해 두었을 것이라는 가정하에 설명을 진행하도록 하겠습니다.
-with() user id name post id user_id title 이와 같은 테이블 구조에서 유저가 작성한 글의 제목을 조회하려면 $users = selectAll(&#34;select * from `user`); foreach ($users as $user) { $user[&#39;post_title&#39;] = selectOne(&#34;select `title` from `post` where `post`.]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Laravel - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/laravel/</link><description>Laravel - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Fri, 10 Jan 2020 00:36:54 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/laravel/" rel="self" type="application/rss+xml"/><item><title>[PHP] InvalidArgumentException : Unable to locate factory with name [default]</title><link>http://blog.hodory.dev/2020/01/10/unable-to-locale-factory-with-name-default/</link><pubDate>Fri, 10 Jan 2020 00:36:54 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2020/01/10/unable-to-locale-factory-with-name-default/</guid><description><![CDATA[<h2 id="발단" class="headerLink">
+    <a href="#%eb%b0%9c%eb%8b%a8" class="header-mark"></a>발단</h2><p>Laravel Framework로 TDD를 진행중에 Unit Test를 하기 위해 artisan 콘솔을 이용하여 <code>TaskTest</code> 라는 이름의 테스트 클래스를 생성하였습니다.</p>
+<pre tabindex="0"><code class="language-shellscript" data-lang="shellscript">$ php artisan make:test TaskTest --unit
+</code></pre><p>코드는 간단했습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nx">Tests\Unit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">App\Project</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">Illuminate\Foundation\Testing\RefreshDatabase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TaskTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">use</span> <span class="nx">RefreshDatabase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @test
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">it_belongs_to_a_project</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$task</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;App\Task&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertInstanceOf</span><span class="p">(</span><span class="nx">Project</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$task</span><span class="o">-&gt;</span><span class="na">project</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>해당 테스트를 생성 후 아래와 같이 PHPUnit으로 해당 테스트를 실행하였더니</p>
+<pre tabindex="0"><code class="language-shellscript" data-lang="shellscript">$ ./vendor/bin/phpunit --filter it_belongs_to_a_project
+</code></pre><p>아래 이미지와 같은 에러가 나왔습니다.
+<figure><a class="lightgallery" href="/images/Unable-to-locale-factory-with-name-default/1.jpg" title="/images/Unable-to-locale-factory-with-name-default/1.jpg" data-thumbnail="/images/Unable-to-locale-factory-with-name-default/1.jpg">
+        <img
+            
+            loading="lazy"
+            src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+            srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
+            sizes="auto"
+            alt="/images/Unable-to-locale-factory-with-name-default/1.jpg">
+    </a></figure></p>
+<h2 id="invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="headerLink">
+    <a href="#invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="header-mark"></a><code>InvalidArgumentException : Unable to locate factory with name [default] [App\Task]</code></h2><p>과연 무엇이 문제일까 싶어 해당 모델의 migration이 제대로 안된걸까요?</p>
+<!-- raw HTML omitted -->
+<p>migrate 명령어도 실행해보았고, Controller Test에서 사용할때에는 문제가 없었지만 factory 코드도 다시 작성 해보았습니다.</p>
+<p>구글링으로 <a href="https://www.lesstif.com/pages/viewpage.action?pageId=26084077" target="_blank" rel="noopener noreferrer">정광섭님의 위키</a>를 참고했을때는 factory에 클래스가 제대로 설정된게 아닌 경우라 하여,<!-- raw HTML omitted -->
+<code>factory('App\Task')</code> 와 <code>factory(Task::class)</code> 와 <code>factory(\App\Task::class)</code> 모두 테스트 해보았는데 모두 동작을 안했고,<!-- raw HTML omitted --></p>
+<p>Laracast와 StackoverFlow에서는 phpunit의 setup 메소드를 상속하여,<!-- raw HTML omitted -->
+<code>parent::setup()</code> 을 호출하고, factory를 호출하면 해결된다는 답변들도 확인하였으나, 제게 맞는 해결 방법은 아니였습니다.</p>
+<p>하지만 라라캐스트 질문의 <a href="https://laracasts.com/discuss/channels/testing/unable-to-locate-factory-with-name-default?page=1#reply=400775" target="_blank" rel="noopener noreferrer">어떤 답변</a>에서는
+<code>--unit</code>으로 생성한 테스트 클래스가 상속하는 TestCase 클래스가 <code>\Tests\TestCase</code> 가 아닌 <code>\PHPUnit\Framework\TestCase</code>여서 발생했다는 내용이 있었습니다.</p>
+<h2 id="해결" class="headerLink">
+    <a href="#%ed%95%b4%ea%b2%b0" class="header-mark"></a>해결</h2><p>저도 이걸 확인하고 바로 위의 코드를 아래와 같이 변경하였습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nx">Tests\Unit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">App\Project</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">Illuminate\Foundation\Testing\RefreshDatabase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="k">use</span> <span class="nx">PHPUnit\Framework\TestCase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="k">use</span> <span class="nx">Tests\TestCase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TaskTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">use</span> <span class="nx">RefreshDatabase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @test
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">it_belongs_to_a_project</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$task</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;App\Task&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertInstanceOf</span><span class="p">(</span><span class="nx">Project</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$task</span><span class="o">-&gt;</span><span class="na">project</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>네임스페이스를 확인할 생각은 전혀 하지 못했는데, 일반적인 테스트 클래스는 모두 <code>use Tests\TestCase;</code> 이렇게 선언되어있었으나<!-- raw HTML omitted -->
+<code>--unit</code>으로 선언했을때는 <code>use PHPUnit\Framework\TestCase;</code>으로 자동 설정되어있었습니다.</p>
+<p>아직까지 artisan에서 <code>--unit</code> 옵션을 사용하여 테스트 클래스를 만들었을때 namespace 변경 없이 하는 방법은 찾지 못하였는데,<!-- raw HTML omitted -->
+<code>Illuminate\Foundation\Testing\TestCase</code> 에서 무언가 factory 메소드의 파라미터로 모델을 주입해주는 설정해주는것으로 보입니다.</p>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="https://www.lesstif.com/pages/viewpage.action?pageId=26084077" target="_blank" rel="noopener noreferrer">정광섭님의 위키</a></li>
+<li><a href="https://laracasts.com/discuss/channels/testing/unable-to-locate-factory-with-name-default?page=1#reply=400775" target="_blank" rel="noopener noreferrer">Laracast &ldquo;Unable to locate factory with name [default]??&rdquo;- amcsi</a></li>
+</ul>
+]]></description></item><item><title>［Laravel］with() | has() | whereHas() 뭐가 다를까</title><link>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</link><pubDate>Sat, 27 Apr 2019 00:15:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/04/27/eloquent-orm-with-has-where-has/</guid><description><![CDATA[<p>ORM도 익숙하지 않지만, Eloquent ORM은 처음 접해보면서,</p>
+<p>쿼리빌더를 사용하는것은 ORM스럽지 못하다 느껴 최대한 ORM으로 풀고 싶었습니다</p>
+<p>검색으로 알아보던중 <a href="https://laravel.kr/docs/5.8/eloquent-relationships" target="_blank" rel="noopener noreferrer">Eloquent:Relations</a>에 대해 알게되었습니다.</p>
+<p><a href="https://laravel.kr/docs/5.8/eloquent-relationships#%EA%B4%80%EA%B3%84%EC%9D%98%20%EC%A1%B4%EC%9E%AC%20%EC%97%AC%EB%B6%80%20%EC%BF%BC%EB%A6%AC%20%EC%A7%88%EC%9D%98%ED%95%98%EA%B8%B0" target="_blank" rel="noopener noreferrer">라라벨 공식 문서 : 관계의 존재 여부 쿼리 질의하기</a></p>
+<p>예를들어 <code>User</code>가 여러개의 <code>Post</code> 를 가지고 있다면,<!-- raw HTML omitted -->
+<code>User</code> 클래스에 <code>$this-&gt;hasMany('App\Post');</code>를 설정해 두었을 것이라는 가정하에 설명을 진행하도록 하겠습니다.</p>
+<!-- raw HTML omitted -->
+<h2 id="with" class="headerLink">
+    <a href="#with" class="header-mark"></a>with()</h2><ul>
+<li>user
+<ul>
+<li>id</li>
+<li>name</li>
+</ul>
+</li>
+<li>post
+<ul>
+<li>id</li>
+<li>user_id</li>
+<li>title
+이와 같은 테이블 구조에서 유저가 작성한 글의 제목을 조회하려면</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$users</span> <span class="o">=</span> <span class="nx">selectAll</span><span class="p">(</span><span class="s2">&#34;select * from `user`);
+</span></span></span><span class="line"><span class="cl"><span class="s2">foreach (</span><span class="si">$users</span><span class="s2"> as </span><span class="si">$user</span><span class="s2">) {
+</span></span></span><span class="line"><span class="cl"><span class="s2">    </span><span class="si">$user[&#39;post_title&#39;]</span><span class="s2"> = selectOne(&#34;</span><span class="nx">select</span> <span class="sb">`title`</span> <span class="nx">from</span> <span class="sb">`post`</span> <span class="nx">where</span> <span class="sb">`post`</span><span class="o">.</span><span class="sb">`user_id`</span> <span class="o">=</span> <span class="p">{</span><span class="nv">$user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]}</span><span class="s2">&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="s2">}
+</span></span></span></code></pre></div><p>회원을 조회하고, 회원들을 순회하며 게시물을 조회하는 코드입니다.<!-- raw HTML omitted -->
+이 경우 회원이 1000명일 경우 쿼리는 1001번 실행하게 됩니다.<!-- raw HTML omitted -->
+이것을 <a href="https://zetawiki.com/wiki/N%2B1_%EC%BF%BC%EB%A6%AC_%EB%AC%B8%EC%A0%9C" target="_blank" rel="noopener noreferrer">N+1쿼리 문제</a> 라고 합니다.</p>
+<p>사람들에 따라 직관적이여서 선호하기도 하고,<!-- raw HTML omitted -->
+join으로 실행시 쿼리가 오래 걸리면 이와 같이 분리하여 사용하기도 합니다.
+또는 join으로 해결할 수 없는 상황에서도 사용합니다.</p>
+<p>이 문제를 해결 하기 위해</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">$</span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selectAll</span><span class="p">(</span><span class="s2">&#34;select `user`.*,`post`.`title` as post_title from `user` left join `post` on `post`.`user_id` = `user`.`id`&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span></code></pre></div><p>join으로 해결할 수 없는 경우를 제외 하고는 위와 같이 join을 사용해서 조회 할 수 있습니다.</p>
+<p>또한 이 문제는 ORM에서 주로 발생 합니다.<!-- raw HTML omitted -->
+ORM을 사용하면 user와 post의 관계를 설정하고, 아래와 같이 사용할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">all</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>해당 코드는</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><p>user를 조회하고, user의 수 만큼 post를 조회합니다.<!-- raw HTML omitted -->
+위의 N+1 문제와 같은 문제입니다.</p>
+<p>이 문제를 해결 하기 위한 방안으로는 <a href="https://zetawiki.com/wiki/%EC%A6%89%EC%8B%9C_%EB%A1%9C%EB%94%A9" target="_blank" rel="noopener noreferrer">즉시 로딩(Eager Loading)</a>이 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>이와같이 <code>with()</code>를 사용하면 미리 선언한 관계를 사용하여 같이 가져올수있습니다.<!-- raw HTML omitted -->
+언뜻 보기엔 별 다를바 없어 보이는 코드이지만 with 메소드를 사용하면, user와 연관된 post를 미리 로드합니다.</p>
+<p>실행되는 쿼리는</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w">
+</span></span></span></code></pre></div><p>위와 같이 쿼리 2개만 실행이 되어 쿼리 실행을 최소화 할 수 있습니다.</p>
+<p><code>with()</code> 메소드의 2번째 파라미터를 사용해 제한 할 수도 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">foreach</span><span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">with</span><span class="p">([</span><span class="s1">&#39;posts&#39;</span> <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;치킨%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">post</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">;</span>
+</span></span></code></pre></div><p><code>user</code>를 조회할 때, <code>치킨</code>으로 시작하는 <code>post</code>를 같이 미리 로드 할 수 있습니다.</p>
+<h2 id="has" class="headerLink">
+    <a href="#has" class="header-mark"></a>has()</h2><p><code>has()</code> 메소드를 이용하면, 해당 관계에서 최소 한개를 가지고 있는 결과를 조회합니다</p>
+<p><code>User::has('posts')-&gt;get();</code>을 사용하면 post를 한개라도 작성한 회원을 조회할것입니다.</p>
+<p>쿼리로 표현한다면, 아래와 비슷할것 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">join</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w">
+</span></span></span></code></pre></div><p>has 메소드는 2번째 파라미터에 <code>operator</code> 와 3번째 파라미터에 <code>count</code>를 사용할 수 있습니다.<!-- raw HTML omitted --></p>
+<p>이 파라미터를 사용하면 예로 5개 이상의 글을 작성한 회원을 찾을 수 있습니다.
+Eloquent를 사용하면 이와같이 작성 할 수 있습니다.<!-- raw HTML omitted -->
+<code>User::has('posts', '&gt;=', 5)-&gt;get();</code></p>
+<h2 id="wherehas" class="headerLink">
+    <a href="#wherehas" class="header-mark"></a>whereHas()</h2><p>그렇다면 <code>whereHas()</code>는 뭐가 다를까요? <!-- raw HTML omitted -->
+<code>whereHas()</code> 메소드는 두번째 파라미터로 콜백을 받아 더 복잡한 쿼리를 처리할 수 있습니다.</p>
+<p>위와 같은 모델링에서 게시글의 제목이 <code>치킨</code>으로 시작하는 글을 작성한 회원을 찾는다면 아래와 같을것 입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">User</span><span class="o">::</span><span class="na">whereHas</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;치킨%&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</span></span></code></pre></div><p>쿼리로 표현한다면</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">join</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">on</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">and</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;치킨%&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">OR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">join</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">post</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;치킨%&#39;</span><span class="w">
+</span></span></span></code></pre></div><p>이와 같이 표현할 수 있을것 같습니다.</p>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="https://stackoverflow.com/questions/30231862/laravel-eloquent-has-with-wherehas-what-do-they-mean?answertab=votes#tab-top" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">Stack Overflow -&gt; Laravel - Eloquent “Has”, “With”, “WhereHas” - What do they mean?</a></li>
+<li><a href="https://laravel.kr/docs/5.8/eloquent-relationships" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">Laravel 공식 문서 -&gt; Eloquent: Relationships - 관계</a></li>
+</ul>
+]]></description></item></channel></rss>

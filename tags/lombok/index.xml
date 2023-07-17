@@ -1,3 +1,56 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Lombok - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/lombok/</link><description>Lombok - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Tue, 28 May 2019 23:29:30 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/lombok/" rel="self" type="application/rss+xml"/><item><title>［Java］@AllArgsConstructor의 잘못된 사용</title><link>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</link><pubDate>Tue, 28 May 2019 23:29:30 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</guid><description><![CDATA[Consider defining a bean of type java.lang.String in your configuration.스프링부트로 서비스를 개발중에 @Value 어노테이션을 이용하여 application.yml 파일에 저장해둔 환경변수에 접근하고 싶었는데, 아래와 같은 오류가 발생하였습니다.
-Parameter 2 of constructor in com.hodory.v1.service.MyService required a bean of type &#39;java.lang.String&#39; that could not be found. Consider defining a bean of type &#39;java.lang.String&#39; in your configuration. Retrofit을 사용하기위해 apiBaseUrl을 가져오려 작성한 코드는 아래와 같습니다.
-@Slf4j @Service @AllArgsConstructor public class MyService { private final MyRepository myRepository; private final ModelMapper modelMapper; @Value(&#34;${config.]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Lombok - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/lombok/</link><description>Lombok - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Tue, 28 May 2019 23:29:30 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/lombok/" rel="self" type="application/rss+xml"/><item><title>［Java］@AllArgsConstructor의 잘못된 사용</title><link>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</link><pubDate>Tue, 28 May 2019 23:29:30 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/05/28/required-a-bean-of-type-that-could-not-be-found/</guid><description><![CDATA[<h1 id="consider-defining-a-bean-of-type-javalangstring-in-your-configuration" class="headerLink">
+    <a href="#consider-defining-a-bean-of-type-javalangstring-in-your-configuration" class="header-mark"></a>Consider defining a bean of type java.lang.String in your configuration.</h1><p>스프링부트로 서비스를 개발중에 <code>@Value</code> 어노테이션을 이용하여 application.yml 파일에 저장해둔 환경변수에 접근하고 싶었는데,<!-- raw HTML omitted -->
+아래와 같은 오류가 발생하였습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Parameter <span class="m">2</span> of constructor in com.hodory.v1.service.MyService required a bean of <span class="nb">type</span> <span class="s1">&#39;java.lang.String&#39;</span> that could not be found.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Consider defining a bean of <span class="nb">type</span> <span class="s1">&#39;java.lang.String&#39;</span> in your configuration.
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Retrofit을 사용하기위해 apiBaseUrl을 가져오려 작성한 코드는 아래와 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@AllArgsConstructor</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyService</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">MyRepository</span> <span class="n">myRepository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ModelMapper</span> <span class="n">modelMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${config.endpoint.url}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">serviceUrl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>필드에 <code>@Autowired</code>를 사용하는것은 권장하지 않는다는 IDE에서 나오는 메세지때문에 이 방식은 사용하지 않았습니다.</p>
+<p>생성자를 이용한 주입이 아닌 <code>@AllArgsConstructor</code> 어노테이션을 사용한 이유는<!-- raw HTML omitted -->
+이전에 사용하였을때, 생성자를 이용해 직접 주입하는 방식보다, 의존성 주입 할 대상이 많아졌을때 훨씬 더 깔끔하였던 경험이 있어,<!-- raw HTML omitted -->
+해당 어노테이션을 사용하였습니다.</p>
+<p><code>private String serviceUrl</code> 을 추가하고나서부터 해당 오류가 나타났습니다.</p>
+<p>한참을 고민하다가 팀원들의 도움을 받아 원인을 알게 되었는데,</p>
+<p><code>serviceUrl</code>이라는 값은 <code>String</code> 타입의 변수일 뿐, 스프링에서 관리하는 Bean이 아니기 때문에 의존성 자동 주입이 될 수 없다는것이였습니다.</p>
+<p><code>@Value</code>를 사용하면 자동 주입이 되는줄 알았는데, 제가 생각했던것과 달랐습니다.</p>
+<p>아래와 같이 스프링 애플리케이션에 의해 자동 주입 가능한 필드들을 파라미터로 가진 생성자를 만들어 필드에 매핑하도록 수정 하였더니,<!-- raw HTML omitted -->
+오류 없이 serviceUrl에 application.yml파일에 있던 url도 설정 되어 있었습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Slf4j</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyService</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">MyRepository</span> <span class="n">myRepository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ModelMapper</span> <span class="n">modelMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${config.endpoint.url}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">serviceUrl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">MyService</span><span class="o">(</span><span class="n">MyRepository</span> <span class="n">repository</span><span class="o">,</span> <span class="n">ModelMapper</span> <span class="n">modelMapper</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">myRepository</span> <span class="o">=</span> <span class="n">repository</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">modelMapper</span> <span class="o">=</span> <span class="n">modelMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>위와 같이 생성자에 직접 필요한 Bean들을 명시하여 주입 하는 방식 말고도<!-- raw HTML omitted -->
+기존 코드에서 <code>@AllArgsConstructor</code> 대신 <code>@RequiredArgsConstructor</code> 어노테이션을 사용하기만 하면,<!-- raw HTML omitted -->
+<code>final</code>로 선언된 필드나 <code>@NonNull</code> 어노테이션을 사용한 필드만을 필요로 하는 생성자를 만들어주기 때문에,<!-- raw HTML omitted -->
+이 경우에는 원하는 결과를 얻을 수 있었습니다.</p>
+<p>자바에도 익숙 하지 않고, 의존성 주입이라는 개념에 대해 익숙하지 않은데,<!-- raw HTML omitted -->
+원리를 파악하지 않고, 남들을 따라하는 기존의 자세에 반성하는 계기가 되었으며,</p>
+<p>어노테이션을 사용 할 때 해당 어노테이션이 해주는 기능만 파악 하는 것 만큼<!-- raw HTML omitted -->
+어떻게 동작하는지(예를 들어 <code>lombok</code>의 경우 어떤 코드를 생성 해주는지)등을 유의하며 사용해야겠다고 느꼈습니다.</p>
+]]></description></item></channel></rss>

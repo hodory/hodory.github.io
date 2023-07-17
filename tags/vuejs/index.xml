@@ -1,5 +1,64 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>VueJS - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/vuejs/</link><description>VueJS - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 27 Aug 2018 16:51:38 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/vuejs/" rel="self" type="application/rss+xml"/><item><title>［VueJS］vue.js에서 이벤트 버스 사용하기</title><link>http://blog.hodory.dev/2018/08/27/vuejs-eventbus/</link><pubDate>Mon, 27 Aug 2018 16:51:38 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/08/27/vuejs-eventbus/</guid><description>MPA(Multi Page Application)에서 Vue를 적용 시키던중
-부모-자식간의 관계가 아닌 컴포넌트 간의 동작에 따른 데이터 변화와 이벤트 처리가 필요해졌습니다.
-주로 공통 데이터를 다루기 위해 사용하는 부분이라 Vuex를 써볼까도 했지만,
-Vuex 튜토리얼에서 앱이 단순하다면 Vuex없이는 괜찮을 것입니다. 간단한 글로벌 이벤트 버스만 있으면됩니다 라는 글귀를 읽고, 글로벌 이벤트 버스를 사용하자로 마음을 굳혔습니다.
-아래와 같이 공통으로 사용할 이벤트버스 js 파일을 생성합니다. Vue EventBus 객체를 생성하여 export 하여 다른 파일에서도 로드하여 사용 할 수 있도록 합니다.</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>VueJS - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/vuejs/</link><description>VueJS - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Mon, 27 Aug 2018 16:51:38 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/vuejs/" rel="self" type="application/rss+xml"/><item><title>［VueJS］vue.js에서 이벤트 버스 사용하기</title><link>http://blog.hodory.dev/2018/08/27/vuejs-eventbus/</link><pubDate>Mon, 27 Aug 2018 16:51:38 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/08/27/vuejs-eventbus/</guid><description><![CDATA[<p>MPA(Multi Page Application)에서 Vue를 적용 시키던중</p>
+<p>부모-자식간의 관계가 아닌 컴포넌트 간의 동작에 따른 데이터 변화와 이벤트 처리가 필요해졌습니다.</p>
+<!-- raw HTML omitted -->
+<p>주로 공통 데이터를 다루기 위해 사용하는 부분이라 Vuex를 써볼까도 했지만,</p>
+<p><a href="https://vuex.vuejs.org/kr/" target="_blank" rel="noopener noreferrer">Vuex 튜토리얼</a>에서 <code>앱이 단순하다면 Vuex없이는 괜찮을 것입니다. 간단한 글로벌 이벤트 버스만 있으면됩니다</code> 라는 글귀를 읽고, <code>글로벌 이벤트 버스를 사용하자</code>로 마음을 굳혔습니다.</p>
+<p>아래와 같이 공통으로 사용할 이벤트버스 js 파일을 생성합니다.
+Vue EventBus 객체를 생성하여 export 하여 다른 파일에서도 로드하여 사용 할 수 있도록 합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// /js/eventBus.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">EventBus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">EventBus</span><span class="p">;</span>
+</span></span></code></pre></div><p>그 후 해당 이벤트 버스를 사용할 컴포넌트들에서 eventBus.js를 import 하여 아래와 같이 사용했습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*******
+</span></span></span><span class="line"><span class="cl"><span class="cm">* /js/Button.vue
+</span></span></span><span class="line"><span class="cl"><span class="cm">********/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">button</span> <span class="err">@</span><span class="nx">click</span><span class="p">.</span><span class="nx">prevent</span><span class="o">=</span><span class="s2">&#34;onClickButton&#34;</span><span class="o">&gt;</span><span class="nx">Click</span> <span class="nx">Me</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/template&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">EventBus</span> <span class="nx">from</span> <span class="s2">&#34;./eventBus.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">onClickButton</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">EventBus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;onModalButtonClick&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">title</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*******
+</span></span></span><span class="line"><span class="cl"><span class="cm">* /js/Modal.vue
+</span></span></span><span class="line"><span class="cl"><span class="cm">********/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;myModal&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;modal&#34;</span> <span class="nx">v</span><span class="o">-</span><span class="nx">show</span><span class="o">=</span><span class="s2">&#34;_isShow&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/template&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">EventBus</span> <span class="nx">from</span> <span class="s1">&#39;./eventBus.js&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">_isShow</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">code</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">title</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">EventBus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s2">&#34;onModalButtonClick&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">code</span> <span class="o">=</span> <span class="nx">code</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">_isShow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span> 
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div><h4 id="실제로는-위의-코드보다-복잡했지만-예시에-불필요한-부분은-제거하였습니다" class="headerLink">
+    <a href="#%ec%8b%a4%ec%a0%9c%eb%a1%9c%eb%8a%94-%ec%9c%84%ec%9d%98-%ec%bd%94%eb%93%9c%eb%b3%b4%eb%8b%a4-%eb%b3%b5%ec%9e%a1%ed%96%88%ec%a7%80%eb%a7%8c-%ec%98%88%ec%8b%9c%ec%97%90-%eb%b6%88%ed%95%84%ec%9a%94%ed%95%9c-%eb%b6%80%eb%b6%84%ec%9d%80-%ec%a0%9c%ea%b1%b0%ed%95%98%ec%98%80%ec%8a%b5%eb%8b%88%eb%8b%a4" class="header-mark"></a>실제로는 위의 코드보다 복잡했지만, 예시에 불필요한 부분은 제거하였습니다.</h4>]]></description></item></channel></rss>

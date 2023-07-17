@@ -1,26 +1,491 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hexo - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/hexo/</link><description>Hexo - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Dec 2021 00:16:53 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/hexo/" rel="self" type="application/rss+xml"/><item><title>Hexo Netlify CMS 연결하기</title><link>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</link><pubDate>Fri, 31 Dec 2021 00:16:53 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</guid><description>Netlify CMS 블로그 플랫폼에 의존적이지 않고, 개발자st 블로그를 운영하고자 2017년부터 hexo를 이용해 블로그를 운영하고 있습니다.
-마크 다운과 파일시스템을 이용하여 블로그 포스트를 작성하고, git을 이용하여 버전 관리를 하는것은 개발자로서 꽤나 매력적이었습니다.
-하지만 랩탑을 항상 소지하고 있지 않다면,
-다양한 환경에서 블로그를 작성하기 위해 nodejs를 설치하고, hexo-cli 를 설치하는것은 언제나 부담스러운 일입니다.
-제 블로그는 Github Actions 를 이용하여 포스팅만 작성하면 자동으로 빌드하여 배포가 되지만,
-또 다른 문제점은 포스팅에 이미지가 들어가게 될 경우 작업의 복잡도가 올라가게 됩니다.</description></item><item><title>Github Actions를 이용하여 Hexo 블로그 배포하기</title><link>http://blog.hodory.dev/2019/08/23/deploy-hexo-blog-with-github-actions/</link><pubDate>Fri, 23 Aug 2019 13:37:07 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/08/23/deploy-hexo-blog-with-github-actions/</guid><description><![CDATA[기존의 Travis-CI를 이용하여 Hexo 블로그를 배포하기 위해,
-ChangJoo Park님의 포스팅인 Travis CI를 이용한 Github Pages + Hexo 블로그 자동 배포하기를 참고하여 아래와 같은 YAML 파일을 작성하여 Travis CI 서비스를 이용해서 배포하였습니다.
-기존의 코드 # .travis.yml language: node_js node_js: - &#34;10&#34; # Hexo source 코드는 master branch에서 작업되고 있어야합니다. branches: only: - master before_install: - npm install -g hexo install: - npm install before_script: - git config --global user.name &#34;INPUT_YOUR_USER_NAME&#34; - git config --global user.]]></description></item><item><title>［Hexo］블로그 주소를 바꾸었어요!</title><link>http://blog.hodory.dev/2019/06/09/github-pages-blog-migration/</link><pubDate>Sun, 09 Jun 2019 17:55:48 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/06/09/github-pages-blog-migration/</guid><description>이번에도 Gracefullight님의 제안으로, dev 도메인을 구매하기로 하였습니다.
-기존의 아이디를 사용하여 khzero.dev를 쓸까 하다가,
-이왕 구매하는거 깃허브 아이디도 바꾸고, 도메인도 맞춰서 사자!
-라고 생각을 했었습니다&amp;hellip;그때 멈췄어야 했는데요&amp;hellip;
-해당 포스팅을 참조하여 작업을 진행하기 시작했습니다.
-1. 도메인 구매 및 연결닉네임을 찾다가 Hodory로 변경하고, hodory.dev 도메인을 구매했습니다.
-Github Pages로 관리되던 khzero.github.io Repository 이름을 hodory.github.io로 변경하였죠
-지난번 TravisCI로 블로그 자동 배포시 겪은 문제에서 TravisCI로 배포 환경을 구축 했기 때문에,
-위의 이미지와 같이 깃허브에서 TravisCI 서비스연결도 다시하고, Hexo config.</description></item><item><title>［Hexo］TravisCI로 블로그 자동 배포시 겪은 문제</title><link>http://blog.hodory.dev/2019/06/06/hexo-travis-ci-with-no-contents/</link><pubDate>Thu, 06 Jun 2019 12:22:59 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/06/06/hexo-travis-ci-with-no-contents/</guid><description>WARN No layout 자동 배포를 했더니 빈 파일들만 올라가요!! 한줄 요약 : theme 폴더를 레포지토리에 추가하시면됩니다.
-아래의 내용은 해당 원인을 찾아가던 본인의 경험담입니다&amp;hellip;
-블로그를 직접 만드는데, 시간을 투자하는것 보다 포스팅을 하는게 더 가치 있겠다 싶어 현재 블로그를 Hexo + Github Page를 이용하여 운영하고 있습니다
-기존에는 배포를 Hexo-cli를 이용하여 아래와 같은 명령어를 사용하여 배포 했습니다.
-$ hexo clean $ hexo generate $ hexo deploy 쉘에서 해당 명령어를 작성하는것 또한 귀찮아져서 package.</description></item><item><title>［Hexo］ 명령어 정리</title><link>http://blog.hodory.dev/2017/08/31/how-to-use-hexo/</link><pubDate>Thu, 31 Aug 2017 22:57:17 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2017/08/31/how-to-use-hexo/</guid><description>Hexo 명령어 정리 # 초안 생성명령어
-$ hexo new draft [파일명] 예제
-$ hexo new draft hello-world # 초안을 포스트로 옮기기(Draft to Post)명령어
-$ hexo publish [파일명] 예제
-$ hexo publish hello-world # 포스트 생성명령어
-$ hexo new [파일명] 예제
-$ hexo new hello-world # 배포하기$ hexo clean // clean을 하지 않으면 deploy를 해도 페이지가 업데이트 되지 않는 경우가 발생한다 $ hexo deploy --generate # 기타사항 카테고리와 태그와 같은 설정은 어떻게 설정하나요 ?</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hexo - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/hexo/</link><description>Hexo - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Fri, 31 Dec 2021 00:16:53 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/hexo/" rel="self" type="application/rss+xml"/><item><title>Hexo Netlify CMS 연결하기</title><link>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</link><pubDate>Fri, 31 Dec 2021 00:16:53 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</guid><description><![CDATA[<h2 id="netlify-cms" class="headerLink">
+    <a href="#netlify-cms" class="header-mark"></a>Netlify CMS</h2><hr>
+<p>블로그 플랫폼에 의존적이지 않고, 개발자st 블로그를 운영하고자 2017년부터 <a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener noreferrer">hexo</a>를 이용해 블로그를 운영하고 있습니다.</p>
+<p>마크 다운과 파일시스템을 이용하여 블로그 포스트를 작성하고, git을 이용하여 버전 관리를 하는것은 개발자로서 꽤나 매력적이었습니다.</p>
+<p>하지만 랩탑을 항상 소지하고 있지 않다면,<br>
+다양한 환경에서 블로그를 작성하기 위해 nodejs를 설치하고, hexo-cli 를 설치하는것은 언제나 부담스러운 일입니다.</p>
+<p>제 블로그는 Github Actions 를 이용하여 포스팅만 작성하면 자동으로 빌드하여 배포가 되지만,<br>
+또 다른 문제점은 포스팅에 이미지가 들어가게 될 경우 작업의 복잡도가 올라가게 됩니다.</p>
+<p>위와 같은 이유로 hexo를 온라인에서도 작성할 방법을 고민하고 검색하였고, netlify-cms 라는 서비스를 알게 되어 적용하고자 했습니다.</p>
+<h2 id="사실과-오해" class="headerLink">
+    <a href="#%ec%82%ac%ec%8b%a4%ea%b3%bc-%ec%98%a4%ed%95%b4" class="header-mark"></a>사실과 오해</h2><hr>
+<p>작년에 해당 서비스를 처음 접하였을때는 gatsby 블로그를 알아보다가 알게 된 것이라 두가지 오해가 있었습니다.</p>
+<ol>
+<li>graphQL으로 포스트를 관리한다.</li>
+<li>netlify로 블로그를 호스팅 할때만 사용이 가능하다.</li>
+</ol>
+<p>이번에 작업을 진행하면서 알게된 내용은 틀린 부분들이 있었습니다.</p>
+<ol>
+<li>
+<p>graphQL으로 포스트를 관리한다.</p>
+<ol>
+<li>git-gateway라는 자체적인 방식을 이용하여 git repository를 저장소로 사용합니다.</li>
+</ol>
+</li>
+<li>
+<p>netlify로 블로그를 호스팅 할때만 사용이 가능하다.</p>
+<ol>
+<li>admin에 접근하기 위해서는 netlify를 이용해 호스팅을 해야하는것은 맞지만, 기존에 github pages로 제공하던 블로그와 별개로 다른 환경에 별도의 배포본을 이용하여 사용할 수 있다.</li>
+<li>위와 같은 이유로 저는 기존의 깃허브 블로그(<a href="https://blog.hodory.dev" target="_blank" rel="noopener noreferrer">https://blog.hodory.dev</a>)[https://blog.hodory.dev] 와<br>
+netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" target="_blank" rel="noopener noreferrer">https://hodory-blog.netlify.app/</a> 를 따로 사용하고 있습니다.</li>
+</ol>
+</li>
+</ol>
+<h2 id="설정방법" class="headerLink">
+    <a href="#%ec%84%a4%ec%a0%95%eb%b0%a9%eb%b2%95" class="header-mark"></a>설정방법</h2><hr>
+<!-- raw HTML omitted -->
+<p><a href="https://www.netlifycms.org/docs/add-to-your-site/" target="_blank" rel="noopener noreferrer">Netlify-CMS 공식 문서</a> 참조하여 직접 설정하는것도 똑같이 따라만 하면 동작합니다.</p>
+<p>하지만 변경사항이 생긴다면 블로그를 작성하기 위해 쓰는것인데 오히려 버전 대응에서도 리소스가 들 것이고,<br>
+깔끔한 구조를 만들진 못할것 같아서 <a href="https://github.com/JiangTJ/hexo-netlify-cms" target="_blank" rel="noopener noreferrer">hexo-netlify-cms</a> 해당 패키지를 사용하게 되었습니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" title="Git Gateway 설정" data-thumbnail="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" data-sub-html="<h2>Git Gateway 설정</h2><p>Git Gateway 설정</p>">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-11.30.04-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-11.30.04-pm.png, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 2x"
+            sizes="auto"
+            alt="Git Gateway 설정">
+    </a><figcaption class="image-caption">Git Gateway 설정</figcaption>
+    </figure></p>
+<p>위와 같이 git gateway를 설정하여 줍니다.<br>
+이것만 하면 netlify app의 URL에서 어드민 로그인이 가능합니다.</p>
+<h3 id="임시-저장-기능-활용하기" class="headerLink">
+    <a href="#%ec%9e%84%ec%8b%9c-%ec%a0%80%ec%9e%a5-%ea%b8%b0%eb%8a%a5-%ed%99%9c%ec%9a%a9%ed%95%98%ea%b8%b0" class="header-mark"></a>임시 저장 기능 활용하기</h3><hr>
+<p>netlify-cms가 자체적인 db를 가지고 사용할 것이라 오해했던 부분이 이 부분때문이였습니다.</p>
+<p><a href="https://www.netlifycms.org/docs/configuration-options/#publish-mode" target="_blank" rel="noopener noreferrer">해당 링크</a>를 확인해보면 기본적으로 netlify cms는 메인 git repo에 직접 커밋을 하는 방식으로 동작합니다.</p>
+<p>하지만 publish_mode를 editorial_workflow로 변경하여주면 draft 저장 / draft 수정 / draft publish 와 같은 단계로 나누어 처리할 수 있습니다.</p>
+<h4 id="설정-방법" class="headerLink">
+    <a href="#%ec%84%a4%ec%a0%95-%eb%b0%a9%eb%b2%95" class="header-mark"></a>설정 방법</h4><p>hexo 디렉토리 root의  _config.yml 파일에 아래와 같이 추가합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">netlify_cms</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">config_file</span><span class="p">:</span><span class="w"> </span><span class="l">netlify-cms.yml</span><span class="w">
+</span></span></span></code></pre></div><p>같은 경로에 netlify-cms.yml 파일을 생성하고 <a href="https://github.com/jiangtj/hexo-netlify-cms/blob/master/admin/config.yml" target="_blank" rel="noopener noreferrer">기본값</a>을 복사하여 넣어주고, 해당 값을 넣어주면 netlify-cms.yml 파일의 값으로 설정되게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">publish_mode</span><span class="p">:</span><span class="w"> </span><span class="l">editorial_workflow</span><span class="w">
+</span></span></span></code></pre></div><h4 id="기존화면" class="headerLink">
+    <a href="#%ea%b8%b0%ec%a1%b4%ed%99%94%eb%a9%b4" class="header-mark"></a>기존화면</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" title="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-1.40.19-pm.png, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 1.5x, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
+    </a></figure></p>
+<p>상단의 Publish 버튼 클릭시 바로 발행과 이후 동작을 선택할 수 있습니다.</p>
+<h4 id="editorial_workflow-설정-후" class="headerLink">
+    <a href="#editorial_workflow-%ec%84%a4%ec%a0%95-%ed%9b%84" class="header-mark"></a>editorial_workflow 설정 후</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" title="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-11.43.45-pm.png, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
+    </a></figure></p>
+<p>Save 버튼만 노출이 되는데, 설정이 잘못 된 것인줄 알았으나, Save 버튼을 누르면 아래와 같이 Draft 상태 노출과 함께 변경됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" title="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-2.02.00-pm.png, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 1.5x, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
+    </a></figure></p>
+<p>Draft 상태는 repository에 `cms/all_posts/{{post_title}}` 과 같은 브랜치가 생기며, Pull Request가 발행됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" title="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-11.56.17-pm.png, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
+    </a></figure></p>
+<p>Publish 버튼의 동작은 동일하지만 Status가 <strong>READY</strong> 상태일때만 버튼이 동작합니다.</p>
+<h2 id="주의사항필수" class="headerLink">
+    <a href="#%ec%a3%bc%ec%9d%98%ec%82%ac%ed%95%ad%ed%95%84%ec%88%98" class="header-mark"></a>주의사항(필수)</h2><hr>
+<h4 id="접근-권한-설정" class="headerLink">
+    <a href="#%ec%a0%91%ea%b7%bc-%ea%b6%8c%ed%95%9c-%ec%84%a4%ec%a0%95" class="header-mark"></a>접근 권한 설정</h4><p>Netlify site 설정에서 Identity &gt; Registration 설정을 <strong>Invite Only</strong> 로 변경하지 않으면, 모든 사용자가 각자의 메일 인증만 하면  자신의 블로그에 글을 쓸 수 있게 됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-31-at-12.12.51-am.png" title="/images/screen-shot-2021-12-31-at-12.12.51-am.png" data-thumbnail="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
+            srcset="/images/screen-shot-2021-12-31-at-12.12.51-am.png, /images/screen-shot-2021-12-31-at-12.12.51-am.png 1.5x, /images/screen-shot-2021-12-31-at-12.12.51-am.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
+    </a></figure></p>
+<p>자신의 블로그에 아무나 글을 쓰길 원하는 사람은 없기 때문에 필수로 설정하는것을 추천드립니다.</p>
+]]></description></item><item><title>Github Actions를 이용하여 Hexo 블로그 배포하기</title><link>http://blog.hodory.dev/2019/08/23/deploy-hexo-blog-with-github-actions/</link><pubDate>Fri, 23 Aug 2019 13:37:07 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/08/23/deploy-hexo-blog-with-github-actions/</guid><description><![CDATA[<p>기존의 Travis-CI를 이용하여 Hexo 블로그를 배포하기 위해,</p>
+<p>ChangJoo Park님의 포스팅인 <a href="https://medium.com/@changjoopark/travis-ci%eb%a5%bc-%ec%9d%b4%ec%9a%a9%ed%95%9c-github-pages-hexo-%eb%b8%94%eb%a1%9c%ea%b7%b8-%ec%9e%90%eb%8f%99-%eb%b0%b0%ed%8f%ac%ed%95%98%ea%b8%b0-6a222a2013e6" target="_blank" rel="noopener noreferrer">Travis CI를 이용한 Github Pages + Hexo 블로그 자동 배포하기</a>를 참고하여 아래와 같은 YAML 파일을 작성하여 Travis CI 서비스를 이용해서 배포하였습니다.</p>
+<h2 id="기존의-코드" class="headerLink">
+    <a href="#%ea%b8%b0%ec%a1%b4%ec%9d%98-%ec%bd%94%eb%93%9c" class="header-mark"></a>기존의 코드</h2><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="c"># .travis.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l">node_js</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">node_js</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Hexo source 코드는 master branch에서 작업되고 있어야합니다.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">only</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">before_install</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">npm install -g hexo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">install</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">npm install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">before_script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">git config --global user.name &#34;INPUT_YOUR_USER_NAME&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">git config --global user.email &#34;INPUT_YOUR_EMAIL&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">sed -i &#34;s/__GITHUB_TOKEN__/${__GITHUB_TOKEN__}/&#34; _config.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 블로그를 빌드 후 배포합니다.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">hexo clean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">hexo generate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">hexo deploy</span><span class="w">
+</span></span></span></code></pre></div><p>Github에서 자체적으로 <code>Github Actions</code>라는 기능을 베타로 제공중이여서 신청을 해두었고,</p>
+<p>어제 승인되어 repo에 아래 이미지와 같은 탭이 생겼습니다.🎉</p>
+<p><figure><a class="lightgallery" href="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png" title="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png" data-thumbnail="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png">
+        <img
+            
+            loading="lazy"
+            src="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png"
+            srcset="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png, /images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png 1.5x, /images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png 2x"
+            sizes="auto"
+            alt="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png">
+    </a></figure></p>
+<p>해당 기능을 이용해 보기 위해 travis.yml 파일을 Github Actions에 맞게 아래와 같이 바꾸어보았습니다.</p>
+<h2 id="변경사항" class="headerLink">
+    <a href="#%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad" class="header-mark"></a>변경사항</h2><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="c"># .github/workflows/hexo-deploy.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Node CI</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">on</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">matrix</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="m">12.</span><span class="l">x]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Use Node.js ${{ matrix.node-version }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l">${{ matrix.node-version }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hexo-Cli Install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">npm i -g hexo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name </span><span class="p">:</span><span class="w"> </span><span class="l">Change Environment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;INPUT_YOUR_GITHUB_ACCECSS_TOKEN&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">            git config --global user.name &#34;INPUT_YOUR_USER_NAME&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            git config --global user.email &#34;INPUT_YOUR_EMAIL&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">            sed -i &#34;s/__GITHUB_TOKEN__/${GITHUB_TOKEN}/&#34; _config.yml</span><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">NPM Install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">npm install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hexo Clean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hexo clean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hexo Generate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hexo g</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hexo Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hexo d</span><span class="w">
+</span></span></span></code></pre></div><p><code>Github Actions</code>문서에 따르면 기존의 Secret Config 부분은 repo의 아래의 탭에서 지정이 가능합니다.</p>
+<p><figure><a class="lightgallery" href="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png" title="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png" data-thumbnail="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png">
+        <img
+            
+            loading="lazy"
+            src="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png"
+            srcset="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png, /images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png 1.5x, /images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png 2x"
+            sizes="auto"
+            alt="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png">
+    </a></figure></p>
+<p>해당 Secrets를 사용시에는 사용하려는 step에서 with 키워드를 이용해 설정하거나, env 를 이용해서 아래와 같이 설정 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Test Set Secret With</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="nt">with</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.YOUR_SECRET }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Test Set Secret Env</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="nt">my_secret </span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.YOUR_SECRET }}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="사담" class="headerLink">
+    <a href="#%ec%82%ac%eb%8b%b4" class="header-mark"></a>사담</h2><hr>
+<p>Github Actions는 이미 만들어진 환경을 사용 할 수도 있고, Github Repo에 있는 도커 스크립트를 이용할 수도 있는것으로 보입니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@74bc508 </span><span class="w"> </span><span class="c"># 특정 커밋을 지정</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@v1.0    </span><span class="w"> </span><span class="c"># 특정 릴리즈 버전 지정</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@master  </span><span class="w"> </span><span class="c"># 브랜치 지정</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker://alpine:3.8        </span><span class="w"> </span><span class="c"># Docker Hub에서 제공하는 이미지와 태그 지정</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">./.github/actions/my-action</span><span class="w"> </span><span class="c"># 해당 repo 안에 정의된 파일 지정</span><span class="w">
+</span></span></span></code></pre></div><p>또한, <code>if</code> 제어문도 사용이 가능하고, 쉘을 선택하여 처리한다거나 Cron-Job등이 사용가능하고</p>
+<p><code>jobs.&lt;job_id&gt;.strategy.matrix</code>를 활용하여 os와 실행환경(ex. node | php) 버전을 조합하여 빌드 테스트가 가능하다고 합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">${{ matrix.os }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">matrix</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">os</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">ubuntu-16.04, ubuntu-18.04]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-node@v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l">${{ matrix.node }}</span><span class="w">
+</span></span></span></code></pre></div><p>이와 같이 정의할 경우에는 3개의 노드버전과 2개의 os 버전을 조합하여 6가지의 job이 실행됩니다.</p>
+<p>이외에도 다양한 기능을 제공하여 깃허브를 이용하고 있다면 한번쯤은 이용해봐도 좋을 서비스라고 생각합니다.</p>
+]]></description></item><item><title>［Hexo］블로그 주소를 바꾸었어요!</title><link>http://blog.hodory.dev/2019/06/09/github-pages-blog-migration/</link><pubDate>Sun, 09 Jun 2019 17:55:48 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/06/09/github-pages-blog-migration/</guid><description><![CDATA[<p>이번에도 <a href="https://gracefullight.dev" target="_blank" rel="noopener noreferrer">Gracefullight</a>님의 제안으로, dev 도메인을 구매하기로 하였습니다.</p>
+<p>기존의 아이디를 사용하여 <code>khzero.dev</code>를 쓸까 하다가,<!-- raw HTML omitted --></p>
+<blockquote>
+<p>이왕 구매하는거 깃허브 아이디도 바꾸고, 도메인도 맞춰서 사자!</p>
+</blockquote>
+<p>라고 생각을 했었습니다&hellip;그때 멈췄어야 했는데요&hellip;</p>
+<!-- raw HTML omitted -->
+<p><a href="https://gracefullight.dev/2019/05/06/connecting-a-DEV-domain-to-github-pages/" target="_blank" rel="noopener noreferrer">해당 포스팅</a>을 참조하여 작업을 진행하기 시작했습니다.</p>
+<h3 id="1-도메인-구매-및-연결" class="headerLink">
+    <a href="#1-%eb%8f%84%eb%a9%94%ec%9d%b8-%ea%b5%ac%eb%a7%a4-%eb%b0%8f-%ec%97%b0%ea%b2%b0" class="header-mark"></a>1. 도메인 구매 및 연결</h3><p>닉네임을 찾다가 <code>Hodory</code>로 변경하고, <code>hodory.dev</code> 도메인을 구매했습니다.</p>
+<p>Github Pages로 관리되던 <code>khzero.github.io</code> Repository 이름을 <code>hodory.github.io</code>로 변경하였죠</p>
+<p>지난번 <a href="https://blog.hodory.dev/" target="_blank" rel="noopener noreferrer">TravisCI로 블로그 자동 배포시 겪은 문제</a>에서 TravisCI로 배포 환경을 구축 했기 때문에,</p>
+<p><figure><a class="lightgallery" href="/5_10230931644409955856.jpg" title="Github Travis CI Configuration" data-thumbnail="/5_10230931644409955856.jpg">
+        <img
+            
+            loading="lazy"
+            src="/5_10230931644409955856.jpg"
+            srcset="/5_10230931644409955856.jpg, /5_10230931644409955856.jpg 1.5x, /5_10230931644409955856.jpg 2x"
+            sizes="auto"
+            alt="Github Travis CI Configuration" height="307"  width="479" >
+    </a></figure></p>
+<p>위의 이미지와 같이 깃허브에서 TravisCI 서비스연결도 다시하고, Hexo config.yml도 모두 수정하였습니다.</p>
+<p>기존의 도메인 URL도 모두 변경하여 블로그를 배포했습니다.</p>
+<h3 id="2-기존-블로그는-어떻게-해요" class="headerLink">
+    <a href="#2-%ea%b8%b0%ec%a1%b4-%eb%b8%94%eb%a1%9c%ea%b7%b8%eb%8a%94-%ec%96%b4%eb%96%bb%ea%b2%8c-%ed%95%b4%ec%9a%94" class="header-mark"></a>2. 기존 블로그는 어떻게 해요???</h3><p>생각하여보니 현재 <a href="https://awesome-devblog.netlify.com" target="_blank" rel="noopener noreferrer">어썸데브블로그</a>에 <code>khzero.github.io</code> 주소의 포스팅들이 공개 되어 있는데,</p>
+<p>깃허브 아이디를 변경하면서 도메인 연결이 끊겨, 404 페이지를 노출하고 있었습니다.</p>
+<p><figure><a class="lightgallery" href="/6_16496899744403108303.jpg" title="Github Pages Not Found" data-thumbnail="/6_16496899744403108303.jpg">
+        <img
+            
+            loading="lazy"
+            src="/6_16496899744403108303.jpg"
+            srcset="/6_16496899744403108303.jpg, /6_16496899744403108303.jpg 1.5x, /6_16496899744403108303.jpg 2x"
+            sizes="auto"
+            alt="Github Pages Not Found" height="366"  width="626" >
+    </a></figure></p>
+<p>급하게 khzero로 계정을 새로 만든 후, <code>khzero.github.io</code> Repository를 생성하고 기존 포스트를 배포하여 404로 노출되는것은 막았습니다.</p>
+<h3 id="3-서브도메인으로-바꿀래요" class="headerLink">
+    <a href="#3-%ec%84%9c%eb%b8%8c%eb%8f%84%eb%a9%94%ec%9d%b8%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%80%eb%9e%98%ec%9a%94" class="header-mark"></a>3. 서브도메인으로 바꿀래요!</h3><p>원래는 도메인을 <code>hodory.dev</code>로 쓰려 했지만, 서브 도메인으로 블로그임을 명시하고 싶어,<!-- raw HTML omitted -->
+다시 hodory 계정의 hodory.github.io Rpository를 <code>blog.hodory.dev</code>로 CNAME을 설정하고</p>
+<p>아래와 같이 설정하였습니다.<!-- raw HTML omitted -->
+(<strong>※주의 : CNAME을 배포하면 아래의 설정이 초기화 되니 주의하시기 바랍니다.※</strong>)</p>
+<p><figure><a class="lightgallery" href="/7_17796362379647588117.jpg" title="Github Pages Custom Domain Setting" data-thumbnail="/7_17796362379647588117.jpg">
+        <img
+            
+            loading="lazy"
+            src="/7_17796362379647588117.jpg"
+            srcset="/7_17796362379647588117.jpg, /7_17796362379647588117.jpg 1.5x, /7_17796362379647588117.jpg 2x"
+            sizes="auto"
+            alt="Github Pages Custom Domain Setting" height="600"  width="736" >
+    </a></figure></p>
+<p>배포를 하였더니 깃허브로부터 아래와 같은 메일이 왔었습니다.</p>
+<p><figure><a class="lightgallery" href="/1_12590345988111777248.jpg" title="Github Pages Custom Domain Setting" data-thumbnail="/1_12590345988111777248.jpg">
+        <img
+            
+            loading="lazy"
+            src="/1_12590345988111777248.jpg"
+            srcset="/1_12590345988111777248.jpg, /1_12590345988111777248.jpg 1.5x, /1_12590345988111777248.jpg 2x"
+            sizes="auto"
+            alt="Github Pages Custom Domain Setting" height="262"  width="1326" >
+    </a></figure></p>
+<p>A 레코드에 <code>blog.hodory.dev</code>가 설정되어 있어서인데,
+CNAME으로 변경하기위해 구글 도메인 DNS 설정에서 아래와 같이 변경했습니다.</p>
+<p><figure><a class="lightgallery" href="/9_4224511786299032279.jpg" title="Google Domains - DNS Setting" data-thumbnail="/9_4224511786299032279.jpg">
+        <img
+            
+            loading="lazy"
+            src="/9_4224511786299032279.jpg"
+            srcset="/9_4224511786299032279.jpg, /9_4224511786299032279.jpg 1.5x, /9_4224511786299032279.jpg 2x"
+            sizes="auto"
+            alt="Google Domains - DNS Setting" height="492"  width="1027" >
+    </a></figure></p>
+<p>설정을 모두 마친 뒤, 지인들에게 자랑을 했는데 블로그가 아래와 같은 오류로 나오지 않는다했습니다.</p>
+<blockquote>
+<p>웹사이트에서 HSTS를 사용하므로 지금은 blog.hodory.dev에 방문할 수 없습니다. <!-- raw HTML omitted -->
+네트워크 오류와 공격은 대체로 일시적인 문제이기 때문에 나중에 이 페이지가 정상적으로 작동할 수 있습니다.</p>
+</blockquote>
+<blockquote>
+<p>TTL 문제일 수 있어 최대 1H까지 리졸브가 안될 수 있어요</p>
+</blockquote>
+<p>라는 설명을 듣고 TTL을 <code>1m</code> 으로변경하였습니다</p>
+<p><figure><a class="lightgallery" href="/8_11465529894579939452.jpg" title="Google Domains - DNS Setting" data-thumbnail="/8_11465529894579939452.jpg">
+        <img
+            
+            loading="lazy"
+            src="/8_11465529894579939452.jpg"
+            srcset="/8_11465529894579939452.jpg, /8_11465529894579939452.jpg 1.5x, /8_11465529894579939452.jpg 2x"
+            sizes="auto"
+            alt="Google Domains - DNS Setting" height="491"  width="1027" >
+    </a></figure></p>
+<p>1분정도 지난 후 확인해보니 정상적으로 동작했습니다!</p>
+<p>또 중간에 배포를 하다가 이와 같이 되는 노출되는 경우가 있었는데
+<figure><a class="lightgallery" href="/4_9017746577926303219.jpg" title="크롬 - 연결이 비공개로 설정되어 있지 않습니다." data-thumbnail="/4_9017746577926303219.jpg">
+        <img
+            
+            loading="lazy"
+            src="/4_9017746577926303219.jpg"
+            srcset="/4_9017746577926303219.jpg, /4_9017746577926303219.jpg 1.5x, /4_9017746577926303219.jpg 2x"
+            sizes="auto"
+            alt="크롬 - 연결이 비공개로 설정되어 있지 않습니다." height="443"  width="651" >
+    </a></figure></p>
+<p>위에 기재하였던 CNAME이 수정되면서, <code>Enforce HTTPS</code> 가 체크 해제되어 있었습니다.
+이 부분을 수정하니 정상적으로 노출이 되었습니다.</p>
+<h3 id="4-기존-블로그를-연결하자" class="headerLink">
+    <a href="#4-%ea%b8%b0%ec%a1%b4-%eb%b8%94%eb%a1%9c%ea%b7%b8%eb%a5%bc-%ec%97%b0%ea%b2%b0%ed%95%98%ec%9e%90" class="header-mark"></a>4. 기존 블로그를 연결하자!</h3><p>블로그 주소가 변경되면서 해야할 것은</p>
+<ol>
+<li>oneSignal의 URL 변경</li>
+<li>Analytics 수정</li>
+<li>구글 애드센스 확인</li>
+<li>Search Console 연결</li>
+<li>페이스북 픽셀 주소변경</li>
+<li>네이버 웹마스터도구 사이트 추가</li>
+</ol>
+<p>6가지였습니다.</p>
+<p>대부분 URL 변경만 한다거나, 추가하는 방식으로 간단하게 수정 되었으나, 4번에서 문제가 생겼습니다.</p>
+<p>현재 Search Console의 구버전에서만 가능한 주소 변경 툴인데,</p>
+<p>아래 이미지에 표시된 2번의 301 리디렉션 정상동작 여부에서 막혔습니ㅏㄷ.</p>
+<p><figure><a class="lightgallery" href="/3_5854123944268968505.jpg" title="Github Page - 301 리디렉션" data-thumbnail="/3_5854123944268968505.jpg">
+        <img
+            
+            loading="lazy"
+            src="/3_5854123944268968505.jpg"
+            srcset="/3_5854123944268968505.jpg, /3_5854123944268968505.jpg 1.5x, /3_5854123944268968505.jpg 2x"
+            sizes="auto"
+            alt="Github Page - 301 리디렉션" height="582"  width="1650" >
+    </a></figure></p>
+<p>Github Pages 는 정적페이지이다보니 301로 리디렉션이 불가능합니다.</p>
+<p>혹시나 하는 마음에 <a href="https://github.com/jekyll/jekyll-redirect-from" target="_blank" rel="noopener noreferrer">jekyll-redirect-from</a> 패키지도 확인 해보았으나,</p>
+<p>meta 태그와 script를 이용해 페이지를 이동시키는데,</p>
+<p>구글봇이 해당 페이지를 읽을때 HTTP 코드가 200으로 나와서 301 리디렉션이 되지 않았습니다.</p>
+<p>어쩔 수 없이 <a href="https://github.com/akfish/hexo-theme-redirect" target="_blank" rel="noopener noreferrer">hexo-theme-redirect</a> 테마를 이용하여, meta 리디렉션만 설정하고</p>
+<p>Search Console은 커뮤니티에 문의를 남기고 우선 재생성하기로 하여 모든 마이그레이션을 마무리지었습니다.</p>
+<p>혹시나 Search Console 주소변경에 대한 다른 방법을 알고 계시다면 공유 부탁 드리겠습니다.</p>
+]]></description></item><item><title>［Hexo］TravisCI로 블로그 자동 배포시 겪은 문제</title><link>http://blog.hodory.dev/2019/06/06/hexo-travis-ci-with-no-contents/</link><pubDate>Thu, 06 Jun 2019 12:22:59 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/06/06/hexo-travis-ci-with-no-contents/</guid><description><![CDATA[<h2 id="warn--no-layout-자동-배포를-했더니-빈-파일들만-올라가요" class="headerLink">
+    <a href="#warn--no-layout-%ec%9e%90%eb%8f%99-%eb%b0%b0%ed%8f%ac%eb%a5%bc-%ed%96%88%eb%8d%94%eb%8b%88-%eb%b9%88-%ed%8c%8c%ec%9d%bc%eb%93%a4%eb%a7%8c-%ec%98%ac%eb%9d%bc%ea%b0%80%ec%9a%94" class="header-mark"></a>WARN  No layout 자동 배포를 했더니 빈 파일들만 올라가요!!</h2><blockquote>
+<p>한줄 요약 : theme 폴더를 레포지토리에 추가하시면됩니다.</p>
+</blockquote>
+<p>아래의 내용은 해당 원인을 찾아가던 본인의 경험담입니다&hellip;</p>
+<hr>
+<p>블로그를 직접 만드는데, 시간을 투자하는것 보다 포스팅을 하는게 더 가치 있겠다 싶어<!-- raw HTML omitted -->
+현재 블로그를 Hexo + Github Page를 이용하여 운영하고 있습니다</p>
+<p>기존에는 배포를 Hexo-cli를 이용하여 아래와 같은 명령어를 사용하여 배포 했습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ hexo clean
+</span></span><span class="line"><span class="cl">$ hexo generate
+</span></span><span class="line"><span class="cl">$ hexo deploy
+</span></span></code></pre></div><p>쉘에서 해당 명령어를 작성하는것 또한 귀찮아져서 <code>package.json</code> 파일을 이용하여,</p>
+<pre tabindex="0"><code>/*
+ * package.json
+ */
+{
+    &#34;scripts&#34;: {
+        &#34;deploy&#34;: &#34;hexo clean &amp;&amp; hexo d -g&#34;
+    }
+}
+</code></pre><p>해당 스크립트를 작성해서 <code>npm deploy</code>명령어로 배포를 하고, 소스는 별도의 레포지토리에 관리하고 있었습니다.</p>
+<!-- raw HTML omitted -->
+<p>팀원에게는 자동 배포를 추천하였으나(<a href="https://jheloper.github.io/2019/04/hexo-ci-cd-with-codeship/%29" target="_blank" rel="noopener noreferrer">https://jheloper.github.io/2019/04/hexo-ci-cd-with-codeship/)</a>,
+저는 설정하지 않고 있었죠&hellip;</p>
+<p>그러던 중 <a href="https://gracefullight.dev" target="_blank" rel="noopener noreferrer">Gracefullight</a>님의 추천을 받아,<!-- raw HTML omitted -->
+이전에 보았던 ChangJoo Park님의 포스팅인 <a href="https://medium.com/@changjoopark/travis-ci%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-github-pages-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-6a222a2013e6" target="_blank" rel="noopener noreferrer">Travis CI를 이용한 Github Pages + Hexo 블로그 자동 배포하기</a>를 참고하여
+작업하기로 결심했습니다.</p>
+<ul>
+<li>Github Access Token 발급 받기</li>
+<li><code>_config.yml</code> 파일에 deploy.repo 수정하기</li>
+<li>배포 스크립트인 <code>.travis.yml</code> 작성하기</li>
+<li>깃허브 플러그인을 이용하여 레포지토리와 연결하기</li>
+<li>Travis CI 서비스에서 해당 프로젝트에 Environment Variables에 <code>__GITHUB_TOKEN__</code> 이름의 환경변수에 액세스 토큰 추가하기</li>
+</ul>
+<p>위의 다섯가지를 모두 마친 뒤,<!-- raw HTML omitted -->
+드디어 소스코드를 관리하는 Github Repository에 푸시를 하였습니다!</p>
+<p>빌드도 성공했고, 푸시도 성공적이였습니다.<!-- raw HTML omitted -->
+확인하고자 블로그에 접속을 하였는데, 빈화면이 노출되고 있었습니다.</p>
+<p>정적페이지이니까 우선적으로 <a href="https://github.com/hodory/hodory.github.io" target="_blank" rel="noopener noreferrer">Github Page Repo</a>의 파일들을 확인했는데,
+모든 경로의 index.html 파일들이 0바이트로 변경되어 있었습니다.</p>
+<blockquote>
+<p><code>.gitignore</code> 때문에 컨텐츠가 만들어지지 않는 것인가?<!-- raw HTML omitted --></p>
+</blockquote>
+<p>먼저 의심을 했고 hexo-generator가 만들어주는 <code>db.json</code>도 git으로 버전관리대상에 추가 후 다시 푸시하였습니다.
+예상대로 <code>hexo generate</code> 스크립트를 실행할때 생성 되기 때문에, 동일한 현상이 재현 되었습니다.</p>
+<p>스크립트 실행시 무슨 문제가 있었다면 빌드가 중지 되었을텐데, Job log를 보았을때는 그런 문제가 없었습니다.</p>
+<p>그리하여 기존 방식대로 우선 배포를 해둔 후, Job Log를 하나씩 자세히 들여다 보았는데</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">WARN  No layout: 2019/06/05/where-is-constructor-inject/index.html
+</span></span><span class="line"><span class="cl">WARN  No layout: 2019/06/04/json-property-not-working/index.html
+</span></span><span class="line"><span class="cl">WARN  No layout: 2019/05/28/required-a-bean-of-type-that-could-not-be-found/index.html
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>위와 같이 No layout 이라는 경고 메세지가 있었습니다.<!-- raw HTML omitted -->
+혹시나 하여 새로운 폴더에서 소스코드를 풀 받아 보았더니,<!-- raw HTML omitted -->
+themes 폴더에 사용중이던 테마가 빈 폴더였습니다.</p>
+<p>항상 로컬에서만 푸시 하였기 때문에, 그걸 모르고 있었죠&hellip;</p>
+<p>깃허브 레포지토리에는 이와같이 표시되고 클릭 불가능한 상태였습니다.
+<figure><a class="lightgallery" href="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png" title="Github themes directory" data-thumbnail="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png">
+        <img
+            
+            loading="lazy"
+            src="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png"
+            srcset="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png, https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png 1.5x, https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png 2x"
+            sizes="auto"
+            alt="Github themes directory">
+    </a></figure></p>
+<p>원인을 찾아본 결과, 해당 theme 마다 .git 디렉토리가 존재하고,<!-- raw HTML omitted -->
+개별적으로 버전관리가 되고 있기 때문에 저의 레포지토리를 pull을 받아도 사용할 수 없었습니다.</p>
+<p><a href="https://postlude.github.io/2019/01/01/hexo-themes-and-git-submodule/" target="_blank" rel="noopener noreferrer">해당 포스팅</a>을 보고,
+서브모듈을 사용해야겠다 생각했습니다.</p>
+<p>하지만 템플릿쪽이다보니 개별적인 수정사항들도 생길 수 있기 때문에 직접 관리하는게 좋겠다 싶어서,
+아예 .git 폴더를 지우고, 제 레포지토리에서 버전관리 할 수 있게 하는 쪽으로 마음을 바꾸었습니다.</p>
+<p>그런데 <code>themes/icarus/.git</code> 폴더를 삭제하고, <code>git status</code> 명령을 쳤을때,<!-- raw HTML omitted -->
+<code>themes/icarus</code> 디렉토리 하위 파일들이 <code>Untracked files</code>에 없었습니다.<!-- raw HTML omitted -->
+혹시나해서 폴더명을 바꾸니까 노출이 되었고요..</p>
+<p>git에 캐시가 남아 있나? 싶어 <code>git rm --cached themes/icarus</code> 명령어를 사용하였더니<!-- raw HTML omitted -->
+정상적으로 <code>Untracked files</code>에 노출이 되어 버전관리에 추가한 후, 푸시를 했습니다.</p>
+<p>그 후, 현재와 같이 정상적으로 동작하고 있습니다!!</p>
+<p>정말 중요한 핵심은 <code>theme 폴더를 레포지토리에 추가하시면됩니다.</code> 였기 때문에<!-- raw HTML omitted -->
+한줄 요약으로 맨 위에 기재해두었습니다.</p>
+]]></description></item><item><title>［Hexo］ 명령어 정리</title><link>http://blog.hodory.dev/2017/08/31/how-to-use-hexo/</link><pubDate>Thu, 31 Aug 2017 22:57:17 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2017/08/31/how-to-use-hexo/</guid><description><![CDATA[<h1 id="hexo-명령어-정리" class="headerLink">
+    <a href="#hexo-%eb%aa%85%eb%a0%b9%ec%96%b4-%ec%a0%95%eb%a6%ac" class="header-mark"></a>Hexo 명령어 정리</h1><hr>
+<h1 id="-초안-생성" class="headerLink">
+    <a href="#-%ec%b4%88%ec%95%88-%ec%83%9d%ec%84%b1" class="header-mark"></a># <code>초안 생성</code></h1><p><code>명령어</code></p>
+<pre tabindex="0"><code>$ hexo new draft [파일명]
+</code></pre><p><code>예제</code></p>
+<pre tabindex="0"><code>$ hexo new draft hello-world
+</code></pre><!-- raw HTML omitted -->
+<h1 id="-초안을-포스트로-옮기기draft-to-post" class="headerLink">
+    <a href="#-%ec%b4%88%ec%95%88%ec%9d%84-%ed%8f%ac%ec%8a%a4%ed%8a%b8%eb%a1%9c-%ec%98%ae%ea%b8%b0%ea%b8%b0draft-to-post" class="header-mark"></a># <code>초안을 포스트로 옮기기(Draft to Post)</code></h1><p><code>명령어</code></p>
+<pre tabindex="0"><code>$ hexo publish [파일명]
+</code></pre><p><code>예제</code></p>
+<pre tabindex="0"><code>$ hexo publish hello-world
+</code></pre><h1 id="-포스트-생성" class="headerLink">
+    <a href="#-%ed%8f%ac%ec%8a%a4%ed%8a%b8-%ec%83%9d%ec%84%b1" class="header-mark"></a># <code>포스트 생성</code></h1><p><code>명령어</code></p>
+<pre tabindex="0"><code>$ hexo new [파일명]
+</code></pre><p><code>예제</code></p>
+<pre tabindex="0"><code>$ hexo new hello-world
+</code></pre><h1 id="-배포하기" class="headerLink">
+    <a href="#-%eb%b0%b0%ed%8f%ac%ed%95%98%ea%b8%b0" class="header-mark"></a># <code>배포하기</code></h1><pre tabindex="0"><code>$ hexo clean // clean을 하지 않으면 deploy를 해도 페이지가 업데이트 되지 않는 경우가 발생한다
+$ hexo deploy --generate
+</code></pre><h1 id="-기타사항" class="headerLink">
+    <a href="#-%ea%b8%b0%ed%83%80%ec%82%ac%ed%95%ad" class="header-mark"></a># <code>기타사항</code></h1><blockquote>
+<h2 id="카테고리와-태그와-같은-설정은-어떻게-설정하나요-" class="headerLink">
+    <a href="#%ec%b9%b4%ed%85%8c%ea%b3%a0%eb%a6%ac%ec%99%80-%ed%83%9c%ea%b7%b8%ec%99%80-%ea%b0%99%ec%9d%80-%ec%84%a4%ec%a0%95%ec%9d%80-%ec%96%b4%eb%96%bb%ea%b2%8c-%ec%84%a4%ec%a0%95%ed%95%98%eb%82%98%ec%9a%94-" class="header-mark"></a>카테고리와 태그와 같은 설정은 어떻게 설정하나요 ?</h2></blockquote>
+<p>포스트파일의 Front-matter에 아래와 같이 작성하시면 됩니다.</p>
+<pre tabindex="0"><code>---
+title: PHP 0001과 같이 번호 지정 하기
+tags: 
+    - Hexo
+    - HelloWorld
+categories:
+    - Hexo
+date: 2017-08-31 12:00:00
+---
+</code></pre><blockquote>
+<h2 id="썸네일을-등록하고-싶어요" class="headerLink">
+    <a href="#%ec%8d%b8%eb%84%a4%ec%9d%bc%ec%9d%84-%eb%93%b1%eb%a1%9d%ed%95%98%ea%b3%a0-%ec%8b%b6%ec%96%b4%ec%9a%94" class="header-mark"></a>썸네일을 등록하고 싶어요</h2></blockquote>
+<p>위의 포스트 Front-matter에 아래 사항을 추가하시면됩니다</p>
+<p>아래에서 지정한 images 폴더의 위치는 source 폴더의 하위경로 입니다.</p>
+<pre tabindex="0"><code>thumbnail: /images/logo.jpg
+</code></pre>]]></description></item></channel></rss>

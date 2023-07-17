@@ -1,5 +1,100 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>str_pad - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/str_pad/</link><description>str_pad - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 27 Oct 2018 15:23:32 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/str_pad/" rel="self" type="application/rss+xml"/><item><title>［PHP］배열 key의 min 또는 max 구하기</title><link>http://blog.hodory.dev/2018/10/27/php-array-column/</link><pubDate>Sat, 27 Oct 2018 15:23:32 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/10/27/php-array-column/</guid><description><![CDATA[PHP로 개발을 하다보면, 연관 배열을 많이 쓰게되는데요
-아래와 같은 배열에서 cnt의 max값과 min값을 구하려면 어떻게 해야할까요?
-또는 이러한 배열에서 특정 키값의 값만 뽑아 배열로 만들고싶다면 어떻게 해야할까요?
-array(3) { [0]=&gt; array(3) { [&#34;title&#34;]=&gt; string(5) &#34;apple&#34; [&#34;cnt&#34;]=&gt; int(1) &#34;5&#34; [&#34;color&#34;]=&gt; string(5) &#34;green&#34; } [1]=&gt; array(3) { [&#34;name&#34;]=&gt; string(4) &#34;pear&#34; [&#34;cnt&#34;]=&gt; int(1) &#34;8&#34; [&#34;color&#34;]=&gt; string(6) &#34;yellow&#34; } 배열을 순회하여 해당 키의 값을 뽑아 배열을 만들고,
-최소 또는 최대값이 필요하면 min 또는 max 함수를 적용해야 한다 생각했습니다.]]></description></item><item><title>［PHP］ 0001과 같이 번호 지정 하기</title><link>http://blog.hodory.dev/2017/08/31/php-str-pad/</link><pubDate>Thu, 31 Aug 2017 21:51:38 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2017/08/31/php-str-pad/</guid><description><![CDATA[PHP에서 0001과 같이 번호 지정하기&lt;?php $count = 1; $count = str_pad($count,4,&#39;0&#39;,STR_PAD_LEFT); //0001 ?&gt; 01이나 001 같이 사용할 때는 두번째 파라미터 값에 2(01) 또는 3(001)을 사용하면 된다.]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>str_pad - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/str_pad/</link><description>str_pad - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Sat, 27 Oct 2018 15:23:32 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/str_pad/" rel="self" type="application/rss+xml"/><item><title>［PHP］배열 key의 min 또는 max 구하기</title><link>http://blog.hodory.dev/2018/10/27/php-array-column/</link><pubDate>Sat, 27 Oct 2018 15:23:32 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/10/27/php-array-column/</guid><description><![CDATA[<p>PHP로 개발을 하다보면, 연관 배열을 많이 쓰게되는데요</p>
+<p>아래와 같은 배열에서 cnt의 max값과 min값을 구하려면 어떻게 해야할까요?</p>
+<!-- raw HTML omitted -->
+<p>또는 이러한 배열에서 특정 키값의 값만 뽑아 배열로 만들고싶다면 어떻게 해야할까요?</p>
+<pre tabindex="0"><code>array(3) {
+  [0]=&gt;
+  array(3) {
+    [&#34;title&#34;]=&gt;
+    string(5) &#34;apple&#34;
+    [&#34;cnt&#34;]=&gt;
+    int(1) &#34;5&#34;
+    [&#34;color&#34;]=&gt;
+    string(5) &#34;green&#34;
+  }
+  [1]=&gt;
+  array(3) {
+    [&#34;name&#34;]=&gt;
+    string(4) &#34;pear&#34;
+    [&#34;cnt&#34;]=&gt;
+    int(1) &#34;8&#34;
+    [&#34;color&#34;]=&gt;
+    string(6) &#34;yellow&#34;
+  }
+</code></pre><p>배열을 순회하여 해당 키의 값을 뽑아 배열을 만들고,</p>
+<p>최소 또는 최대값이 필요하면 min 또는 max 함수를 적용해야 한다 생각했습니다.</p>
+<p>그런 코드는 만들고 싶지 않아 검색을 하다보니</p>
+<p>PHP 5.5버전부터는 <a href="http://php.net/manual/en/function.array-column.php" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">array_column</a>을 사용하면 쉽게 처리할 수 있었습니다.</p>
+<p><code>array array_column ( array $input , mixed $column_key [, mixed $index_key = NULL ] )</code> 와 같은 구조로</p>
+<p>첫번째 파라미터에 해당 배열을 넣고, 두번째 파라미터에 뽑아낼 key를 넣으면 됩니다.</p>
+<p>예를들어 아래와 같은 연관 배열에서 cnt로만 배열을 만들려면 이와 같이 할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;title1&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;cnt&#39;</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;color&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;title2&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;cnt&#39;</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;color&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$cntArr</span> <span class="o">=</span> <span class="nx">array_column</span><span class="p">(</span><span class="nv">$arr</span><span class="p">,</span> <span class="s1">&#39;cnt&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$cntArr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Result 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">array</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>또한 세번째 파라미터로는 index_key를 넣을 수 있는데요</p>
+<p>return 할 배열의 키로 사용할 값을 넣으면 됩니다 예를들어 이렇게 쓸 수 있을것 같았습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// example code
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;idx&#39;</span> <span class="o">=&gt;</span> <span class="mi">2555</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;title1&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;cnt&#39;</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;color&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;idx&#39;</span> <span class="o">=&gt;</span> <span class="mi">2982</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;title2&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;cnt&#39;</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;color&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$cntArr</span> <span class="o">=</span> <span class="nx">array_column</span><span class="p">(</span><span class="nv">$arr</span><span class="p">,</span> <span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;idx&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$cntArr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">array</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">2555</span><span class="p">]</span><span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">2982</span><span class="p">]</span><span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>이와같이 사용하면 해당 idx의 cnt를 뽑을 수 있어 더 효율적으로 사용할 수 있을거 같습니다.</p>
+<p>더 좋은 사용 방안 있으시면 댓글로 부탁드리겠습니다.</p>
+<blockquote>
+<p>참고자료</p>
+</blockquote>
+<ul>
+<li><a href="https://stackoverflow.com/questions/17339421/find-highest-value-in-multidimensional-array" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">StackOverFlow - Find highest value in multidimensional array</a></li>
+<li><a href="https://secure.php.net/manual/en/function.array-column.php" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">PHP 공식문서 - array_column()</a></li>
+</ul>
+]]></description></item><item><title>［PHP］ 0001과 같이 번호 지정 하기</title><link>http://blog.hodory.dev/2017/08/31/php-str-pad/</link><pubDate>Thu, 31 Aug 2017 21:51:38 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2017/08/31/php-str-pad/</guid><description><![CDATA[<h4 id="php에서-0001과-같이-번호-지정하기" class="headerLink">
+    <a href="#php%ec%97%90%ec%84%9c-0001%ea%b3%bc-%ea%b0%99%ec%9d%b4-%eb%b2%88%ed%98%b8-%ec%a7%80%ec%a0%95%ed%95%98%ea%b8%b0" class="header-mark"></a>PHP에서 0001과 같이 번호 지정하기</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$count</span> <span class="o">=</span> <span class="nx">str_pad</span><span class="p">(</span><span class="nv">$count</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="nx">STR_PAD_LEFT</span><span class="p">);</span> <span class="c1">//0001
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></div><p><code>01이나 001 같이 사용할 때는 두번째 파라미터 값에 2(01) 또는 3(001)을 사용하면 된다.</code></p>
+]]></description></item></channel></rss>

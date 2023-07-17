@@ -1,8 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>VSCODE - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/vscode/</link><description>VSCODE - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 11 Aug 2022 01:20:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/vscode/" rel="self" type="application/rss+xml"/><item><title>VSCode Git Private Key 오류</title><link>http://blog.hodory.dev/2022/08/11/vscode-git-private-key-%EC%98%A4%EB%A5%98/</link><pubDate>Thu, 11 Aug 2022 01:20:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2022/08/11/vscode-git-private-key-%EC%98%A4%EB%A5%98/</guid><description>Git: git@github.com: Permission denied (publickey). 위와 같은 오류가 vscode 에서 발생하였습니다.
-git@github.com permission denied 분명 터미널에서는 이슈가 없었는데, vscode에서만 이슈가 발생하였습니다.
-ssh key에 passphrase를 넣어주었는데, vscode에서는 설정하는 구간이 없었고, 이 부분이 문제가 되는것 같아
-설정을 찾아보았으나 설정하는 영역이 따로 없는것 같아 구글링을 해보았는데 아직 기능으로 제공하고 있지 않은것 같았습니다.
-현재 해당 이슈 https://github.com/microsoft/vscode/issues/13680 로 등록되어 있습니다.
-이슈 코멘트 확인중 https://github.com/microsoft/vscode/issues/13680#issuecomment-1192145377 이 코멘트를 보았는데,
-git repo 설정을 git@github.com:hodory/source.hodory.github.io.git 가 아닌,
-https://github.com/hodory/source.hodory.github.io.git 와 같이 적용하면 되는 방법이 있었습니다.</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>VSCODE - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/vscode/</link><description>VSCODE - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Thu, 11 Aug 2022 01:20:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/vscode/" rel="self" type="application/rss+xml"/><item><title>VSCode Git Private Key 오류</title><link>http://blog.hodory.dev/2022/08/11/vscode-git-private-key-%EC%98%A4%EB%A5%98/</link><pubDate>Thu, 11 Aug 2022 01:20:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2022/08/11/vscode-git-private-key-%EC%98%A4%EB%A5%98/</guid><description><![CDATA[<pre tabindex="0"><code>Git: git@github.com: Permission denied (publickey).
+</code></pre><p>위와 같은 오류가 vscode 에서 발생하였습니다.</p>
+<p><figure><a class="lightgallery" href="/images/vscode-permission-denied.png" title="git@github.com permission denied" data-thumbnail="/images/vscode-permission-denied.png" data-sub-html="<h2>git@github.com permission denied</h2><p>git@github.com permission denied</p>">
+        <img
+            
+            loading="lazy"
+            src="/images/vscode-permission-denied.png"
+            srcset="/images/vscode-permission-denied.png, /images/vscode-permission-denied.png 1.5x, /images/vscode-permission-denied.png 2x"
+            sizes="auto"
+            alt="git@github.com permission denied">
+    </a><figcaption class="image-caption">git@github.com permission denied</figcaption>
+    </figure></p>
+<p>분명 터미널에서는 이슈가 없었는데, vscode에서만 이슈가 발생하였습니다.</p>
+<p>ssh key에 passphrase를 넣어주었는데, vscode에서는 설정하는 구간이 없었고, 이 부분이 문제가 되는것 같아</p>
+<p>설정을 찾아보았으나 설정하는 영역이 따로 없는것 같아 구글링을 해보았는데 아직 기능으로 제공하고 있지 않은것 같았습니다.</p>
+<p>현재 해당 이슈 <a href="https://github.com/microsoft/vscode/issues/13680" target="_blank" rel="noopener noreferrer">https://github.com/microsoft/vscode/issues/13680</a> 로 등록되어 있습니다.</p>
+<p>이슈 코멘트 확인중 <a href="https://github.com/microsoft/vscode/issues/13680#issuecomment-1192145377" target="_blank" rel="noopener noreferrer">https://github.com/microsoft/vscode/issues/13680#issuecomment-1192145377</a>  이 코멘트를 보았는데,</p>
+<p>git repo 설정을 <a href="mailto:git@github.com" rel="">git@github.com</a>:hodory/source.hodory.github.io.git 가 아닌,</p>
+<p><a href="https://github.com/hodory/source.hodory.github.io.git" target="_blank" rel="noopener noreferrer">https://github.com/hodory/source.hodory.github.io.git</a> 와 같이 적용하면 되는 방법이 있었습니다.</p>
+<p>명령어로는 아래와 같이 설정하면 ssh 방식이 아닌 https 방식으로 처리하기때문에 공개키를 등록 했을 경우 정상적으로 동작하는것을 확인 할 수 있었습니다.</p>
+<pre tabindex="0"><code>$ git remote set-url origin https://github.com/hodory/source.hodory.github.io.git
+</code></pre>]]></description></item></channel></rss>

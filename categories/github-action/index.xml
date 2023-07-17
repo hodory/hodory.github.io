@@ -1,5 +1,82 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>GITHUB-ACTION - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/github-action/</link><description>GITHUB-ACTION - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 02 Jan 2022 22:21:19 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/github-action/" rel="self" type="application/rss+xml"/><item><title>［Notion］Notion과 Github Actions로 가계부 자동화 하기 - (1)</title><link>http://blog.hodory.dev/2022/01/02/account-book-with-notion-and-github-actions/</link><pubDate>Sun, 02 Jan 2022 22:21:19 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2022/01/02/account-book-with-notion-and-github-actions/</guid><description>시작하기에 앞서 해당 포스트는 ［Notion］Notion과 Zapier로 가계부 자동화 하기의 후속편입니다.
-해당 포스트에서는 토스의 소비 서비스를 기반으로 Google Drive, Naver OCR, Github Actions, Notion API 를 사용합니다.
-왜 Github Actions로 변경하게 되었을까? 기존에 가계부 자동화로 맨처음 고려 했던 방식은 Github Actions + Naver OCR을 이용한 가계부 자동화 방식이였습니다.
-하지만 가계부를 쓰기 위해 코딩을 하는게 맞나? 싶은 생각에 솔루션들을 사용하기로 하였고 플랫폼들을 이용한 기존에 구성한 스택은 다음과 같습니다.
-Google Drive : 캡쳐 이미지 저장소 Zapier : Google Drive 이미지 업로드시 정해진 프로세스를 진행하도록 하기 위한 플랫폼 Nanonets : 이미지에 OCR을 동작시켜 이미지에서 필요한 영역의 데이터를 뽑아낼 수 있음.</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>GITHUB-ACTION - Category - Web Developer Hodory</title><link>http://blog.hodory.dev/categories/github-action/</link><description>GITHUB-ACTION - Category - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Sun, 02 Jan 2022 22:21:19 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/categories/github-action/" rel="self" type="application/rss+xml"/><item><title>［Notion］Notion과 Github Actions로 가계부 자동화 하기 - (1)</title><link>http://blog.hodory.dev/2022/01/02/account-book-with-notion-and-github-actions/</link><pubDate>Sun, 02 Jan 2022 22:21:19 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2022/01/02/account-book-with-notion-and-github-actions/</guid><description><![CDATA[<h2 id="시작하기에-앞서" class="headerLink">
+    <a href="#%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0%ec%97%90-%ec%95%9e%ec%84%9c" class="header-mark"></a>시작하기에 앞서</h2><hr>
+<p>해당 포스트는 <a href="https://blog.hodory.dev/2021/12/29/acoount-book-with-notion-and-zapier/" target="_blank" rel="noopener noreferrer">［Notion］Notion과 Zapier로 가계부 자동화 하기</a>의 후속편입니다.</p>
+<p>해당 포스트에서는 토스의 소비 서비스를 기반으로 <code>Google Drive</code>, <code>Naver OCR</code>, <code>Github Actions</code>, <code>Notion API</code> 를 사용합니다.</p>
+<h2 id="왜-github-actions로-변경하게-되었을까" class="headerLink">
+    <a href="#%ec%99%9c-github-actions%eb%a1%9c-%eb%b3%80%ea%b2%bd%ed%95%98%ea%b2%8c-%eb%90%98%ec%97%88%ec%9d%84%ea%b9%8c" class="header-mark"></a>왜 Github Actions로 변경하게 되었을까?</h2><hr>
+<p>기존에 가계부 자동화로 맨처음 고려 했던 방식은 Github Actions + Naver OCR을 이용한 가계부 자동화 방식이였습니다.</p>
+<p>하지만 가계부를 쓰기 위해 코딩을 하는게 맞나? 싶은 생각에 솔루션들을 사용하기로 하였고<!-- raw HTML omitted -->
+플랫폼들을 이용한 기존에 구성한 스택은 다음과 같습니다.</p>
+<ul>
+<li>Google Drive : 캡쳐 이미지 저장소</li>
+<li>Zapier : Google Drive 이미지 업로드시 정해진 프로세스를 진행하도록 하기 위한 플랫폼</li>
+<li>Nanonets : 이미지에 OCR을 동작시켜 이미지에서 필요한 영역의 데이터를 뽑아낼 수 있음.</li>
+</ul>
+<p>해당 스택으로 구성하였을때 무엇보다 좋았던 점은 코드를 한줄도 작성하지 않아도 가능하기 때문에,<!-- raw HTML omitted -->
+개발자가 아니더라도 충분히 따라서 할 수 있다 였습니다.</p>
+<p>하지만 해당 스택으로 구성하였을때 개발자로써 한계가 더 쉽게 다가왔고, 제가 느꼈던 문제점은 다음과 같습니다.</p>
+<ul>
+<li>
+<p><strong>Zapier (자동화 플랫폼)</strong></p>
+<ul>
+<li>
+<p>무료 플랜사용시에는 월 100회 실행 무료이며, 1개의 자동화(zap)당 1개의 작업만 설정이 가능합니다.<!-- raw HTML omitted -->
+저의 경우 아래 두가지 자동화로 나뉘게 되어, 하나의 항목 업로드시 무료 횟수가 2회씩 차감이 됩니다.</p>
+<ol>
+<li><code>구글 드라이브에 이미지가 업로드 되면 OCR 분석을 실행</code><!-- raw HTML omitted --></li>
+<li><code>OCR 분석이 완료되면 Notion DB에 저장.</code></li>
+</ol>
+</li>
+<li>
+<p>자동화는 15분 간격으로 실행되기때문에, 위와 같이 2개가 처리되면 최악의 경우 30분이 걸리게 됩니다.</p>
+</li>
+<li>
+<p>Notion의 Database에 항목(Property)이 많으면 일부만 노출되는 문제가 있어 원하는대로 매핑을 할 수 없습니다.</p>
+</li>
+<li>
+<p>데이터 포맷 변환 또한 Zap을 새로 추가해야해서 비용이 발생함.</p>
+<ul>
+<li>날짜 포맷이 토스에서는 <code>2022년 1월 1일 14:40</code> 이지만, Notion에는 ISO8601의 날짜 포맷인 <code>2022/01/01</code> 이 아니면 데이터가 오늘 날짜로 입력됩니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Nanonets (이미지 글자 인식 OCR 플랫폼)</strong></p>
+<ul>
+<li>
+<p>해외 플랫폼의 한계로 한글 인식률이 부족합니다.</p>
+<ul>
+<li>한글의 경우 글자사이에 띄어쓰기가 계속 추가되는 문제도 있습니다.</li>
+</ul>
+</li>
+<li>
+<p>무료 플랜에서는 월 100회 이미지 인식 제한이 있습니다.</p>
+</li>
+<li>
+<p>모델학습을 여러번 해보았지만 영역이 잘못 잡혀서 값이 누락되는 케이스가 있습니다.</p>
+<ul>
+<li>날짜 인식이 잘못되어 데이터가 잘못 들어감.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>위와 같은 한계로 초기에 고려한 방식을 사용한다면 직접 개발해야 하는 문제를 뺀다면,<!-- raw HTML omitted -->
+훨씬 높은 자유도를 얻어 원하는대로 설정할 수 있고<!-- raw HTML omitted -->
+각 서비스의 API의 무료 한도도 Naver OCR의 API 한도인 300회만 고려하면 되기 때문에<!-- raw HTML omitted -->
+한달의 가계부를 쓰기에 충분할것이라 판단하였습니다.</p>
+<h2 id="서비스-구성" class="headerLink">
+    <a href="#%ec%84%9c%eb%b9%84%ec%8a%a4-%ea%b5%ac%ec%84%b1" class="header-mark"></a>서비스 구성</h2><hr>
+<p>이와 같이 구성하여 작성하였습니다.</p>
+<p><figure><a class="lightgallery" href="/images/account-book-automation-with-github-action.jpg" title="/images/account-book-automation-with-github-action.jpg" data-thumbnail="/images/account-book-automation-with-github-action.jpg">
+        <img
+            
+            loading="lazy"
+            src="/images/account-book-automation-with-github-action.jpg"
+            srcset="/images/account-book-automation-with-github-action.jpg, /images/account-book-automation-with-github-action.jpg 1.5x, /images/account-book-automation-with-github-action.jpg 2x"
+            sizes="auto"
+            alt="/images/account-book-automation-with-github-action.jpg">
+    </a></figure></p>
+<p>각 영역에 대한 상세한 내용은 다음편에서 작성 예정입니다</p>
+]]></description></item></channel></rss>

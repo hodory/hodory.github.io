@@ -1,6 +1,119 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Netlify - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/netlify/</link><description>Netlify - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Dec 2021 00:16:53 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/netlify/" rel="self" type="application/rss+xml"/><item><title>Hexo Netlify CMS 연결하기</title><link>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</link><pubDate>Fri, 31 Dec 2021 00:16:53 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</guid><description>Netlify CMS 블로그 플랫폼에 의존적이지 않고, 개발자st 블로그를 운영하고자 2017년부터 hexo를 이용해 블로그를 운영하고 있습니다.
-마크 다운과 파일시스템을 이용하여 블로그 포스트를 작성하고, git을 이용하여 버전 관리를 하는것은 개발자로서 꽤나 매력적이었습니다.
-하지만 랩탑을 항상 소지하고 있지 않다면,
-다양한 환경에서 블로그를 작성하기 위해 nodejs를 설치하고, hexo-cli 를 설치하는것은 언제나 부담스러운 일입니다.
-제 블로그는 Github Actions 를 이용하여 포스팅만 작성하면 자동으로 빌드하여 배포가 되지만,
-또 다른 문제점은 포스팅에 이미지가 들어가게 될 경우 작업의 복잡도가 올라가게 됩니다.</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Netlify - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/netlify/</link><description>Netlify - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Fri, 31 Dec 2021 00:16:53 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/netlify/" rel="self" type="application/rss+xml"/><item><title>Hexo Netlify CMS 연결하기</title><link>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</link><pubDate>Fri, 31 Dec 2021 00:16:53 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</guid><description><![CDATA[<h2 id="netlify-cms" class="headerLink">
+    <a href="#netlify-cms" class="header-mark"></a>Netlify CMS</h2><hr>
+<p>블로그 플랫폼에 의존적이지 않고, 개발자st 블로그를 운영하고자 2017년부터 <a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener noreferrer">hexo</a>를 이용해 블로그를 운영하고 있습니다.</p>
+<p>마크 다운과 파일시스템을 이용하여 블로그 포스트를 작성하고, git을 이용하여 버전 관리를 하는것은 개발자로서 꽤나 매력적이었습니다.</p>
+<p>하지만 랩탑을 항상 소지하고 있지 않다면,<br>
+다양한 환경에서 블로그를 작성하기 위해 nodejs를 설치하고, hexo-cli 를 설치하는것은 언제나 부담스러운 일입니다.</p>
+<p>제 블로그는 Github Actions 를 이용하여 포스팅만 작성하면 자동으로 빌드하여 배포가 되지만,<br>
+또 다른 문제점은 포스팅에 이미지가 들어가게 될 경우 작업의 복잡도가 올라가게 됩니다.</p>
+<p>위와 같은 이유로 hexo를 온라인에서도 작성할 방법을 고민하고 검색하였고, netlify-cms 라는 서비스를 알게 되어 적용하고자 했습니다.</p>
+<h2 id="사실과-오해" class="headerLink">
+    <a href="#%ec%82%ac%ec%8b%a4%ea%b3%bc-%ec%98%a4%ed%95%b4" class="header-mark"></a>사실과 오해</h2><hr>
+<p>작년에 해당 서비스를 처음 접하였을때는 gatsby 블로그를 알아보다가 알게 된 것이라 두가지 오해가 있었습니다.</p>
+<ol>
+<li>graphQL으로 포스트를 관리한다.</li>
+<li>netlify로 블로그를 호스팅 할때만 사용이 가능하다.</li>
+</ol>
+<p>이번에 작업을 진행하면서 알게된 내용은 틀린 부분들이 있었습니다.</p>
+<ol>
+<li>
+<p>graphQL으로 포스트를 관리한다.</p>
+<ol>
+<li>git-gateway라는 자체적인 방식을 이용하여 git repository를 저장소로 사용합니다.</li>
+</ol>
+</li>
+<li>
+<p>netlify로 블로그를 호스팅 할때만 사용이 가능하다.</p>
+<ol>
+<li>admin에 접근하기 위해서는 netlify를 이용해 호스팅을 해야하는것은 맞지만, 기존에 github pages로 제공하던 블로그와 별개로 다른 환경에 별도의 배포본을 이용하여 사용할 수 있다.</li>
+<li>위와 같은 이유로 저는 기존의 깃허브 블로그(<a href="https://blog.hodory.dev" target="_blank" rel="noopener noreferrer">https://blog.hodory.dev</a>)[https://blog.hodory.dev] 와<br>
+netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" target="_blank" rel="noopener noreferrer">https://hodory-blog.netlify.app/</a> 를 따로 사용하고 있습니다.</li>
+</ol>
+</li>
+</ol>
+<h2 id="설정방법" class="headerLink">
+    <a href="#%ec%84%a4%ec%a0%95%eb%b0%a9%eb%b2%95" class="header-mark"></a>설정방법</h2><hr>
+<!-- raw HTML omitted -->
+<p><a href="https://www.netlifycms.org/docs/add-to-your-site/" target="_blank" rel="noopener noreferrer">Netlify-CMS 공식 문서</a> 참조하여 직접 설정하는것도 똑같이 따라만 하면 동작합니다.</p>
+<p>하지만 변경사항이 생긴다면 블로그를 작성하기 위해 쓰는것인데 오히려 버전 대응에서도 리소스가 들 것이고,<br>
+깔끔한 구조를 만들진 못할것 같아서 <a href="https://github.com/JiangTJ/hexo-netlify-cms" target="_blank" rel="noopener noreferrer">hexo-netlify-cms</a> 해당 패키지를 사용하게 되었습니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" title="Git Gateway 설정" data-thumbnail="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" data-sub-html="<h2>Git Gateway 설정</h2><p>Git Gateway 설정</p>">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-11.30.04-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-11.30.04-pm.png, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 2x"
+            sizes="auto"
+            alt="Git Gateway 설정">
+    </a><figcaption class="image-caption">Git Gateway 설정</figcaption>
+    </figure></p>
+<p>위와 같이 git gateway를 설정하여 줍니다.<br>
+이것만 하면 netlify app의 URL에서 어드민 로그인이 가능합니다.</p>
+<h3 id="임시-저장-기능-활용하기" class="headerLink">
+    <a href="#%ec%9e%84%ec%8b%9c-%ec%a0%80%ec%9e%a5-%ea%b8%b0%eb%8a%a5-%ed%99%9c%ec%9a%a9%ed%95%98%ea%b8%b0" class="header-mark"></a>임시 저장 기능 활용하기</h3><hr>
+<p>netlify-cms가 자체적인 db를 가지고 사용할 것이라 오해했던 부분이 이 부분때문이였습니다.</p>
+<p><a href="https://www.netlifycms.org/docs/configuration-options/#publish-mode" target="_blank" rel="noopener noreferrer">해당 링크</a>를 확인해보면 기본적으로 netlify cms는 메인 git repo에 직접 커밋을 하는 방식으로 동작합니다.</p>
+<p>하지만 publish_mode를 editorial_workflow로 변경하여주면 draft 저장 / draft 수정 / draft publish 와 같은 단계로 나누어 처리할 수 있습니다.</p>
+<h4 id="설정-방법" class="headerLink">
+    <a href="#%ec%84%a4%ec%a0%95-%eb%b0%a9%eb%b2%95" class="header-mark"></a>설정 방법</h4><p>hexo 디렉토리 root의  _config.yml 파일에 아래와 같이 추가합니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">netlify_cms</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">config_file</span><span class="p">:</span><span class="w"> </span><span class="l">netlify-cms.yml</span><span class="w">
+</span></span></span></code></pre></div><p>같은 경로에 netlify-cms.yml 파일을 생성하고 <a href="https://github.com/jiangtj/hexo-netlify-cms/blob/master/admin/config.yml" target="_blank" rel="noopener noreferrer">기본값</a>을 복사하여 넣어주고, 해당 값을 넣어주면 netlify-cms.yml 파일의 값으로 설정되게 됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">publish_mode</span><span class="p">:</span><span class="w"> </span><span class="l">editorial_workflow</span><span class="w">
+</span></span></span></code></pre></div><h4 id="기존화면" class="headerLink">
+    <a href="#%ea%b8%b0%ec%a1%b4%ed%99%94%eb%a9%b4" class="header-mark"></a>기존화면</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" title="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-1.40.19-pm.png, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 1.5x, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
+    </a></figure></p>
+<p>상단의 Publish 버튼 클릭시 바로 발행과 이후 동작을 선택할 수 있습니다.</p>
+<h4 id="editorial_workflow-설정-후" class="headerLink">
+    <a href="#editorial_workflow-%ec%84%a4%ec%a0%95-%ed%9b%84" class="header-mark"></a>editorial_workflow 설정 후</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" title="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-11.43.45-pm.png, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
+    </a></figure></p>
+<p>Save 버튼만 노출이 되는데, 설정이 잘못 된 것인줄 알았으나, Save 버튼을 누르면 아래와 같이 Draft 상태 노출과 함께 변경됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" title="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-2.02.00-pm.png, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 1.5x, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
+    </a></figure></p>
+<p>Draft 상태는 repository에 `cms/all_posts/{{post_title}}` 과 같은 브랜치가 생기며, Pull Request가 발행됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" title="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
+            srcset="/images/screen-shot-2021-12-30-at-11.56.17-pm.png, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
+    </a></figure></p>
+<p>Publish 버튼의 동작은 동일하지만 Status가 <strong>READY</strong> 상태일때만 버튼이 동작합니다.</p>
+<h2 id="주의사항필수" class="headerLink">
+    <a href="#%ec%a3%bc%ec%9d%98%ec%82%ac%ed%95%ad%ed%95%84%ec%88%98" class="header-mark"></a>주의사항(필수)</h2><hr>
+<h4 id="접근-권한-설정" class="headerLink">
+    <a href="#%ec%a0%91%ea%b7%bc-%ea%b6%8c%ed%95%9c-%ec%84%a4%ec%a0%95" class="header-mark"></a>접근 권한 설정</h4><p>Netlify site 설정에서 Identity &gt; Registration 설정을 <strong>Invite Only</strong> 로 변경하지 않으면, 모든 사용자가 각자의 메일 인증만 하면  자신의 블로그에 글을 쓸 수 있게 됩니다.</p>
+<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-31-at-12.12.51-am.png" title="/images/screen-shot-2021-12-31-at-12.12.51-am.png" data-thumbnail="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
+        <img
+            
+            loading="lazy"
+            src="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
+            srcset="/images/screen-shot-2021-12-31-at-12.12.51-am.png, /images/screen-shot-2021-12-31-at-12.12.51-am.png 1.5x, /images/screen-shot-2021-12-31-at-12.12.51-am.png 2x"
+            sizes="auto"
+            alt="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
+    </a></figure></p>
+<p>자신의 블로그에 아무나 글을 쓰길 원하는 사람은 없기 때문에 필수로 설정하는것을 추천드립니다.</p>
+]]></description></item></channel></rss>
