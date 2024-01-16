@@ -26,15 +26,14 @@
 </span></span></code></pre></div><p>해당 테스트를 생성 후 아래와 같이 PHPUnit으로 해당 테스트를 실행하였더니</p>
 <pre tabindex="0"><code class="language-shellscript" data-lang="shellscript">$ ./vendor/bin/phpunit --filter it_belongs_to_a_project
 </code></pre><p>아래 이미지와 같은 에러가 나왔습니다.
-<figure><a class="lightgallery" href="/images/Unable-to-locale-factory-with-name-default/1.jpg" title="/images/Unable-to-locale-factory-with-name-default/1.jpg" data-thumbnail="/images/Unable-to-locale-factory-with-name-default/1.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
-            srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
-            sizes="auto"
-            alt="/images/Unable-to-locale-factory-with-name-default/1.jpg">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+        srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
+        sizes="auto"
+        alt="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+        title="/images/Unable-to-locale-factory-with-name-default/1.jpg" ></figure></p>
 <h2 id="invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="headerLink">
     <a href="#invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="header-mark"></a><code>InvalidArgumentException : Unable to locate factory with name [default] [App\Task]</code></h2><p>과연 무엇이 문제일까 싶어 해당 모델의 migration이 제대로 안된걸까요?</p>
 <!-- raw HTML omitted -->
@@ -636,24 +635,22 @@ class DatabaseTest extends TestCase
     <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%eb%a9%94%ec%86%8c%eb%93%9c%eb%aa%85%ec%9d%84-test%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%ec%8b%b6%ec%a7%80-%ec%95%8a%ec%9d%84-%eb%95%8c" class="header-mark"></a>테스트 메소드명을 test로 시작하고싶지 않을 때</h3><hr>
 <p>테스트 메소드는 메소드명의 prefix로 test를 사용합니다.</p>
 <p>테스트 메소드명의 prefix로 <code>test</code>를 사용하지 않는 대안으로, 주석에 <code>@test</code> 어노테이션을 사용하면 테스트 메소드라고 인식됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" title="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" data-thumbnail="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png">
-        <img
-            
-            loading="lazy"
-            src="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
-            srcset="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 1.5x, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 2x"
-            sizes="auto"
-            alt="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png">
-    </a></figure></p>
-<p><figure><a class="lightgallery" href="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" title="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" data-thumbnail="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png">
-        <img
-            
-            loading="lazy"
-            src="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
-            srcset="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 1.5x, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 2x"
-            sizes="auto"
-            alt="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
+        srcset="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 1.5x, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 2x"
+        sizes="auto"
+        alt="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
+        title="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" ></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
+        srcset="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 1.5x, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 2x"
+        sizes="auto"
+        alt="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
+        title="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" ></figure></p>
 <h2 id="testdox" class="headerLink">
     <a href="#testdox" class="header-mark"></a>@testdox</h2><h3 id="testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때" class="headerLink">
     <a href="#testdox-%ec%98%b5%ec%85%98%ec%9c%bc%eb%a1%9c-%ec%83%9d%ec%84%b1%eb%90%98%eb%8a%94-%eb%ac%b8%ec%84%9c%ec%9d%98-%ec%84%a4%eb%aa%85%ec%9d%84-%eb%8c%80%ec%b2%b4%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때</h3><hr>

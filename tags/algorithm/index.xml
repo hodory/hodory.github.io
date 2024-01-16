@@ -69,15 +69,14 @@
 <li>등차 수열이란 ?
 연속하는 두 항의 차이가 모두 일정한 수열.</li>
 <li>등차 수열의 합 공식 (출처 : <a href="https://ko.wikipedia.org/wiki/%eb%93%b1%ec%b0%a8%ec%88%98%ec%97%b4" target="_blank" rel="noopener noreferrer">위키피디아</a>)
-<figure><a class="lightgallery" href="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023" title="등차수열의 합 공식" data-thumbnail="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023" data-sub-html="<h2>클릭시 위키피디아로 이동</h2><p>등차수열의 합 공식</p>">
-        <img
-            
-            loading="lazy"
-            src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023"
-            srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 2x"
-            sizes="auto"
-            alt="등차수열의 합 공식">
-    </a><figcaption class="image-caption">클릭시 위키피디아로 이동</figcaption>
+<figure><img
+        
+        loading="lazy"
+        src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023"
+        srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 2x"
+        sizes="auto"
+        alt="등차수열의 합 공식"
+        title="등차수열의 합 공식" ><figcaption class="image-caption">클릭시 위키피디아로 이동</figcaption>
     </figure></li>
 <li>코드 구현
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="nx">addFunction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>

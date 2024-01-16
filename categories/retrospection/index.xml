@@ -222,26 +222,24 @@ X-Ray를 활용
 <p>배포환경은 동일하게 로컬환경은 개발자 본인만을 위한것이다.<!-- raw HTML omitted -->
 클라우드9이나 CloudFormation, 도커등 동일한 환경을 제공할 수 있어야함.</p>
 <h2 id="점심-도시락" class="headerLink">
-    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><a class="lightgallery" href="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" data-thumbnail="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
-            srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
-            sizes="auto"
-            alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-    </a></figure>
+    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
+        sizes="auto"
+        alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" ></figure>
 닭강정, 새우튀김, 갈비찜?돼지고기찜? + 된장국 (나머진 안 먹어봐서 모르겠습니다)</p>
 <h2 id="굿즈swags" class="headerLink">
-    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><a class="lightgallery" href="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" data-thumbnail="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
-            srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
-            sizes="auto"
-            alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-    </a></figure></p>
+    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
+        sizes="auto"
+        alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" ></figure></p>
 <ul>
 <li>티셔츠</li>
 <li>머그컵</li>
@@ -318,15 +316,14 @@ Spring Application Context에서 관리되는 Bean들이 싱글톤으로 관리 
 <p><a href="http://daily-devblog.com/" target="_blank" rel="noopener noreferrer">국내 개발자들 블로그를 구독</a>하고 있었는데, 내 포스팅도 많이 노출되어서 많은 피드백을 받았으면 좋겠다 싶어서, 해당 서비스가 <a href="https://awesome-devblog.netlify.com/" target="_blank" rel="noopener noreferrer">어썸데브블로그</a>의 피드를 사용하기때문에 국내 개발자로 등록을 하였습니다.</p>
 <p>등록하고 바로 포스팅을 올렸는데 어날리틱스 기준으로 처음으로 블로그 1일 방문자수가 20을 넘었습니다.
 해당 그래프를 보는게 재밌어서 포스팅을 계속해서 올렸었고, 아래와 같은 그래프를 그릴 수 있었습니다.</p>
-<p><figure><a class="lightgallery" href="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png" title="블로그 GA 통계" data-thumbnail="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png">
-        <img
-            
-            loading="lazy"
-            src="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png"
-            srcset="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 1.5x, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 2x"
-            sizes="auto"
-            alt="블로그 GA 통계" height="505"  width="663" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png"
+        srcset="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 1.5x, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 2x"
+        sizes="auto"
+        alt="블로그 GA 통계"
+        title="블로그 GA 통계" height="505"   width="663" ></figure></p>
 <p>노출 수가 많아질수록 더 읽고 싶은글, 읽기 좋은 글 또는 관심가질만한 글들을 써야겠다고 생각하게 되었습니다.</p>
 <h2 id="블로그-배포-방식-변경" class="headerLink">
     <a href="#%eb%b8%94%eb%a1%9c%ea%b7%b8-%eb%b0%b0%ed%8f%ac-%eb%b0%a9%ec%8b%9d-%eb%b3%80%ea%b2%bd" class="header-mark"></a>블로그 배포 방식 변경</h2><p>기존에 hexo-cli를 이용해서 배포를 하다가 매번 커맨드를 치는것도 귀찮다 생각하여, <code>package.json</code>에 스크립트를 작성해두었습니다.</p>

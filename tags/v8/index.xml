@@ -9,72 +9,66 @@
     <a href="#%eb%ac%b4%ec%8a%a8-%ec%86%8c%eb%a6%ac%ec%9d%bc%ea%b9%8c" class="header-mark"></a>무슨 소리일까?</h2><hr>
 <p>아래의 두 코드는 동일한 객체를 생성하지만,
 Javascript 엔진의 경우, JSON 예제를 스캔하고, 파싱만 하기 때문에 빠르다고합니다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" title="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 1.5x, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 1.5x, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png"
+        title="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" ></figure></p>
 <p>Javascript 파서에게 해당 코드는 여러개의 객체 리터럴을 받는 코드이냐, 많은 양의 데이터가 담긴  문자열 단일 리터럴이냐로 구분됩니다.</p>
 <p>해당 예제에서의 객체의 값은 숫자이지만, 자기 자신의 속성과 값을 가진 Object 또는 배열이거나, 더 많은 값을 가진 무엇이든 될 수 있기 때문입니다.</p>
 <p>이렇기 때문에 <strong>자바스크립트 파서는 단지 올바르게 토큰화 하기위해 JSON.parse에 비해 더 많이 동작 해야 합니다.</strong></p>
 <p>또 다른 이유로는 자바스크립트 객체 리터럴은 그 값이 객체문자열이라는것을 미리 알지 못하기때문입니다.</p>
 <p>JSON.parse로 파싱할때에는 간단하게 중괄호 이후에 Object로 시작할지, 아니면 잘못된 JSON 형식인지라는 두가지 옵션에만 중점을 둡니다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" title="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 1.5x, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 1.5x, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png"
+        title="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" ></figure></p>
 <p>반면 객체 리터럴은 위의 이미지와 같이 Javscript Object는 중괄호 뒤의 값이 무엇인지를 아직까지는 알 수 없고</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" title="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 1.5x, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 1.5x, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png"
+        title="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" ></figure></p>
 <p>이렇게 되었을때는 첫번째 라인에 선언된 x의 값을 바인딩 한 객체 리터럴을 생성하는것을 알 수 있다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" title="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 1.5x, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 1.5x, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png"
+        title="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" ></figure></p>
 <p>하지만 이와 같이  선언 되었을 경우 두번째 라인의 코드에서 첫번째 라인의 x는 전혀 참조되지않습니다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" title="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 1.5x, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 1.5x, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png"
+        title="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" ></figure></p>
 <p>이와 같이, 이러한 문맥 의존 문법으로 인해, Javascript 엔진에서의 파싱이 까다롭습니다.</p>
 <p>문자열을 JSON 파싱하는것은 이러한 문제가 없어, 구문 분석이 훨씬 간단해져서 빠를 수 있는것 입니다.</p>
 <h2 id="실제로-얼마나-빠른건데" class="headerLink">
     <a href="#%ec%8b%a4%ec%a0%9c%eb%a1%9c-%ec%96%bc%eb%a7%88%eb%82%98-%eb%b9%a0%eb%a5%b8%ea%b1%b4%eb%8d%b0" class="header-mark"></a>실제로 얼마나 빠른건데?</h2><hr>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" title="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 1.5x, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 1.5x, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png"
+        title="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" ></figure></p>
 <p>캐시가 없는 콜드로드 상태에서 8MB에 가까운 페이로드를 기준으로 파싱하였을때,
 v8과 크롬에서 <code>JSON.parse()</code>가 1.7배정도 빠르다고 한다.</p>
 <p>이는 다른 자바스크립트 엔진이나 브라우저에서도 적용된다고한다.</p>

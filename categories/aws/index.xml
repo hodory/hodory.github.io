@@ -9,76 +9,70 @@
 <li>
 <p>우선 별 다른 설정없이 s3 버킷을 생성하여줍니다.
 이때 주의할점은 버킷명을 호스팅 하고자 하는 도메인과 일치시켜 주어야 합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png" title="버킷 생성하기" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 2x"
-            sizes="auto"
-            alt="버킷 생성하기">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 2x"
+        sizes="auto"
+        alt="버킷 생성하기"
+        title="버킷 생성하기" ></figure></p>
 <p>또한 권한 설정시 퍼블릭 액세스를 꼭 체크 해제 해주어야 합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png" title="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 2x"
-            sizes="auto"
-            alt="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 2x"
+        sizes="auto"
+        alt="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제"
+        title="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제" ></figure></p>
 </li>
 <li>
 <p>버킷이 생성되면 호스팅 하고자 하는 파일을 업로드하여줍니다.
 호스팅시 누구나 접근 가능하게 하기때문에 퍼블릭 액세스를 허용 해야합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png" title="파일 업로드시 퍼블릭 액세스로 변경" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 2x"
-            sizes="auto"
-            alt="파일 업로드시 퍼블릭 액세스로 변경">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 2x"
+        sizes="auto"
+        alt="파일 업로드시 퍼블릭 액세스로 변경"
+        title="파일 업로드시 퍼블릭 액세스로 변경" ></figure></p>
 </li>
 <li>
 <p>그 후 속성 → 정적 웹 사이트 호스팅 메뉴에 들어가서
 인덱스 문서(메인 페이지), 오류 문서(404 등 오류가 발생했을때 노출 할 페이지) 2가지를 설정하여줍니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png" title="정적 웹호스팅 설정" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 2x"
-            sizes="auto"
-            alt="정적 웹호스팅 설정">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 2x"
+        sizes="auto"
+        alt="정적 웹호스팅 설정"
+        title="정적 웹호스팅 설정" ></figure></p>
 <p>저는 아래와 같이 main.html과 error.html으로 설정했습니다.
 저장 후 빨간색 박스 안에 있는 엔드포인트에 본인이 설정한 페이지가 정상적으로 노출되는지 확인합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png" title="정적 웹호스팅 설정 - 엔드포인트 확인" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 2x"
-            sizes="auto"
-            alt="정적 웹호스팅 설정 - 엔드포인트 확인">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 2x"
+        sizes="auto"
+        alt="정적 웹호스팅 설정 - 엔드포인트 확인"
+        title="정적 웹호스팅 설정 - 엔드포인트 확인" ></figure></p>
 <p>또한 <code>/detail.html</code> 과 같이 존재하지 않는 페이지를 조회하였을때에 오류 문서로 설정한 페이지가 정상적으로 노출되는지도 확인합니다.</p>
 </li>
 <li>
 <p>마지막으로 버킷의 정책을 설정하여 줍니다.</p>
 <p>해당 리소스 하위 경로에 대한 조회 권한을 설정하는것으로, 아래의 빨간 박스 내용이 자신이 설정하려는 도메인과 동일해야합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png" title="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 2x"
-            sizes="auto"
-            alt="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 2x"
+        sizes="auto"
+        alt="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정"
+        title="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정" ></figure></p>
 <pre tabindex="0"><code>    {
         &#34;Version&#34;: &#34;2012-10-17&#34;,
         &#34;Id&#34;: &#34;Policy1579004958999&#34;,
@@ -101,25 +95,23 @@
 <p>Route53의 설정은 더욱 간단합니다.</p>
 <p>이미 호스팅 영역을 등록 하였다면, 네임서버 설정은 아마존으로 자동 설정되어 있기 때문에 설정하려는 도메인으로 레코드 세트를 등록하여줍니다.</p>
 <p>이때 ALIAS를 사용하는데 정상적으로 등록 하였다면 아래 이미지와 같이 s3에 대한 설정이 있습니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png" title="Route53 레코드 세트 설정 - Alias 사용하기" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 2x"
-            sizes="auto"
-            alt="Route53 레코드 세트 설정 - Alias 사용하기">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 2x"
+        sizes="auto"
+        alt="Route53 레코드 세트 설정 - Alias 사용하기"
+        title="Route53 레코드 세트 설정 - Alias 사용하기" ></figure></p>
 <p>이와 같이 설정 후 저장을 하면 좌측 패널에 ALIAS로 설정된 도메인이 추가됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png" title="Route53 도메인 목록" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 2x"
-            sizes="auto"
-            alt="Route53 도메인 목록">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 2x"
+        sizes="auto"
+        alt="Route53 도메인 목록"
+        title="Route53 도메인 목록" ></figure></p>
 <p>이제 다시 <a href="http://static.travelerapp.kr" target="_blank" rel="noopener noreferrer">http://static.travelerapp.kr</a> 로 접근하면 설정한 도메인에 S3에 올려둔 페이지가 정상적으로 노출됩니다.</p>
 <p>또한 하위 디렉토리나 파일들도 접근이 가능합니다.</p>
 <p>단점으로는 현재(2020-01-14 기준) http 프로토콜만 지원하기때문에 https를 지원하기 위해서는 CloudFront 서비스를 대안으로 사용해야 합니다.</p>
@@ -286,26 +278,24 @@ X-Ray를 활용
 <p>배포환경은 동일하게 로컬환경은 개발자 본인만을 위한것이다.<!-- raw HTML omitted -->
 클라우드9이나 CloudFormation, 도커등 동일한 환경을 제공할 수 있어야함.</p>
 <h2 id="점심-도시락" class="headerLink">
-    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><a class="lightgallery" href="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" data-thumbnail="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
-            srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
-            sizes="auto"
-            alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-    </a></figure>
+    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
+        sizes="auto"
+        alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" ></figure>
 닭강정, 새우튀김, 갈비찜?돼지고기찜? + 된장국 (나머진 안 먹어봐서 모르겠습니다)</p>
 <h2 id="굿즈swags" class="headerLink">
-    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><a class="lightgallery" href="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" data-thumbnail="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
-            srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
-            sizes="auto"
-            alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-    </a></figure></p>
+    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
+        sizes="auto"
+        alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" ></figure></p>
 <ul>
 <li>티셔츠</li>
 <li>머그컵</li>

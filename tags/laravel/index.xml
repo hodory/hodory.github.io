@@ -26,15 +26,14 @@
 </span></span></code></pre></div><p>해당 테스트를 생성 후 아래와 같이 PHPUnit으로 해당 테스트를 실행하였더니</p>
 <pre tabindex="0"><code class="language-shellscript" data-lang="shellscript">$ ./vendor/bin/phpunit --filter it_belongs_to_a_project
 </code></pre><p>아래 이미지와 같은 에러가 나왔습니다.
-<figure><a class="lightgallery" href="/images/Unable-to-locale-factory-with-name-default/1.jpg" title="/images/Unable-to-locale-factory-with-name-default/1.jpg" data-thumbnail="/images/Unable-to-locale-factory-with-name-default/1.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
-            srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
-            sizes="auto"
-            alt="/images/Unable-to-locale-factory-with-name-default/1.jpg">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+        srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
+        sizes="auto"
+        alt="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+        title="/images/Unable-to-locale-factory-with-name-default/1.jpg" ></figure></p>
 <h2 id="invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="headerLink">
     <a href="#invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="header-mark"></a><code>InvalidArgumentException : Unable to locate factory with name [default] [App\Task]</code></h2><p>과연 무엇이 문제일까 싶어 해당 모델의 migration이 제대로 안된걸까요?</p>
 <!-- raw HTML omitted -->

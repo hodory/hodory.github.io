@@ -37,15 +37,14 @@ netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" ta
 <p><a href="https://www.netlifycms.org/docs/add-to-your-site/" target="_blank" rel="noopener noreferrer">Netlify-CMS 공식 문서</a> 참조하여 직접 설정하는것도 똑같이 따라만 하면 동작합니다.</p>
 <p>하지만 변경사항이 생긴다면 블로그를 작성하기 위해 쓰는것인데 오히려 버전 대응에서도 리소스가 들 것이고,<br>
 깔끔한 구조를 만들진 못할것 같아서 <a href="https://github.com/JiangTJ/hexo-netlify-cms" target="_blank" rel="noopener noreferrer">hexo-netlify-cms</a> 해당 패키지를 사용하게 되었습니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" title="Git Gateway 설정" data-thumbnail="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" data-sub-html="<h2>Git Gateway 설정</h2><p>Git Gateway 설정</p>">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-11.30.04-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-11.30.04-pm.png, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 2x"
-            sizes="auto"
-            alt="Git Gateway 설정">
-    </a><figcaption class="image-caption">Git Gateway 설정</figcaption>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-11.30.04-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-11.30.04-pm.png, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 2x"
+        sizes="auto"
+        alt="Git Gateway 설정"
+        title="Git Gateway 설정" ><figcaption class="image-caption">Git Gateway 설정</figcaption>
     </figure></p>
 <p>위와 같이 git gateway를 설정하여 줍니다.<br>
 이것만 하면 netlify app의 URL에서 어드민 로그인이 가능합니다.</p>
@@ -61,59 +60,54 @@ netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" ta
 </span></span></span></code></pre></div><p>같은 경로에 netlify-cms.yml 파일을 생성하고 <a href="https://github.com/jiangtj/hexo-netlify-cms/blob/master/admin/config.yml" target="_blank" rel="noopener noreferrer">기본값</a>을 복사하여 넣어주고, 해당 값을 넣어주면 netlify-cms.yml 파일의 값으로 설정되게 됩니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">publish_mode</span><span class="p">:</span><span class="w"> </span><span class="l">editorial_workflow</span><span class="w">
 </span></span></span></code></pre></div><h4 id="기존화면" class="headerLink">
-    <a href="#%ea%b8%b0%ec%a1%b4%ed%99%94%eb%a9%b4" class="header-mark"></a>기존화면</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" title="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-1.40.19-pm.png, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 1.5x, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
-    </a></figure></p>
+    <a href="#%ea%b8%b0%ec%a1%b4%ed%99%94%eb%a9%b4" class="header-mark"></a>기존화면</h4><p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-1.40.19-pm.png, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 1.5x, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
+        title="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" ></figure></p>
 <p>상단의 Publish 버튼 클릭시 바로 발행과 이후 동작을 선택할 수 있습니다.</p>
 <h4 id="editorial_workflow-설정-후" class="headerLink">
-    <a href="#editorial_workflow-%ec%84%a4%ec%a0%95-%ed%9b%84" class="header-mark"></a>editorial_workflow 설정 후</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" title="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-11.43.45-pm.png, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
-    </a></figure></p>
+    <a href="#editorial_workflow-%ec%84%a4%ec%a0%95-%ed%9b%84" class="header-mark"></a>editorial_workflow 설정 후</h4><p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-11.43.45-pm.png, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
+        title="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" ></figure></p>
 <p>Save 버튼만 노출이 되는데, 설정이 잘못 된 것인줄 알았으나, Save 버튼을 누르면 아래와 같이 Draft 상태 노출과 함께 변경됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" title="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-2.02.00-pm.png, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 1.5x, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-2.02.00-pm.png, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 1.5x, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
+        title="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" ></figure></p>
 <p>Draft 상태는 repository에 `cms/all_posts/{{post_title}}` 과 같은 브랜치가 생기며, Pull Request가 발행됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" title="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-11.56.17-pm.png, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-11.56.17-pm.png, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
+        title="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" ></figure></p>
 <p>Publish 버튼의 동작은 동일하지만 Status가 <strong>READY</strong> 상태일때만 버튼이 동작합니다.</p>
 <h2 id="주의사항필수" class="headerLink">
     <a href="#%ec%a3%bc%ec%9d%98%ec%82%ac%ed%95%ad%ed%95%84%ec%88%98" class="header-mark"></a>주의사항(필수)</h2><hr>
 <h4 id="접근-권한-설정" class="headerLink">
     <a href="#%ec%a0%91%ea%b7%bc-%ea%b6%8c%ed%95%9c-%ec%84%a4%ec%a0%95" class="header-mark"></a>접근 권한 설정</h4><p>Netlify site 설정에서 Identity &gt; Registration 설정을 <strong>Invite Only</strong> 로 변경하지 않으면, 모든 사용자가 각자의 메일 인증만 하면  자신의 블로그에 글을 쓸 수 있게 됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-31-at-12.12.51-am.png" title="/images/screen-shot-2021-12-31-at-12.12.51-am.png" data-thumbnail="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
-            srcset="/images/screen-shot-2021-12-31-at-12.12.51-am.png, /images/screen-shot-2021-12-31-at-12.12.51-am.png 1.5x, /images/screen-shot-2021-12-31-at-12.12.51-am.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
+        srcset="/images/screen-shot-2021-12-31-at-12.12.51-am.png, /images/screen-shot-2021-12-31-at-12.12.51-am.png 1.5x, /images/screen-shot-2021-12-31-at-12.12.51-am.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
+        title="/images/screen-shot-2021-12-31-at-12.12.51-am.png" ></figure></p>
 <p>자신의 블로그에 아무나 글을 쓰길 원하는 사람은 없기 때문에 필수로 설정하는것을 추천드립니다.</p>
 ]]></description></item></channel></rss>

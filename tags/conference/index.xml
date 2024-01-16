@@ -154,26 +154,24 @@ X-Ray를 활용
 <p>배포환경은 동일하게 로컬환경은 개발자 본인만을 위한것이다.<!-- raw HTML omitted -->
 클라우드9이나 CloudFormation, 도커등 동일한 환경을 제공할 수 있어야함.</p>
 <h2 id="점심-도시락" class="headerLink">
-    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><a class="lightgallery" href="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" data-thumbnail="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
-            srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
-            sizes="auto"
-            alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-    </a></figure>
+    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
+        sizes="auto"
+        alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" ></figure>
 닭강정, 새우튀김, 갈비찜?돼지고기찜? + 된장국 (나머진 안 먹어봐서 모르겠습니다)</p>
 <h2 id="굿즈swags" class="headerLink">
-    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><a class="lightgallery" href="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" data-thumbnail="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
-            srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
-            sizes="auto"
-            alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-    </a></figure></p>
+    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
+        sizes="auto"
+        alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" ></figure></p>
 <ul>
 <li>티셔츠</li>
 <li>머그컵</li>

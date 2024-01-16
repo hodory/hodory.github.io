@@ -1,14 +1,13 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - Web Developer Hodory</title><link>http://blog.hodory.dev/posts/</link><description>All Posts | Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Thu, 11 Aug 2022 01:20:24 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/posts/" rel="self" type="application/rss+xml"/><item><title>VSCode Git Private Key 오류</title><link>http://blog.hodory.dev/2022/08/11/vscode-git-private-key-%EC%98%A4%EB%A5%98/</link><pubDate>Thu, 11 Aug 2022 01:20:24 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2022/08/11/vscode-git-private-key-%EC%98%A4%EB%A5%98/</guid><description><![CDATA[<pre tabindex="0"><code>Git: git@github.com: Permission denied (publickey).
 </code></pre><p>위와 같은 오류가 vscode 에서 발생하였습니다.</p>
-<p><figure><a class="lightgallery" href="/images/vscode-permission-denied.png" title="git@github.com permission denied" data-thumbnail="/images/vscode-permission-denied.png" data-sub-html="<h2>git@github.com permission denied</h2><p>git@github.com permission denied</p>">
-        <img
-            
-            loading="lazy"
-            src="/images/vscode-permission-denied.png"
-            srcset="/images/vscode-permission-denied.png, /images/vscode-permission-denied.png 1.5x, /images/vscode-permission-denied.png 2x"
-            sizes="auto"
-            alt="git@github.com permission denied">
-    </a><figcaption class="image-caption">git@github.com permission denied</figcaption>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/vscode-permission-denied.png"
+        srcset="/images/vscode-permission-denied.png, /images/vscode-permission-denied.png 1.5x, /images/vscode-permission-denied.png 2x"
+        sizes="auto"
+        alt="git@github.com permission denied"
+        title="git@github.com permission denied" ><figcaption class="image-caption">git@github.com permission denied</figcaption>
     </figure></p>
 <p>분명 터미널에서는 이슈가 없었는데, vscode에서만 이슈가 발생하였습니다.</p>
 <p>ssh key에 passphrase를 넣어주었는데, vscode에서는 설정하는 구간이 없었고, 이 부분이 문제가 되는것 같아</p>
@@ -49,15 +48,14 @@ Custom Exception은 Exception 클래스가 아니라 RuntimeException을 상속�
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p><figure><a class="lightgallery" href="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png" title="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png" data-thumbnail="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png">
-        <img
-            
-            loading="lazy"
-            src="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png"
-            srcset="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 1.5x, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 2x"
-            sizes="auto"
-            alt="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png">
-    </a></figure></p>
+</span></span></code></pre></div><p><figure><img
+        
+        loading="lazy"
+        src="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png"
+        srcset="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 1.5x, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 2x"
+        sizes="auto"
+        alt="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png"
+        title="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png" ></figure></p>
 ]]></description></item><item><title>［Notion］Notion과 Github Actions로 가계부 자동화 하기 - (1)</title><link>http://blog.hodory.dev/2022/01/02/account-book-with-notion-and-github-actions/</link><pubDate>Sun, 02 Jan 2022 22:21:19 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2022/01/02/account-book-with-notion-and-github-actions/</guid><description><![CDATA[<h2 id="시작하기에-앞서" class="headerLink">
     <a href="#%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0%ec%97%90-%ec%95%9e%ec%84%9c" class="header-mark"></a>시작하기에 앞서</h2><hr>
 <p>해당 포스트는 <a href="https://blog.hodory.dev/2021/12/29/acoount-book-with-notion-and-zapier/" target="_blank" rel="noopener noreferrer">［Notion］Notion과 Zapier로 가계부 자동화 하기</a>의 후속편입니다.</p>
@@ -129,15 +127,14 @@ Custom Exception은 Exception 클래스가 아니라 RuntimeException을 상속�
 <h2 id="서비스-구성" class="headerLink">
     <a href="#%ec%84%9c%eb%b9%84%ec%8a%a4-%ea%b5%ac%ec%84%b1" class="header-mark"></a>서비스 구성</h2><hr>
 <p>이와 같이 구성하여 작성하였습니다.</p>
-<p><figure><a class="lightgallery" href="/images/account-book-automation-with-github-action.jpg" title="/images/account-book-automation-with-github-action.jpg" data-thumbnail="/images/account-book-automation-with-github-action.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-automation-with-github-action.jpg"
-            srcset="/images/account-book-automation-with-github-action.jpg, /images/account-book-automation-with-github-action.jpg 1.5x, /images/account-book-automation-with-github-action.jpg 2x"
-            sizes="auto"
-            alt="/images/account-book-automation-with-github-action.jpg">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/account-book-automation-with-github-action.jpg"
+        srcset="/images/account-book-automation-with-github-action.jpg, /images/account-book-automation-with-github-action.jpg 1.5x, /images/account-book-automation-with-github-action.jpg 2x"
+        sizes="auto"
+        alt="/images/account-book-automation-with-github-action.jpg"
+        title="/images/account-book-automation-with-github-action.jpg" ></figure></p>
 <p>각 영역에 대한 상세한 내용은 다음편에서 작성 예정입니다</p>
 ]]></description></item><item><title>Hexo Netlify CMS 연결하기</title><link>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</link><pubDate>Fri, 31 Dec 2021 00:16:53 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2021/12/31/hexo-netlify-cms-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0/</guid><description><![CDATA[<h2 id="netlify-cms" class="headerLink">
     <a href="#netlify-cms" class="header-mark"></a>Netlify CMS</h2><hr>
@@ -178,15 +175,14 @@ netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" ta
 <p><a href="https://www.netlifycms.org/docs/add-to-your-site/" target="_blank" rel="noopener noreferrer">Netlify-CMS 공식 문서</a> 참조하여 직접 설정하는것도 똑같이 따라만 하면 동작합니다.</p>
 <p>하지만 변경사항이 생긴다면 블로그를 작성하기 위해 쓰는것인데 오히려 버전 대응에서도 리소스가 들 것이고,<br>
 깔끔한 구조를 만들진 못할것 같아서 <a href="https://github.com/JiangTJ/hexo-netlify-cms" target="_blank" rel="noopener noreferrer">hexo-netlify-cms</a> 해당 패키지를 사용하게 되었습니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" title="Git Gateway 설정" data-thumbnail="/images/screen-shot-2021-12-30-at-11.30.04-pm.png" data-sub-html="<h2>Git Gateway 설정</h2><p>Git Gateway 설정</p>">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-11.30.04-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-11.30.04-pm.png, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 2x"
-            sizes="auto"
-            alt="Git Gateway 설정">
-    </a><figcaption class="image-caption">Git Gateway 설정</figcaption>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-11.30.04-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-11.30.04-pm.png, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.30.04-pm.png 2x"
+        sizes="auto"
+        alt="Git Gateway 설정"
+        title="Git Gateway 설정" ><figcaption class="image-caption">Git Gateway 설정</figcaption>
     </figure></p>
 <p>위와 같이 git gateway를 설정하여 줍니다.<br>
 이것만 하면 netlify app의 URL에서 어드민 로그인이 가능합니다.</p>
@@ -202,60 +198,55 @@ netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" ta
 </span></span></span></code></pre></div><p>같은 경로에 netlify-cms.yml 파일을 생성하고 <a href="https://github.com/jiangtj/hexo-netlify-cms/blob/master/admin/config.yml" target="_blank" rel="noopener noreferrer">기본값</a>을 복사하여 넣어주고, 해당 값을 넣어주면 netlify-cms.yml 파일의 값으로 설정되게 됩니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">publish_mode</span><span class="p">:</span><span class="w"> </span><span class="l">editorial_workflow</span><span class="w">
 </span></span></span></code></pre></div><h4 id="기존화면" class="headerLink">
-    <a href="#%ea%b8%b0%ec%a1%b4%ed%99%94%eb%a9%b4" class="header-mark"></a>기존화면</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" title="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-1.40.19-pm.png, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 1.5x, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-1.40.19-pm.png">
-    </a></figure></p>
+    <a href="#%ea%b8%b0%ec%a1%b4%ed%99%94%eb%a9%b4" class="header-mark"></a>기존화면</h4><p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-1.40.19-pm.png, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 1.5x, /images/screen-shot-2021-12-30-at-1.40.19-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-1.40.19-pm.png"
+        title="/images/screen-shot-2021-12-30-at-1.40.19-pm.png" ></figure></p>
 <p>상단의 Publish 버튼 클릭시 바로 발행과 이후 동작을 선택할 수 있습니다.</p>
 <h4 id="editorial_workflow-설정-후" class="headerLink">
-    <a href="#editorial_workflow-%ec%84%a4%ec%a0%95-%ed%9b%84" class="header-mark"></a>editorial_workflow 설정 후</h4><p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" title="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-11.43.45-pm.png, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-11.43.45-pm.png">
-    </a></figure></p>
+    <a href="#editorial_workflow-%ec%84%a4%ec%a0%95-%ed%9b%84" class="header-mark"></a>editorial_workflow 설정 후</h4><p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-11.43.45-pm.png, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.43.45-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-11.43.45-pm.png"
+        title="/images/screen-shot-2021-12-30-at-11.43.45-pm.png" ></figure></p>
 <p>Save 버튼만 노출이 되는데, 설정이 잘못 된 것인줄 알았으나, Save 버튼을 누르면 아래와 같이 Draft 상태 노출과 함께 변경됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" title="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-2.02.00-pm.png, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 1.5x, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-2.02.00-pm.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-2.02.00-pm.png, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 1.5x, /images/screen-shot-2021-12-30-at-2.02.00-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-2.02.00-pm.png"
+        title="/images/screen-shot-2021-12-30-at-2.02.00-pm.png" ></figure></p>
 <p>Draft 상태는 repository에 `cms/all_posts/{{post_title}}` 과 같은 브랜치가 생기며, Pull Request가 발행됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" title="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" data-thumbnail="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
-            srcset="/images/screen-shot-2021-12-30-at-11.56.17-pm.png, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-30-at-11.56.17-pm.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
+        srcset="/images/screen-shot-2021-12-30-at-11.56.17-pm.png, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 1.5x, /images/screen-shot-2021-12-30-at-11.56.17-pm.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-30-at-11.56.17-pm.png"
+        title="/images/screen-shot-2021-12-30-at-11.56.17-pm.png" ></figure></p>
 <p>Publish 버튼의 동작은 동일하지만 Status가 <strong>READY</strong> 상태일때만 버튼이 동작합니다.</p>
 <h2 id="주의사항필수" class="headerLink">
     <a href="#%ec%a3%bc%ec%9d%98%ec%82%ac%ed%95%ad%ed%95%84%ec%88%98" class="header-mark"></a>주의사항(필수)</h2><hr>
 <h4 id="접근-권한-설정" class="headerLink">
     <a href="#%ec%a0%91%ea%b7%bc-%ea%b6%8c%ed%95%9c-%ec%84%a4%ec%a0%95" class="header-mark"></a>접근 권한 설정</h4><p>Netlify site 설정에서 Identity &gt; Registration 설정을 <strong>Invite Only</strong> 로 변경하지 않으면, 모든 사용자가 각자의 메일 인증만 하면  자신의 블로그에 글을 쓸 수 있게 됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/screen-shot-2021-12-31-at-12.12.51-am.png" title="/images/screen-shot-2021-12-31-at-12.12.51-am.png" data-thumbnail="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
-        <img
-            
-            loading="lazy"
-            src="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
-            srcset="/images/screen-shot-2021-12-31-at-12.12.51-am.png, /images/screen-shot-2021-12-31-at-12.12.51-am.png 1.5x, /images/screen-shot-2021-12-31-at-12.12.51-am.png 2x"
-            sizes="auto"
-            alt="/images/screen-shot-2021-12-31-at-12.12.51-am.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
+        srcset="/images/screen-shot-2021-12-31-at-12.12.51-am.png, /images/screen-shot-2021-12-31-at-12.12.51-am.png 1.5x, /images/screen-shot-2021-12-31-at-12.12.51-am.png 2x"
+        sizes="auto"
+        alt="/images/screen-shot-2021-12-31-at-12.12.51-am.png"
+        title="/images/screen-shot-2021-12-31-at-12.12.51-am.png" ></figure></p>
 <p>자신의 블로그에 아무나 글을 쓰길 원하는 사람은 없기 때문에 필수로 설정하는것을 추천드립니다.</p>
 ]]></description></item><item><title>［Notion］Notion과 Zapier로 가계부 자동화 하기</title><link>http://blog.hodory.dev/2021/12/30/acoount-book-with-notion-and-zapier/</link><pubDate>Thu, 30 Dec 2021 01:50:47 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2021/12/30/acoount-book-with-notion-and-zapier/</guid><description><![CDATA[<h2 id="왜-가계부를-쓰나요" class="headerLink">
     <a href="#%ec%99%9c-%ea%b0%80%ea%b3%84%eb%b6%80%eb%a5%bc-%ec%93%b0%eb%82%98%ec%9a%94" class="header-mark"></a>왜 가계부를 쓰나요?</h2><p>저는 예전부터 가계부를 써서 돈의 사용처를 기록하고 카테고리화 해서 어디에 돈을 많이 쓰고 있는지 흐름을 보는것을 좋아했습니다.</p>
@@ -297,71 +288,65 @@ netlify-cms를 이용하기 위한 <a href="https://hodory-blog.netlify.app/" ta
 <h2 id="어떻게-연결-하였을까" class="headerLink">
     <a href="#%ec%96%b4%eb%96%bb%ea%b2%8c-%ec%97%b0%ea%b2%b0-%ed%95%98%ec%98%80%ec%9d%84%ea%b9%8c" class="header-mark"></a>어떻게 연결 하였을까</h2><p><a href="https://zapier.com/" target="_blank" rel="noopener noreferrer">Zapier</a>라는 서비스에서는 구글드라이브의 이벤트와 <a href="https://nanonets.com/" target="_blank" rel="noopener noreferrer">Nanonets OCR</a> 이라는 서비스를 연결 할 수 있었습니다.<!-- raw HTML omitted --></p>
 <!-- raw HTML omitted -->
-<p><figure><a class="lightgallery" href="/images/account-book-with-notion-and-zapier/1.png" title="Google Drive &#43; Nanonets OCR Integrations" data-thumbnail="/images/account-book-with-notion-and-zapier/1.png">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-with-notion-and-zapier/1.png"
-            srcset="/images/account-book-with-notion-and-zapier/1.png, /images/account-book-with-notion-and-zapier/1.png 1.5x, /images/account-book-with-notion-and-zapier/1.png 2x"
-            sizes="auto"
-            alt="Google Drive &#43; Nanonets OCR Integrations">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/account-book-with-notion-and-zapier/1.png"
+        srcset="/images/account-book-with-notion-and-zapier/1.png, /images/account-book-with-notion-and-zapier/1.png 1.5x, /images/account-book-with-notion-and-zapier/1.png 2x"
+        sizes="auto"
+        alt="Google Drive &#43; Nanonets OCR Integrations"
+        title="Google Drive &#43; Nanonets OCR Integrations" ></figure></p>
 <h2 id="google-drive-to-nanonets-설정" class="headerLink">
     <a href="#google-drive-to-nanonets-%ec%84%a4%ec%a0%95" class="header-mark"></a>Google Drive to Nanonets 설정</h2><p>Nanonet에서 Modeling이라고 말하는 영역별 라벨링을 아래와 같이 해줍니다.<!-- raw HTML omitted -->
-<figure><a class="lightgallery" href="/images/account-book-with-notion-and-zapier/2.png" title="Nanonets OCR Data Modeling" data-thumbnail="/images/account-book-with-notion-and-zapier/2.png">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-with-notion-and-zapier/2.png"
-            srcset="/images/account-book-with-notion-and-zapier/2.png, /images/account-book-with-notion-and-zapier/2.png 1.5x, /images/account-book-with-notion-and-zapier/2.png 2x"
-            sizes="auto"
-            alt="Nanonets OCR Data Modeling">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/account-book-with-notion-and-zapier/2.png"
+        srcset="/images/account-book-with-notion-and-zapier/2.png, /images/account-book-with-notion-and-zapier/2.png 1.5x, /images/account-book-with-notion-and-zapier/2.png 2x"
+        sizes="auto"
+        alt="Nanonets OCR Data Modeling"
+        title="Nanonets OCR Data Modeling" ></figure></p>
 <p>아쉽게도 해외 서비스이다보니 한국어를 인식할때에는 <code>메모를 남겨보세요</code> 와 같은 문구는 <code>메모 를 남겨 보세요</code> 와 같이 띄어쓰기가 잘못 들어 가는 경우가 많습니다.<!-- raw HTML omitted -->
 계속해서 모델을 학습 시키면 제대로 인식 시킬거라는 기대감과 함께 문구를 수정하여 줬습니다.</p>
 <p>그 이후 Zapier에서는 아래와 같이 설정하였습니다.<!-- raw HTML omitted -->
-<figure><a class="lightgallery" href="/images/account-book-with-notion-and-zapier/3.png" title="Zapier Connection to Nanonets" data-thumbnail="/images/account-book-with-notion-and-zapier/3.png">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-with-notion-and-zapier/3.png"
-            srcset="/images/account-book-with-notion-and-zapier/3.png, /images/account-book-with-notion-and-zapier/3.png 1.5x, /images/account-book-with-notion-and-zapier/3.png 2x"
-            sizes="auto"
-            alt="Zapier Connection to Nanonets">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/account-book-with-notion-and-zapier/3.png"
+        srcset="/images/account-book-with-notion-and-zapier/3.png, /images/account-book-with-notion-and-zapier/3.png 1.5x, /images/account-book-with-notion-and-zapier/3.png 2x"
+        sizes="auto"
+        alt="Zapier Connection to Nanonets"
+        title="Zapier Connection to Nanonets" ></figure></p>
 <p>가장 헷갈렸던 부분은 Nanonets OCR 설정에서 Google Drive의 파일의 output중 어떤 값을 사용할지 였는데, 기본값인 File을 사용하면 읽기가 가능했습니다.<!-- raw HTML omitted -->
-<figure><a class="lightgallery" href="/images/account-book-with-notion-and-zapier/4.png" title="Zapier Nanonets OCR google drive file" data-thumbnail="/images/account-book-with-notion-and-zapier/4.png">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-with-notion-and-zapier/4.png"
-            srcset="/images/account-book-with-notion-and-zapier/4.png, /images/account-book-with-notion-and-zapier/4.png 1.5x, /images/account-book-with-notion-and-zapier/4.png 2x"
-            sizes="auto"
-            alt="Zapier Nanonets OCR google drive file">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/account-book-with-notion-and-zapier/4.png"
+        srcset="/images/account-book-with-notion-and-zapier/4.png, /images/account-book-with-notion-and-zapier/4.png 1.5x, /images/account-book-with-notion-and-zapier/4.png 2x"
+        sizes="auto"
+        alt="Zapier Nanonets OCR google drive file"
+        title="Zapier Nanonets OCR google drive file" ></figure></p>
 <h3 id="tip" class="headerLink">
     <a href="#tip" class="header-mark"></a>TIP</h3><h3 id="nanonets-to-notion-설정" class="headerLink">
-    <a href="#nanonets-to-notion-%ec%84%a4%ec%a0%95" class="header-mark"></a>Nanonets to Notion 설정</h3><p><figure><a class="lightgallery" href="/images/account-book-with-notion-and-zapier/5.png" title="Nanonets Integration" data-thumbnail="/images/account-book-with-notion-and-zapier/5.png">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-with-notion-and-zapier/5.png"
-            srcset="/images/account-book-with-notion-and-zapier/5.png, /images/account-book-with-notion-and-zapier/5.png 1.5x, /images/account-book-with-notion-and-zapier/5.png 2x"
-            sizes="auto"
-            alt="Nanonets Integration">
-    </a></figure><!-- raw HTML omitted -->
+    <a href="#nanonets-to-notion-%ec%84%a4%ec%a0%95" class="header-mark"></a>Nanonets to Notion 설정</h3><p><figure><img
+        
+        loading="lazy"
+        src="/images/account-book-with-notion-and-zapier/5.png"
+        srcset="/images/account-book-with-notion-and-zapier/5.png, /images/account-book-with-notion-and-zapier/5.png 1.5x, /images/account-book-with-notion-and-zapier/5.png 2x"
+        sizes="auto"
+        alt="Nanonets Integration"
+        title="Nanonets Integration" ></figure><!-- raw HTML omitted -->
 Nanonets 자체에서 OCR 처리 이후 Database(Mysql, MsSql, MariaDB 등)에 데이터를 넣을 수 있도록 하거나 Webhooks를 통해 처리할 수 있도록 자체적인 Integration을 제공하고 있습니다.</p>
 <p>하지만 제가 필요한 동작은 notion에 값을 매핑하여 넣는것이기 때문에 zapier를 사용하였습니다.</p>
 <p>Zapier에서 <code>formatter Zap</code>을 이용하여 포맷을 설정할 수 있으면 가장 좋겠지만, 이것 또한 비용이 되어 직접 처리하도록 하였습니다.</p>
-<p><figure><a class="lightgallery" href="/images/account-book-with-notion-and-zapier/6.png" title="Zapier Nanonets OCR Output Mapping to Notion Database" data-thumbnail="/images/account-book-with-notion-and-zapier/6.png">
-        <img
-            
-            loading="lazy"
-            src="/images/account-book-with-notion-and-zapier/6.png"
-            srcset="/images/account-book-with-notion-and-zapier/6.png, /images/account-book-with-notion-and-zapier/6.png 1.5x, /images/account-book-with-notion-and-zapier/6.png 2x"
-            sizes="auto"
-            alt="Zapier Nanonets OCR Output Mapping to Notion Database">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/account-book-with-notion-and-zapier/6.png"
+        srcset="/images/account-book-with-notion-and-zapier/6.png, /images/account-book-with-notion-and-zapier/6.png 1.5x, /images/account-book-with-notion-and-zapier/6.png 2x"
+        sizes="auto"
+        alt="Zapier Nanonets OCR Output Mapping to Notion Database"
+        title="Zapier Nanonets OCR Output Mapping to Notion Database" ></figure></p>
 <p>필요한 값중 매핑이 정상적으로 되지 않을 수 있으므로, Content 값에 필요한 값이 입력되도록 매핑하였습니다.</p>
 <h2 id="마무리하며" class="headerLink">
     <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac%ed%95%98%eb%a9%b0" class="header-mark"></a>마무리하며</h2><p>최대한 코딩을 하지 않고 인프라도 구성하지 않으며 사용하고 싶었습니다.</p>
@@ -443,24 +428,22 @@ Zapier/Nanonets의 API Limit으로 일주일만에 절반 이상을 사용하여
 ]]></description></item><item><title>[Git] Git Merge 또는 Git checkout 오류 해결하기</title><link>http://blog.hodory.dev/2020/02/18/error-your-local-changes-would-be-overwritten-by-merge/</link><pubDate>Tue, 18 Feb 2020 23:36:40 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2020/02/18/error-your-local-changes-would-be-overwritten-by-merge/</guid><description><![CDATA[<h2 id="문제-상황" class="headerLink">
     <a href="#%eb%ac%b8%ec%a0%9c-%ec%83%81%ed%99%a9" class="header-mark"></a>문제 상황</h2><p><code>git pull origin master</code> 또는 <code>git checkout master</code> 와 같이 브랜치를 변경하거나, 원격저장소에서 pull을 받을때
 아래와 같은 오류가 나온적 경험이 한번쯤은 있을것 입니다.</p>
-<p><figure><a class="lightgallery" href="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png" title="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png" data-thumbnail="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png">
-        <img
-            
-            loading="lazy"
-            src="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png"
-            srcset="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png 1.5x, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png 2x"
-            sizes="auto"
-            alt="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png">
-    </a></figure>
-<figure><a class="lightgallery" href="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png" title="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png" data-thumbnail="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png">
-        <img
-            
-            loading="lazy"
-            src="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png"
-            srcset="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png 1.5x, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png 2x"
-            sizes="auto"
-            alt="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png"
+        srcset="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png 1.5x, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png 2x"
+        sizes="auto"
+        alt="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png"
+        title="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-merge.png" ></figure>
+<figure><img
+        
+        loading="lazy"
+        src="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png"
+        srcset="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png 1.5x, /images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png 2x"
+        sizes="auto"
+        alt="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png"
+        title="/images/error-Your-local-changes-would-be-overwritten-by-merge/files-would-be-overwritten-by-checkout.png" ></figure></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">error: Your local changes to the following files would be overwritten by checkout:
 </span></span><span class="line"><span class="cl">        themes/icarus/layout/widget/recent_posts.ejs
 </span></span><span class="line"><span class="cl">Please commit your changes or stash them before you switch branches.
@@ -503,76 +486,70 @@ $ git stash pop
 <li>
 <p>우선 별 다른 설정없이 s3 버킷을 생성하여줍니다.
 이때 주의할점은 버킷명을 호스팅 하고자 하는 도메인과 일치시켜 주어야 합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png" title="버킷 생성하기" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 2x"
-            sizes="auto"
-            alt="버킷 생성하기">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d.png 2x"
+        sizes="auto"
+        alt="버킷 생성하기"
+        title="버킷 생성하기" ></figure></p>
 <p>또한 권한 설정시 퍼블릭 액세스를 꼭 체크 해제 해주어야 합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png" title="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 2x"
-            sizes="auto"
-            alt="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_1.png 2x"
+        sizes="auto"
+        alt="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제"
+        title="버킷 생성하기(권한 설정) - 퍼블릭 액세스 체크해제" ></figure></p>
 </li>
 <li>
 <p>버킷이 생성되면 호스팅 하고자 하는 파일을 업로드하여줍니다.
 호스팅시 누구나 접근 가능하게 하기때문에 퍼블릭 액세스를 허용 해야합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png" title="파일 업로드시 퍼블릭 액세스로 변경" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 2x"
-            sizes="auto"
-            alt="파일 업로드시 퍼블릭 액세스로 변경">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_2.png 2x"
+        sizes="auto"
+        alt="파일 업로드시 퍼블릭 액세스로 변경"
+        title="파일 업로드시 퍼블릭 액세스로 변경" ></figure></p>
 </li>
 <li>
 <p>그 후 속성 → 정적 웹 사이트 호스팅 메뉴에 들어가서
 인덱스 문서(메인 페이지), 오류 문서(404 등 오류가 발생했을때 노출 할 페이지) 2가지를 설정하여줍니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png" title="정적 웹호스팅 설정" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 2x"
-            sizes="auto"
-            alt="정적 웹호스팅 설정">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_3.png 2x"
+        sizes="auto"
+        alt="정적 웹호스팅 설정"
+        title="정적 웹호스팅 설정" ></figure></p>
 <p>저는 아래와 같이 main.html과 error.html으로 설정했습니다.
 저장 후 빨간색 박스 안에 있는 엔드포인트에 본인이 설정한 페이지가 정상적으로 노출되는지 확인합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png" title="정적 웹호스팅 설정 - 엔드포인트 확인" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 2x"
-            sizes="auto"
-            alt="정적 웹호스팅 설정 - 엔드포인트 확인">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_4.png 2x"
+        sizes="auto"
+        alt="정적 웹호스팅 설정 - 엔드포인트 확인"
+        title="정적 웹호스팅 설정 - 엔드포인트 확인" ></figure></p>
 <p>또한 <code>/detail.html</code> 과 같이 존재하지 않는 페이지를 조회하였을때에 오류 문서로 설정한 페이지가 정상적으로 노출되는지도 확인합니다.</p>
 </li>
 <li>
 <p>마지막으로 버킷의 정책을 설정하여 줍니다.</p>
 <p>해당 리소스 하위 경로에 대한 조회 권한을 설정하는것으로, 아래의 빨간 박스 내용이 자신이 설정하려는 도메인과 동일해야합니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png" title="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 2x"
-            sizes="auto"
-            alt="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_5.png 2x"
+        sizes="auto"
+        alt="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정"
+        title="버킷 정책 편집 - 편집기 안의 빨간 박스의 내용을 본인의 도메인으로 설정" ></figure></p>
 <pre tabindex="0"><code>    {
         &#34;Version&#34;: &#34;2012-10-17&#34;,
         &#34;Id&#34;: &#34;Policy1579004958999&#34;,
@@ -595,25 +572,23 @@ $ git stash pop
 <p>Route53의 설정은 더욱 간단합니다.</p>
 <p>이미 호스팅 영역을 등록 하였다면, 네임서버 설정은 아마존으로 자동 설정되어 있기 때문에 설정하려는 도메인으로 레코드 세트를 등록하여줍니다.</p>
 <p>이때 ALIAS를 사용하는데 정상적으로 등록 하였다면 아래 이미지와 같이 s3에 대한 설정이 있습니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png" title="Route53 레코드 세트 설정 - Alias 사용하기" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 2x"
-            sizes="auto"
-            alt="Route53 레코드 세트 설정 - Alias 사용하기">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_6.png 2x"
+        sizes="auto"
+        alt="Route53 레코드 세트 설정 - Alias 사용하기"
+        title="Route53 레코드 세트 설정 - Alias 사용하기" ></figure></p>
 <p>이와 같이 설정 후 저장을 하면 좌측 패널에 ALIAS로 설정된 도메인이 추가됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png" title="Route53 도메인 목록" data-thumbnail="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png">
-        <img
-            
-            loading="lazy"
-            src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png"
-            srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 2x"
-            sizes="auto"
-            alt="Route53 도메인 목록">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png"
+        srcset="/images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 1.5x, /images/setting-domain-for-s3-static-web-hosting/0eb80f5b-0ccf-48ca-ae27-6ef9e40ce13d_7.png 2x"
+        sizes="auto"
+        alt="Route53 도메인 목록"
+        title="Route53 도메인 목록" ></figure></p>
 <p>이제 다시 <a href="http://static.travelerapp.kr" target="_blank" rel="noopener noreferrer">http://static.travelerapp.kr</a> 로 접근하면 설정한 도메인에 S3에 올려둔 페이지가 정상적으로 노출됩니다.</p>
 <p>또한 하위 디렉토리나 파일들도 접근이 가능합니다.</p>
 <p>단점으로는 현재(2020-01-14 기준) http 프로토콜만 지원하기때문에 https를 지원하기 위해서는 CloudFront 서비스를 대안으로 사용해야 합니다.</p>
@@ -720,15 +695,14 @@ $ git stash pop
 </span></span></code></pre></div><p>해당 테스트를 생성 후 아래와 같이 PHPUnit으로 해당 테스트를 실행하였더니</p>
 <pre tabindex="0"><code class="language-shellscript" data-lang="shellscript">$ ./vendor/bin/phpunit --filter it_belongs_to_a_project
 </code></pre><p>아래 이미지와 같은 에러가 나왔습니다.
-<figure><a class="lightgallery" href="/images/Unable-to-locale-factory-with-name-default/1.jpg" title="/images/Unable-to-locale-factory-with-name-default/1.jpg" data-thumbnail="/images/Unable-to-locale-factory-with-name-default/1.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
-            srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
-            sizes="auto"
-            alt="/images/Unable-to-locale-factory-with-name-default/1.jpg">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+        srcset="/images/Unable-to-locale-factory-with-name-default/1.jpg, /images/Unable-to-locale-factory-with-name-default/1.jpg 1.5x, /images/Unable-to-locale-factory-with-name-default/1.jpg 2x"
+        sizes="auto"
+        alt="/images/Unable-to-locale-factory-with-name-default/1.jpg"
+        title="/images/Unable-to-locale-factory-with-name-default/1.jpg" ></figure></p>
 <h2 id="invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="headerLink">
     <a href="#invalidargumentexception--unable-to-locate-factory-with-name-default-apptask" class="header-mark"></a><code>InvalidArgumentException : Unable to locate factory with name [default] [App\Task]</code></h2><p>과연 무엇이 문제일까 싶어 해당 모델의 migration이 제대로 안된걸까요?</p>
 <!-- raw HTML omitted -->
@@ -811,15 +785,14 @@ $ git stash pop
 <p>이와 같이 말하고 있습니다.</p>
 <p><a href="https://jsperf.com/jquery-find-vs-context-sel/61" target="_blank" rel="noopener noreferrer">jQuery .find() vs. context selector</a> 해당 링크에서 퍼포먼스 확인을 해보면
 아래 이미지와 같이 context selector를 사용 하는 것 보다, 아주 조금이나마 더 빠릅니다.
-<figure><a class="lightgallery" href="/images/What-Is-jQuery-Second-Parameter/1.png" title="/images/What-Is-jQuery-Second-Parameter/1.png" data-thumbnail="/images/What-Is-jQuery-Second-Parameter/1.png">
-        <img
-            
-            loading="lazy"
-            src="/images/What-Is-jQuery-Second-Parameter/1.png"
-            srcset="/images/What-Is-jQuery-Second-Parameter/1.png, /images/What-Is-jQuery-Second-Parameter/1.png 1.5x, /images/What-Is-jQuery-Second-Parameter/1.png 2x"
-            sizes="auto"
-            alt="/images/What-Is-jQuery-Second-Parameter/1.png">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/images/What-Is-jQuery-Second-Parameter/1.png"
+        srcset="/images/What-Is-jQuery-Second-Parameter/1.png, /images/What-Is-jQuery-Second-Parameter/1.png 1.5x, /images/What-Is-jQuery-Second-Parameter/1.png 2x"
+        sizes="auto"
+        alt="/images/What-Is-jQuery-Second-Parameter/1.png"
+        title="/images/What-Is-jQuery-Second-Parameter/1.png" ></figure></p>
 ]]></description></item><item><title>［Java］Spring REST Docs HTML이 생성되지 않을때</title><link>http://blog.hodory.dev/2019/12/04/spring-rest-docs-with-gradle-not-working-html5/</link><pubDate>Wed, 04 Dec 2019 23:39:14 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/12/04/spring-rest-docs-with-gradle-not-working-html5/</guid><description><![CDATA[<p>백기선님의 스프링부트 강좌를 수강하는중에 Spring REST Docs를 이용하여 HTML을 생성하려하는데,<!-- raw HTML omitted -->
 아무리 빌드를 해도 <code>ascii\html\index.html</code>이 생성되지 않았습니다.</p>
 <pre tabindex="0"><code>오후 11:58:18: Executing task &#39;build&#39;...
@@ -859,15 +832,14 @@ BUILD SUCCESSFUL in 18s
 버전이 올라가면서 변경점이 있는지 체크해보았으나 다른점이 없어 검색을 하였더니
 asciidoctor sourceDirectory가 Maven 플러그인에서는 <code>src/main/asciidoc</code>이지만, Gradle 플러그인은 sourceDirectory가 <code>/src/docs/asciidoc</code> 였습니다.
 또한 Spring-REST-Docs에 의해 생성되는 경로도 아래 이미지와 같이 달랐습니다</p>
-<p><figure><a class="lightgallery" href="/images/spring-rest-docs-with-gradle-not-working-html5/1.png" title="JUnitRestDocumentation rule" data-thumbnail="/images/spring-rest-docs-with-gradle-not-working-html5/1.png">
-        <img
-            
-            loading="lazy"
-            src="/images/spring-rest-docs-with-gradle-not-working-html5/1.png"
-            srcset="/images/spring-rest-docs-with-gradle-not-working-html5/1.png, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 1.5x, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 2x"
-            sizes="auto"
-            alt="JUnitRestDocumentation rule">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/spring-rest-docs-with-gradle-not-working-html5/1.png"
+        srcset="/images/spring-rest-docs-with-gradle-not-working-html5/1.png, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 1.5x, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 2x"
+        sizes="auto"
+        alt="JUnitRestDocumentation rule"
+        title="JUnitRestDocumentation rule" ></figure></p>
 <p>Maven을 사용해 본 적이 없어서 gradle과 플러그인도 동일할줄 알았는데,<!-- raw HTML omitted -->
 빌드 결과물도 다른 디렉토리에 생성되고 실행가능한 명령어들도 다른것을 알 수 있었습니다.</p>
 <blockquote>
@@ -890,72 +862,66 @@ asciidoctor sourceDirectory가 Maven 플러그인에서는 <code>src/main/asciid
     <a href="#%eb%ac%b4%ec%8a%a8-%ec%86%8c%eb%a6%ac%ec%9d%bc%ea%b9%8c" class="header-mark"></a>무슨 소리일까?</h2><hr>
 <p>아래의 두 코드는 동일한 객체를 생성하지만,
 Javascript 엔진의 경우, JSON 예제를 스캔하고, 파싱만 하기 때문에 빠르다고합니다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" title="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 1.5x, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 1.5x, /images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png"
+        title="/images/json-parse-is-faster-than-object-literal/4c9cb490-207e-41db-9d59-126135a099ca.png" ></figure></p>
 <p>Javascript 파서에게 해당 코드는 여러개의 객체 리터럴을 받는 코드이냐, 많은 양의 데이터가 담긴  문자열 단일 리터럴이냐로 구분됩니다.</p>
 <p>해당 예제에서의 객체의 값은 숫자이지만, 자기 자신의 속성과 값을 가진 Object 또는 배열이거나, 더 많은 값을 가진 무엇이든 될 수 있기 때문입니다.</p>
 <p>이렇기 때문에 <strong>자바스크립트 파서는 단지 올바르게 토큰화 하기위해 JSON.parse에 비해 더 많이 동작 해야 합니다.</strong></p>
 <p>또 다른 이유로는 자바스크립트 객체 리터럴은 그 값이 객체문자열이라는것을 미리 알지 못하기때문입니다.</p>
 <p>JSON.parse로 파싱할때에는 간단하게 중괄호 이후에 Object로 시작할지, 아니면 잘못된 JSON 형식인지라는 두가지 옵션에만 중점을 둡니다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" title="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 1.5x, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 1.5x, /images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png"
+        title="/images/json-parse-is-faster-than-object-literal/b3788160-94bb-4610-84b3-f30b96ea4839.png" ></figure></p>
 <p>반면 객체 리터럴은 위의 이미지와 같이 Javscript Object는 중괄호 뒤의 값이 무엇인지를 아직까지는 알 수 없고</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" title="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 1.5x, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 1.5x, /images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png"
+        title="/images/json-parse-is-faster-than-object-literal/23fb44c8-8b1f-4ac6-94da-760d94e16310.png" ></figure></p>
 <p>이렇게 되었을때는 첫번째 라인에 선언된 x의 값을 바인딩 한 객체 리터럴을 생성하는것을 알 수 있다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" title="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 1.5x, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 1.5x, /images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png"
+        title="/images/json-parse-is-faster-than-object-literal/9fe6156d-93e5-478d-b7ca-d065792a93fd.png" ></figure></p>
 <p>하지만 이와 같이  선언 되었을 경우 두번째 라인의 코드에서 첫번째 라인의 x는 전혀 참조되지않습니다.</p>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" title="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 1.5x, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 1.5x, /images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png"
+        title="/images/json-parse-is-faster-than-object-literal/3c12ea86-ac4a-48f4-9078-f2aa6d2b7f01.png" ></figure></p>
 <p>이와 같이, 이러한 문맥 의존 문법으로 인해, Javascript 엔진에서의 파싱이 까다롭습니다.</p>
 <p>문자열을 JSON 파싱하는것은 이러한 문제가 없어, 구문 분석이 훨씬 간단해져서 빠를 수 있는것 입니다.</p>
 <h2 id="실제로-얼마나-빠른건데" class="headerLink">
     <a href="#%ec%8b%a4%ec%a0%9c%eb%a1%9c-%ec%96%bc%eb%a7%88%eb%82%98-%eb%b9%a0%eb%a5%b8%ea%b1%b4%eb%8d%b0" class="header-mark"></a>실제로 얼마나 빠른건데?</h2><hr>
-<p><figure><a class="lightgallery" href="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" title="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" data-thumbnail="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png">
-        <img
-            
-            loading="lazy"
-            src="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png"
-            srcset="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 1.5x, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 2x"
-            sizes="auto"
-            alt="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png"
+        srcset="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 1.5x, /images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png 2x"
+        sizes="auto"
+        alt="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png"
+        title="/images/json-parse-is-faster-than-object-literal/4e1dcc9f-59a1-4b20-be93-17b68ec19453.png" ></figure></p>
 <p>캐시가 없는 콜드로드 상태에서 8MB에 가까운 페이로드를 기준으로 파싱하였을때,
 v8과 크롬에서 <code>JSON.parse()</code>가 1.7배정도 빠르다고 한다.</p>
 <p>이는 다른 자바스크립트 엔진이나 브라우저에서도 적용된다고한다.</p>
@@ -1531,24 +1497,22 @@ class DatabaseTest extends TestCase
     <a href="#%ed%85%8c%ec%8a%a4%ed%8a%b8-%eb%a9%94%ec%86%8c%eb%93%9c%eb%aa%85%ec%9d%84-test%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%ec%8b%b6%ec%a7%80-%ec%95%8a%ec%9d%84-%eb%95%8c" class="header-mark"></a>테스트 메소드명을 test로 시작하고싶지 않을 때</h3><hr>
 <p>테스트 메소드는 메소드명의 prefix로 test를 사용합니다.</p>
 <p>테스트 메소드명의 prefix로 <code>test</code>를 사용하지 않는 대안으로, 주석에 <code>@test</code> 어노테이션을 사용하면 테스트 메소드라고 인식됩니다.</p>
-<p><figure><a class="lightgallery" href="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" title="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" data-thumbnail="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png">
-        <img
-            
-            loading="lazy"
-            src="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
-            srcset="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 1.5x, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 2x"
-            sizes="auto"
-            alt="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png">
-    </a></figure></p>
-<p><figure><a class="lightgallery" href="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" title="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" data-thumbnail="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png">
-        <img
-            
-            loading="lazy"
-            src="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
-            srcset="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 1.5x, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 2x"
-            sizes="auto"
-            alt="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
+        srcset="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 1.5x, /images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png 2x"
+        sizes="auto"
+        alt="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png"
+        title="/images/phpunit-annotations/eeb49a85-fdd7-40ee-99df-60579993b1a3.png" ></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
+        srcset="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 1.5x, /images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png 2x"
+        sizes="auto"
+        alt="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png"
+        title="/images/phpunit-annotations/cbdae160-7e46-49e4-9d93-0a3584597625.png" ></figure></p>
 <h2 id="testdox" class="headerLink">
     <a href="#testdox" class="header-mark"></a>@testdox</h2><h3 id="testdox-옵션으로-생성되는-문서의-설명을-대체하려-할-때" class="headerLink">
     <a href="#testdox-%ec%98%b5%ec%85%98%ec%9c%bc%eb%a1%9c-%ec%83%9d%ec%84%b1%eb%90%98%eb%8a%94-%eb%ac%b8%ec%84%9c%ec%9d%98-%ec%84%a4%eb%aa%85%ec%9d%84-%eb%8c%80%ec%b2%b4%ed%95%98%eb%a0%a4-%ed%95%a0-%eb%95%8c" class="header-mark"></a>testdox 옵션으로 생성되는 문서의 설명을 대체하려 할 때</h3><hr>
@@ -1793,26 +1757,24 @@ X-Ray를 활용
 <p>배포환경은 동일하게 로컬환경은 개발자 본인만을 위한것이다.<!-- raw HTML omitted -->
 클라우드9이나 CloudFormation, 도커등 동일한 환경을 제공할 수 있어야함.</p>
 <h2 id="점심-도시락" class="headerLink">
-    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><a class="lightgallery" href="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" data-thumbnail="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
-            srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
-            sizes="auto"
-            alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg">
-    </a></figure>
+    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
+        sizes="auto"
+        alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
+        title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" ></figure>
 닭강정, 새우튀김, 갈비찜?돼지고기찜? + 된장국 (나머진 안 먹어봐서 모르겠습니다)</p>
 <h2 id="굿즈swags" class="headerLink">
-    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><a class="lightgallery" href="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" data-thumbnail="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
-            srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
-            sizes="auto"
-            alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg">
-    </a></figure></p>
+    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><img
+        
+        loading="lazy"
+        src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
+        sizes="auto"
+        alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
+        title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" ></figure></p>
 <ul>
 <li>티셔츠</li>
 <li>머그컵</li>
@@ -1849,15 +1811,14 @@ X-Ray를 활용
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">hexo deploy</span><span class="w">
 </span></span></span></code></pre></div><p>Github에서 자체적으로 <code>Github Actions</code>라는 기능을 베타로 제공중이여서 신청을 해두었고,</p>
 <p>어제 승인되어 repo에 아래 이미지와 같은 탭이 생겼습니다.🎉</p>
-<p><figure><a class="lightgallery" href="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png" title="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png" data-thumbnail="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png">
-        <img
-            
-            loading="lazy"
-            src="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png"
-            srcset="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png, /images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png 1.5x, /images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png 2x"
-            sizes="auto"
-            alt="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png"
+        srcset="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png, /images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png 1.5x, /images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png 2x"
+        sizes="auto"
+        alt="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png"
+        title="/images/hexo-blog-with-github-actions/6af9526c-ff84-465b-b93d-1aee56b21d50.png" ></figure></p>
 <p>해당 기능을 이용해 보기 위해 travis.yml 파일을 Github Actions에 맞게 아래와 같이 바꾸어보았습니다.</p>
 <h2 id="변경사항" class="headerLink">
     <a href="#%eb%b3%80%ea%b2%bd%ec%82%ac%ed%95%ad" class="header-mark"></a>변경사항</h2><hr>
@@ -1903,15 +1864,14 @@ X-Ray를 활용
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hexo Deploy</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hexo d</span><span class="w">
 </span></span></span></code></pre></div><p><code>Github Actions</code>문서에 따르면 기존의 Secret Config 부분은 repo의 아래의 탭에서 지정이 가능합니다.</p>
-<p><figure><a class="lightgallery" href="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png" title="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png" data-thumbnail="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png">
-        <img
-            
-            loading="lazy"
-            src="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png"
-            srcset="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png, /images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png 1.5x, /images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png 2x"
-            sizes="auto"
-            alt="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png"
+        srcset="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png, /images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png 1.5x, /images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png 2x"
+        sizes="auto"
+        alt="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png"
+        title="/images/hexo-blog-with-github-actions/3113467d-cbdb-408e-aec1-4b0202dc84e6.png" ></figure></p>
 <p>해당 Secrets를 사용시에는 사용하려는 step에서 with 키워드를 이용해 설정하거나, env 를 이용해서 아래와 같이 설정 할 수 있습니다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Test Set Secret With</span><span class="w">
@@ -1943,48 +1903,44 @@ X-Ray를 활용
 <p>이외에도 다양한 기능을 제공하여 깃허브를 이용하고 있다면 한번쯤은 이용해봐도 좋을 서비스라고 생각합니다.</p>
 ]]></description></item><item><title>애드센스-테러를-당하다</title><link>http://blog.hodory.dev/2019/07/30/%EC%95%A0%EB%93%9C%EC%84%BC%EC%8A%A4-%ED%85%8C%EB%9F%AC%EB%A5%BC-%EB%8B%B9%ED%95%98%EB%8B%A4/</link><pubDate>Tue, 30 Jul 2019 18:50:11 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/07/30/%EC%95%A0%EB%93%9C%EC%84%BC%EC%8A%A4-%ED%85%8C%EB%9F%AC%EB%A5%BC-%EB%8B%B9%ED%95%98%EB%8B%A4/</guid><description><![CDATA[<p>아침에 눈을 떠서 메일을 확인 하는데,
 구글 애드센스팀으로부터 아래와 같은 메일이 도착하였습니다.</p>
-<p><figure><a class="lightgallery" href="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg" title="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg" data-thumbnail="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg"
-            srcset="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg, /images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg 1.5x, /images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg 2x"
-            sizes="auto"
-            alt="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg"
+        srcset="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg, /images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg 1.5x, /images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg 2x"
+        sizes="auto"
+        alt="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg"
+        title="/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg" ></figure></p>
 <p>애드센스 계정이 30일동안 정지 되었다는 메일이였는데,
 하루 수입이 $0.01도 안 됐기 때문에 그냥 그런가보다 했습니다.</p>
 <p>그래도 왜 그럴까 싶어 알아보다가 GA를 확인해보니 해당 시간대에 155 세션이 잡혔고,
 모두 디바이스가 데스크탑인 국가 정보가 없는 경우 였습니다.</p>
-<p><figure><a class="lightgallery" href="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg" title="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg" data-thumbnail="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg"
-            srcset="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg, /images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg 1.5x, /images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg 2x"
-            sizes="auto"
-            alt="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg">
-    </a></figure></p>
-<p><figure><a class="lightgallery" href="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg" title="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg" data-thumbnail="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg"
-            srcset="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg, /images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg 1.5x, /images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg 2x"
-            sizes="auto"
-            alt="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg"
+        srcset="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg, /images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg 1.5x, /images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg 2x"
+        sizes="auto"
+        alt="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg"
+        title="/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg" ></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg"
+        srcset="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg, /images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg 1.5x, /images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg 2x"
+        sizes="auto"
+        alt="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg"
+        title="/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg" ></figure></p>
 <p>슬프게도 제 블로그는 일 조회수가 155가 안되기 때문에 이럴일이 없었죠&hellip;.😂</p>
 <p>애드센스 관리 페이지를 확인 하였을때도 이와 같이 <code>무효 클릭: 직접 클릭</code> 으로 정지를 당했습니다.</p>
-<p><figure><a class="lightgallery" href="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg" title="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg" data-thumbnail="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg"
-            srcset="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg, /images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg 1.5x, /images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg 2x"
-            sizes="auto"
-            alt="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg"
+        srcset="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg, /images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg 1.5x, /images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg 2x"
+        sizes="auto"
+        alt="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg"
+        title="/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg" ></figure></p>
 <p>혹시나 <code>애드센스 테러</code> 라는 키워드로 구글에 검색을 해보았더니 유사 사례가 꽤나 있었습니다.</p>
 <p>다른분들의 코멘트를 참조하여 이의제기는 신청 했지만, 메일에 기재되어 있듯이 이의제기가 받아 들여질거 같진 않습니다&hellip;</p>
 <p>그래도 가끔 애드센스 눌리는 재미도 쏠쏠 했는데 아쉽습니다&hellip;</p>
@@ -2055,15 +2011,14 @@ Spring Application Context에서 관리되는 Bean들이 싱글톤으로 관리 
 <p><a href="http://daily-devblog.com/" target="_blank" rel="noopener noreferrer">국내 개발자들 블로그를 구독</a>하고 있었는데, 내 포스팅도 많이 노출되어서 많은 피드백을 받았으면 좋겠다 싶어서, 해당 서비스가 <a href="https://awesome-devblog.netlify.com/" target="_blank" rel="noopener noreferrer">어썸데브블로그</a>의 피드를 사용하기때문에 국내 개발자로 등록을 하였습니다.</p>
 <p>등록하고 바로 포스팅을 올렸는데 어날리틱스 기준으로 처음으로 블로그 1일 방문자수가 20을 넘었습니다.
 해당 그래프를 보는게 재밌어서 포스팅을 계속해서 올렸었고, 아래와 같은 그래프를 그릴 수 있었습니다.</p>
-<p><figure><a class="lightgallery" href="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png" title="블로그 GA 통계" data-thumbnail="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png">
-        <img
-            
-            loading="lazy"
-            src="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png"
-            srcset="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 1.5x, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 2x"
-            sizes="auto"
-            alt="블로그 GA 통계" height="505"  width="663" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png"
+        srcset="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 1.5x, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 2x"
+        sizes="auto"
+        alt="블로그 GA 통계"
+        title="블로그 GA 통계" height="505"   width="663" ></figure></p>
 <p>노출 수가 많아질수록 더 읽고 싶은글, 읽기 좋은 글 또는 관심가질만한 글들을 써야겠다고 생각하게 되었습니다.</p>
 <h2 id="블로그-배포-방식-변경" class="headerLink">
     <a href="#%eb%b8%94%eb%a1%9c%ea%b7%b8-%eb%b0%b0%ed%8f%ac-%eb%b0%a9%ec%8b%9d-%eb%b3%80%ea%b2%bd" class="header-mark"></a>블로그 배포 방식 변경</h2><p>기존에 hexo-cli를 이용해서 배포를 하다가 매번 커맨드를 치는것도 귀찮다 생각하여, <code>package.json</code>에 스크립트를 작성해두었습니다.</p>
@@ -2181,65 +2136,60 @@ DOM에 너무 중심적인 코드를 작성을 하다보니<!-- raw HTML omitted
     <a href="#1-%eb%8f%84%eb%a9%94%ec%9d%b8-%ea%b5%ac%eb%a7%a4-%eb%b0%8f-%ec%97%b0%ea%b2%b0" class="header-mark"></a>1. 도메인 구매 및 연결</h3><p>닉네임을 찾다가 <code>Hodory</code>로 변경하고, <code>hodory.dev</code> 도메인을 구매했습니다.</p>
 <p>Github Pages로 관리되던 <code>khzero.github.io</code> Repository 이름을 <code>hodory.github.io</code>로 변경하였죠</p>
 <p>지난번 <a href="https://blog.hodory.dev/" target="_blank" rel="noopener noreferrer">TravisCI로 블로그 자동 배포시 겪은 문제</a>에서 TravisCI로 배포 환경을 구축 했기 때문에,</p>
-<p><figure><a class="lightgallery" href="/5_10230931644409955856.jpg" title="Github Travis CI Configuration" data-thumbnail="/5_10230931644409955856.jpg">
-        <img
-            
-            loading="lazy"
-            src="/5_10230931644409955856.jpg"
-            srcset="/5_10230931644409955856.jpg, /5_10230931644409955856.jpg 1.5x, /5_10230931644409955856.jpg 2x"
-            sizes="auto"
-            alt="Github Travis CI Configuration" height="307"  width="479" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/5_10230931644409955856.jpg"
+        srcset="/5_10230931644409955856.jpg, /5_10230931644409955856.jpg 1.5x, /5_10230931644409955856.jpg 2x"
+        sizes="auto"
+        alt="Github Travis CI Configuration"
+        title="Github Travis CI Configuration" height="307"   width="479" ></figure></p>
 <p>위의 이미지와 같이 깃허브에서 TravisCI 서비스연결도 다시하고, Hexo config.yml도 모두 수정하였습니다.</p>
 <p>기존의 도메인 URL도 모두 변경하여 블로그를 배포했습니다.</p>
 <h3 id="2-기존-블로그는-어떻게-해요" class="headerLink">
     <a href="#2-%ea%b8%b0%ec%a1%b4-%eb%b8%94%eb%a1%9c%ea%b7%b8%eb%8a%94-%ec%96%b4%eb%96%bb%ea%b2%8c-%ed%95%b4%ec%9a%94" class="header-mark"></a>2. 기존 블로그는 어떻게 해요???</h3><p>생각하여보니 현재 <a href="https://awesome-devblog.netlify.com" target="_blank" rel="noopener noreferrer">어썸데브블로그</a>에 <code>khzero.github.io</code> 주소의 포스팅들이 공개 되어 있는데,</p>
 <p>깃허브 아이디를 변경하면서 도메인 연결이 끊겨, 404 페이지를 노출하고 있었습니다.</p>
-<p><figure><a class="lightgallery" href="/6_16496899744403108303.jpg" title="Github Pages Not Found" data-thumbnail="/6_16496899744403108303.jpg">
-        <img
-            
-            loading="lazy"
-            src="/6_16496899744403108303.jpg"
-            srcset="/6_16496899744403108303.jpg, /6_16496899744403108303.jpg 1.5x, /6_16496899744403108303.jpg 2x"
-            sizes="auto"
-            alt="Github Pages Not Found" height="366"  width="626" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/6_16496899744403108303.jpg"
+        srcset="/6_16496899744403108303.jpg, /6_16496899744403108303.jpg 1.5x, /6_16496899744403108303.jpg 2x"
+        sizes="auto"
+        alt="Github Pages Not Found"
+        title="Github Pages Not Found" height="366"   width="626" ></figure></p>
 <p>급하게 khzero로 계정을 새로 만든 후, <code>khzero.github.io</code> Repository를 생성하고 기존 포스트를 배포하여 404로 노출되는것은 막았습니다.</p>
 <h3 id="3-서브도메인으로-바꿀래요" class="headerLink">
     <a href="#3-%ec%84%9c%eb%b8%8c%eb%8f%84%eb%a9%94%ec%9d%b8%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%80%eb%9e%98%ec%9a%94" class="header-mark"></a>3. 서브도메인으로 바꿀래요!</h3><p>원래는 도메인을 <code>hodory.dev</code>로 쓰려 했지만, 서브 도메인으로 블로그임을 명시하고 싶어,<!-- raw HTML omitted -->
 다시 hodory 계정의 hodory.github.io Rpository를 <code>blog.hodory.dev</code>로 CNAME을 설정하고</p>
 <p>아래와 같이 설정하였습니다.<!-- raw HTML omitted -->
 (<strong>※주의 : CNAME을 배포하면 아래의 설정이 초기화 되니 주의하시기 바랍니다.※</strong>)</p>
-<p><figure><a class="lightgallery" href="/7_17796362379647588117.jpg" title="Github Pages Custom Domain Setting" data-thumbnail="/7_17796362379647588117.jpg">
-        <img
-            
-            loading="lazy"
-            src="/7_17796362379647588117.jpg"
-            srcset="/7_17796362379647588117.jpg, /7_17796362379647588117.jpg 1.5x, /7_17796362379647588117.jpg 2x"
-            sizes="auto"
-            alt="Github Pages Custom Domain Setting" height="600"  width="736" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/7_17796362379647588117.jpg"
+        srcset="/7_17796362379647588117.jpg, /7_17796362379647588117.jpg 1.5x, /7_17796362379647588117.jpg 2x"
+        sizes="auto"
+        alt="Github Pages Custom Domain Setting"
+        title="Github Pages Custom Domain Setting" height="600"   width="736" ></figure></p>
 <p>배포를 하였더니 깃허브로부터 아래와 같은 메일이 왔었습니다.</p>
-<p><figure><a class="lightgallery" href="/1_12590345988111777248.jpg" title="Github Pages Custom Domain Setting" data-thumbnail="/1_12590345988111777248.jpg">
-        <img
-            
-            loading="lazy"
-            src="/1_12590345988111777248.jpg"
-            srcset="/1_12590345988111777248.jpg, /1_12590345988111777248.jpg 1.5x, /1_12590345988111777248.jpg 2x"
-            sizes="auto"
-            alt="Github Pages Custom Domain Setting" height="262"  width="1326" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/1_12590345988111777248.jpg"
+        srcset="/1_12590345988111777248.jpg, /1_12590345988111777248.jpg 1.5x, /1_12590345988111777248.jpg 2x"
+        sizes="auto"
+        alt="Github Pages Custom Domain Setting"
+        title="Github Pages Custom Domain Setting" height="262"   width="1326" ></figure></p>
 <p>A 레코드에 <code>blog.hodory.dev</code>가 설정되어 있어서인데,
 CNAME으로 변경하기위해 구글 도메인 DNS 설정에서 아래와 같이 변경했습니다.</p>
-<p><figure><a class="lightgallery" href="/9_4224511786299032279.jpg" title="Google Domains - DNS Setting" data-thumbnail="/9_4224511786299032279.jpg">
-        <img
-            
-            loading="lazy"
-            src="/9_4224511786299032279.jpg"
-            srcset="/9_4224511786299032279.jpg, /9_4224511786299032279.jpg 1.5x, /9_4224511786299032279.jpg 2x"
-            sizes="auto"
-            alt="Google Domains - DNS Setting" height="492"  width="1027" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/9_4224511786299032279.jpg"
+        srcset="/9_4224511786299032279.jpg, /9_4224511786299032279.jpg 1.5x, /9_4224511786299032279.jpg 2x"
+        sizes="auto"
+        alt="Google Domains - DNS Setting"
+        title="Google Domains - DNS Setting" height="492"   width="1027" ></figure></p>
 <p>설정을 모두 마친 뒤, 지인들에게 자랑을 했는데 블로그가 아래와 같은 오류로 나오지 않는다했습니다.</p>
 <blockquote>
 <p>웹사이트에서 HSTS를 사용하므로 지금은 blog.hodory.dev에 방문할 수 없습니다. <!-- raw HTML omitted -->
@@ -2249,26 +2199,24 @@ CNAME으로 변경하기위해 구글 도메인 DNS 설정에서 아래와 같�
 <p>TTL 문제일 수 있어 최대 1H까지 리졸브가 안될 수 있어요</p>
 </blockquote>
 <p>라는 설명을 듣고 TTL을 <code>1m</code> 으로변경하였습니다</p>
-<p><figure><a class="lightgallery" href="/8_11465529894579939452.jpg" title="Google Domains - DNS Setting" data-thumbnail="/8_11465529894579939452.jpg">
-        <img
-            
-            loading="lazy"
-            src="/8_11465529894579939452.jpg"
-            srcset="/8_11465529894579939452.jpg, /8_11465529894579939452.jpg 1.5x, /8_11465529894579939452.jpg 2x"
-            sizes="auto"
-            alt="Google Domains - DNS Setting" height="491"  width="1027" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/8_11465529894579939452.jpg"
+        srcset="/8_11465529894579939452.jpg, /8_11465529894579939452.jpg 1.5x, /8_11465529894579939452.jpg 2x"
+        sizes="auto"
+        alt="Google Domains - DNS Setting"
+        title="Google Domains - DNS Setting" height="491"   width="1027" ></figure></p>
 <p>1분정도 지난 후 확인해보니 정상적으로 동작했습니다!</p>
 <p>또 중간에 배포를 하다가 이와 같이 되는 노출되는 경우가 있었는데
-<figure><a class="lightgallery" href="/4_9017746577926303219.jpg" title="크롬 - 연결이 비공개로 설정되어 있지 않습니다." data-thumbnail="/4_9017746577926303219.jpg">
-        <img
-            
-            loading="lazy"
-            src="/4_9017746577926303219.jpg"
-            srcset="/4_9017746577926303219.jpg, /4_9017746577926303219.jpg 1.5x, /4_9017746577926303219.jpg 2x"
-            sizes="auto"
-            alt="크롬 - 연결이 비공개로 설정되어 있지 않습니다." height="443"  width="651" >
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="/4_9017746577926303219.jpg"
+        srcset="/4_9017746577926303219.jpg, /4_9017746577926303219.jpg 1.5x, /4_9017746577926303219.jpg 2x"
+        sizes="auto"
+        alt="크롬 - 연결이 비공개로 설정되어 있지 않습니다."
+        title="크롬 - 연결이 비공개로 설정되어 있지 않습니다." height="443"   width="651" ></figure></p>
 <p>위에 기재하였던 CNAME이 수정되면서, <code>Enforce HTTPS</code> 가 체크 해제되어 있었습니다.
 이 부분을 수정하니 정상적으로 노출이 되었습니다.</p>
 <h3 id="4-기존-블로그를-연결하자" class="headerLink">
@@ -2285,15 +2233,14 @@ CNAME으로 변경하기위해 구글 도메인 DNS 설정에서 아래와 같�
 <p>대부분 URL 변경만 한다거나, 추가하는 방식으로 간단하게 수정 되었으나, 4번에서 문제가 생겼습니다.</p>
 <p>현재 Search Console의 구버전에서만 가능한 주소 변경 툴인데,</p>
 <p>아래 이미지에 표시된 2번의 301 리디렉션 정상동작 여부에서 막혔습니ㅏㄷ.</p>
-<p><figure><a class="lightgallery" href="/3_5854123944268968505.jpg" title="Github Page - 301 리디렉션" data-thumbnail="/3_5854123944268968505.jpg">
-        <img
-            
-            loading="lazy"
-            src="/3_5854123944268968505.jpg"
-            srcset="/3_5854123944268968505.jpg, /3_5854123944268968505.jpg 1.5x, /3_5854123944268968505.jpg 2x"
-            sizes="auto"
-            alt="Github Page - 301 리디렉션" height="582"  width="1650" >
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/3_5854123944268968505.jpg"
+        srcset="/3_5854123944268968505.jpg, /3_5854123944268968505.jpg 1.5x, /3_5854123944268968505.jpg 2x"
+        sizes="auto"
+        alt="Github Page - 301 리디렉션"
+        title="Github Page - 301 리디렉션" height="582"   width="1650" ></figure></p>
 <p>Github Pages 는 정적페이지이다보니 301로 리디렉션이 불가능합니다.</p>
 <p>혹시나 하는 마음에 <a href="https://github.com/jekyll/jekyll-redirect-from" target="_blank" rel="noopener noreferrer">jekyll-redirect-from</a> 패키지도 확인 해보았으나,</p>
 <p>meta 태그와 script를 이용해 페이지를 이동시키는데,</p>
@@ -2358,15 +2305,14 @@ CNAME으로 변경하기위해 구글 도메인 DNS 설정에서 아래와 같�
 themes 폴더에 사용중이던 테마가 빈 폴더였습니다.</p>
 <p>항상 로컬에서만 푸시 하였기 때문에, 그걸 모르고 있었죠&hellip;</p>
 <p>깃허브 레포지토리에는 이와같이 표시되고 클릭 불가능한 상태였습니다.
-<figure><a class="lightgallery" href="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png" title="Github themes directory" data-thumbnail="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png">
-        <img
-            
-            loading="lazy"
-            src="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png"
-            srcset="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png, https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png 1.5x, https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png 2x"
-            sizes="auto"
-            alt="Github themes directory">
-    </a></figure></p>
+<figure><img
+        
+        loading="lazy"
+        src="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png"
+        srcset="https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png, https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png 1.5x, https://github.com/hodory/hodory.github.io/blob/master/images/github-theme-not-versioning.png 2x"
+        sizes="auto"
+        alt="Github themes directory"
+        title="Github themes directory" ></figure></p>
 <p>원인을 찾아본 결과, 해당 theme 마다 .git 디렉토리가 존재하고,<!-- raw HTML omitted -->
 개별적으로 버전관리가 되고 있기 때문에 저의 레포지토리를 pull을 받아도 사용할 수 없었습니다.</p>
 <p><a href="https://postlude.github.io/2019/01/01/hexo-themes-and-git-submodule/" target="_blank" rel="noopener noreferrer">해당 포스팅</a>을 보고,
@@ -2919,15 +2865,14 @@ webpack의 config에 아래의 내용을 추가 하였습니다.</p>
   ]
 }
 </code></pre><p>빌드는 성공 했으나 정상 동작하지 않아 확인 해보니 <code>/node_modules/knex/lib/mysql2/index.js</code> 해당 파일에</p>
-<p><figure><a class="lightgallery" href="https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png" title="/node_modules/knex/lib/mysql2/index.js" data-thumbnail="https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png">
-        <img
-            
-            loading="lazy"
-            src="https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png"
-            srcset="https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png, https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png 1.5x, https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png 2x"
-            sizes="auto"
-            alt="/node_modules/knex/lib/mysql2/index.js">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png"
+        srcset="https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png, https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png 1.5x, https://github.com/hodory/hodory.github.io/blob/master/images/need-mysql.png 2x"
+        sizes="auto"
+        alt="/node_modules/knex/lib/mysql2/index.js"
+        title="/node_modules/knex/lib/mysql2/index.js" ></figure></p>
 <p>이러한 코드가 있어서 결국 mysql2를 쓰더라도 mysql 라이브러리가 필요하였습니다.</p>
 <p>굳이 mysql2 모듈을 고집 할 필요가 없을것 같아, mysql 모듈로 변경하고,<!-- raw HTML omitted -->
 <code>new webpack.IgnorePlugin(/mysql/, /knex/)</code> 를 <code>new webpack.IgnorePlugin(/mysql2/, /knex/),</code> 로 변경하니
@@ -3130,15 +3075,14 @@ Vue EventBus 객체를 생성하여 export 하여 다른 파일에서도 로드�
 <li>스키마를 별도로 지정하지 않을 경우, public이라는 스키마를 기본적으로 사용합니다.</li>
 <li>데이터베이스가 다르면 물리적으로 분리되어있다는것을 의미합니다.</li>
 <li>서로 다른 Schema간에는 JOIN이 가능합니다.</li>
-<li>구조 <figure><a class="lightgallery" href="/images/postgresql-structure.jpg" title="pgSQL 구조 이미지" data-thumbnail="/images/postgresql-structure.jpg">
-        <img
-            
-            loading="lazy"
-            src="/images/postgresql-structure.jpg"
-            srcset="/images/postgresql-structure.jpg, /images/postgresql-structure.jpg 1.5x, /images/postgresql-structure.jpg 2x"
-            sizes="auto"
-            alt="pgSQL 구조 이미지">
-    </a></figure></li>
+<li>구조 <figure><img
+        
+        loading="lazy"
+        src="/images/postgresql-structure.jpg"
+        srcset="/images/postgresql-structure.jpg, /images/postgresql-structure.jpg 1.5x, /images/postgresql-structure.jpg 2x"
+        sizes="auto"
+        alt="pgSQL 구조 이미지"
+        title="pgSQL 구조 이미지" ></figure></li>
 </ul>
 <blockquote>
 <p>참고자료</p>
@@ -3370,15 +3314,14 @@ Vue EventBus 객체를 생성하여 export 하여 다른 파일에서도 로드�
 <li>등차 수열이란 ?
 연속하는 두 항의 차이가 모두 일정한 수열.</li>
 <li>등차 수열의 합 공식 (출처 : <a href="https://ko.wikipedia.org/wiki/%eb%93%b1%ec%b0%a8%ec%88%98%ec%97%b4" target="_blank" rel="noopener noreferrer">위키피디아</a>)
-<figure><a class="lightgallery" href="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023" title="등차수열의 합 공식" data-thumbnail="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023" data-sub-html="<h2>클릭시 위키피디아로 이동</h2><p>등차수열의 합 공식</p>">
-        <img
-            
-            loading="lazy"
-            src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023"
-            srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 2x"
-            sizes="auto"
-            alt="등차수열의 합 공식">
-    </a><figcaption class="image-caption">클릭시 위키피디아로 이동</figcaption>
+<figure><img
+        
+        loading="lazy"
+        src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023"
+        srcset="https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 1.5x, https://wikimedia.org/api/rest_v1/media/math/render/svg/2c20edf8a4ff670b534d3cb674f934710a88d023 2x"
+        sizes="auto"
+        alt="등차수열의 합 공식"
+        title="등차수열의 합 공식" ><figcaption class="image-caption">클릭시 위키피디아로 이동</figcaption>
     </figure></li>
 <li>코드 구현
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="nx">addFunction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>

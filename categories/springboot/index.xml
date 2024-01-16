@@ -28,15 +28,14 @@ Custom Exception은 Exception 클래스가 아니라 RuntimeException을 상속�
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p><figure><a class="lightgallery" href="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png" title="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png" data-thumbnail="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png">
-        <img
-            
-            loading="lazy"
-            src="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png"
-            srcset="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 1.5x, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 2x"
-            sizes="auto"
-            alt="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png">
-    </a></figure></p>
+</span></span></code></pre></div><p><figure><img
+        
+        loading="lazy"
+        src="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png"
+        srcset="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 1.5x, /images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png 2x"
+        sizes="auto"
+        alt="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png"
+        title="/images/images_jsj3282_post_eeb0e722-571b-424b-bf3f-c50b24465e8c_v2naj.png" ></figure></p>
 ]]></description></item><item><title>［Java］Spring REST Docs HTML이 생성되지 않을때</title><link>http://blog.hodory.dev/2019/12/04/spring-rest-docs-with-gradle-not-working-html5/</link><pubDate>Wed, 04 Dec 2019 23:39:14 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/12/04/spring-rest-docs-with-gradle-not-working-html5/</guid><description><![CDATA[<p>백기선님의 스프링부트 강좌를 수강하는중에 Spring REST Docs를 이용하여 HTML을 생성하려하는데,<!-- raw HTML omitted -->
 아무리 빌드를 해도 <code>ascii\html\index.html</code>이 생성되지 않았습니다.</p>
 <pre tabindex="0"><code>오후 11:58:18: Executing task &#39;build&#39;...
@@ -76,15 +75,14 @@ BUILD SUCCESSFUL in 18s
 버전이 올라가면서 변경점이 있는지 체크해보았으나 다른점이 없어 검색을 하였더니
 asciidoctor sourceDirectory가 Maven 플러그인에서는 <code>src/main/asciidoc</code>이지만, Gradle 플러그인은 sourceDirectory가 <code>/src/docs/asciidoc</code> 였습니다.
 또한 Spring-REST-Docs에 의해 생성되는 경로도 아래 이미지와 같이 달랐습니다</p>
-<p><figure><a class="lightgallery" href="/images/spring-rest-docs-with-gradle-not-working-html5/1.png" title="JUnitRestDocumentation rule" data-thumbnail="/images/spring-rest-docs-with-gradle-not-working-html5/1.png">
-        <img
-            
-            loading="lazy"
-            src="/images/spring-rest-docs-with-gradle-not-working-html5/1.png"
-            srcset="/images/spring-rest-docs-with-gradle-not-working-html5/1.png, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 1.5x, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 2x"
-            sizes="auto"
-            alt="JUnitRestDocumentation rule">
-    </a></figure></p>
+<p><figure><img
+        
+        loading="lazy"
+        src="/images/spring-rest-docs-with-gradle-not-working-html5/1.png"
+        srcset="/images/spring-rest-docs-with-gradle-not-working-html5/1.png, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 1.5x, /images/spring-rest-docs-with-gradle-not-working-html5/1.png 2x"
+        sizes="auto"
+        alt="JUnitRestDocumentation rule"
+        title="JUnitRestDocumentation rule" ></figure></p>
 <p>Maven을 사용해 본 적이 없어서 gradle과 플러그인도 동일할줄 알았는데,<!-- raw HTML omitted -->
 빌드 결과물도 다른 디렉토리에 생성되고 실행가능한 명령어들도 다른것을 알 수 있었습니다.</p>
 <blockquote>
