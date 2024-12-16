@@ -69,13 +69,6 @@
 <h2 id="서비스-구성" class="headerLink">
     <a href="#%ec%84%9c%eb%b9%84%ec%8a%a4-%ea%b5%ac%ec%84%b1" class="header-mark"></a>서비스 구성</h2><hr>
 <p>이와 같이 구성하여 작성하였습니다.</p>
-<p><figure><img
-        
-        loading="lazy"
-        src="/images/account-book-automation-with-github-action.jpg"
-        srcset="/images/account-book-automation-with-github-action.jpg, /images/account-book-automation-with-github-action.jpg 1.5x, /images/account-book-automation-with-github-action.jpg 2x"
-        sizes="auto"
-        alt="/images/account-book-automation-with-github-action.jpg"
-        title="/images/account-book-automation-with-github-action.jpg" ></figure></p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-automation-with-github-action.jpg     ></p>
 <p>각 영역에 대한 상세한 내용은 다음편에서 작성 예정입니다</p>
 ]]></description></item></channel></rss>

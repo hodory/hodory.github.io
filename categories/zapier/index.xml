@@ -37,66 +37,23 @@
 <code>그렇다면 1번이 다 되었을 때, 해당 내용을 읽어들여 최근에 나온 Notion API를 사용하면 되지 않을까?</code> 라고 생각하게 됩니다.</p>
 <h2 id="어떻게-연결-하였을까" class="headerLink">
     <a href="#%ec%96%b4%eb%96%bb%ea%b2%8c-%ec%97%b0%ea%b2%b0-%ed%95%98%ec%98%80%ec%9d%84%ea%b9%8c" class="header-mark"></a>어떻게 연결 하였을까</h2><p><a href="https://zapier.com/" target="_blank" rel="noopener noreferrer">Zapier</a>라는 서비스에서는 구글드라이브의 이벤트와 <a href="https://nanonets.com/" target="_blank" rel="noopener noreferrer">Nanonets OCR</a> 이라는 서비스를 연결 할 수 있었습니다.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><figure><img
-        
-        loading="lazy"
-        src="/images/account-book-with-notion-and-zapier/1.png"
-        srcset="/images/account-book-with-notion-and-zapier/1.png, /images/account-book-with-notion-and-zapier/1.png 1.5x, /images/account-book-with-notion-and-zapier/1.png 2x"
-        sizes="auto"
-        alt="Google Drive &#43; Nanonets OCR Integrations"
-        title="Google Drive &#43; Nanonets OCR Integrations" ></figure></p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-with-notion-and-zapier/1.png   alt="Google Drive &#43; Nanonets OCR Integrations"  ></p>
 <h2 id="google-drive-to-nanonets-설정" class="headerLink">
     <a href="#google-drive-to-nanonets-%ec%84%a4%ec%a0%95" class="header-mark"></a>Google Drive to Nanonets 설정</h2><p>Nanonet에서 Modeling이라고 말하는 영역별 라벨링을 아래와 같이 해줍니다.<!-- raw HTML omitted -->
-<figure><img
-        
-        loading="lazy"
-        src="/images/account-book-with-notion-and-zapier/2.png"
-        srcset="/images/account-book-with-notion-and-zapier/2.png, /images/account-book-with-notion-and-zapier/2.png 1.5x, /images/account-book-with-notion-and-zapier/2.png 2x"
-        sizes="auto"
-        alt="Nanonets OCR Data Modeling"
-        title="Nanonets OCR Data Modeling" ></figure></p>
+<img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-with-notion-and-zapier/2.png   alt="Nanonets OCR Data Modeling"  ></p>
 <p>아쉽게도 해외 서비스이다보니 한국어를 인식할때에는 <code>메모를 남겨보세요</code> 와 같은 문구는 <code>메모 를 남겨 보세요</code> 와 같이 띄어쓰기가 잘못 들어 가는 경우가 많습니다.<!-- raw HTML omitted -->
 계속해서 모델을 학습 시키면 제대로 인식 시킬거라는 기대감과 함께 문구를 수정하여 줬습니다.</p>
 <p>그 이후 Zapier에서는 아래와 같이 설정하였습니다.<!-- raw HTML omitted -->
-<figure><img
-        
-        loading="lazy"
-        src="/images/account-book-with-notion-and-zapier/3.png"
-        srcset="/images/account-book-with-notion-and-zapier/3.png, /images/account-book-with-notion-and-zapier/3.png 1.5x, /images/account-book-with-notion-and-zapier/3.png 2x"
-        sizes="auto"
-        alt="Zapier Connection to Nanonets"
-        title="Zapier Connection to Nanonets" ></figure></p>
+<img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-with-notion-and-zapier/3.png   alt="Zapier Connection to Nanonets"  ></p>
 <p>가장 헷갈렸던 부분은 Nanonets OCR 설정에서 Google Drive의 파일의 output중 어떤 값을 사용할지 였는데, 기본값인 File을 사용하면 읽기가 가능했습니다.<!-- raw HTML omitted -->
-<figure><img
-        
-        loading="lazy"
-        src="/images/account-book-with-notion-and-zapier/4.png"
-        srcset="/images/account-book-with-notion-and-zapier/4.png, /images/account-book-with-notion-and-zapier/4.png 1.5x, /images/account-book-with-notion-and-zapier/4.png 2x"
-        sizes="auto"
-        alt="Zapier Nanonets OCR google drive file"
-        title="Zapier Nanonets OCR google drive file" ></figure></p>
+<img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-with-notion-and-zapier/4.png   alt="Zapier Nanonets OCR google drive file"  ></p>
 <h3 id="tip" class="headerLink">
     <a href="#tip" class="header-mark"></a>TIP</h3><h3 id="nanonets-to-notion-설정" class="headerLink">
-    <a href="#nanonets-to-notion-%ec%84%a4%ec%a0%95" class="header-mark"></a>Nanonets to Notion 설정</h3><p><figure><img
-        
-        loading="lazy"
-        src="/images/account-book-with-notion-and-zapier/5.png"
-        srcset="/images/account-book-with-notion-and-zapier/5.png, /images/account-book-with-notion-and-zapier/5.png 1.5x, /images/account-book-with-notion-and-zapier/5.png 2x"
-        sizes="auto"
-        alt="Nanonets Integration"
-        title="Nanonets Integration" ></figure><!-- raw HTML omitted -->
+    <a href="#nanonets-to-notion-%ec%84%a4%ec%a0%95" class="header-mark"></a>Nanonets to Notion 설정</h3><p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-with-notion-and-zapier/5.png   alt="Nanonets Integration"  ><!-- raw HTML omitted -->
 Nanonets 자체에서 OCR 처리 이후 Database(Mysql, MsSql, MariaDB 등)에 데이터를 넣을 수 있도록 하거나 Webhooks를 통해 처리할 수 있도록 자체적인 Integration을 제공하고 있습니다.</p>
 <p>하지만 제가 필요한 동작은 notion에 값을 매핑하여 넣는것이기 때문에 zapier를 사용하였습니다.</p>
 <p>Zapier에서 <code>formatter Zap</code>을 이용하여 포맷을 설정할 수 있으면 가장 좋겠지만, 이것 또한 비용이 되어 직접 처리하도록 하였습니다.</p>
-<p><figure><img
-        
-        loading="lazy"
-        src="/images/account-book-with-notion-and-zapier/6.png"
-        srcset="/images/account-book-with-notion-and-zapier/6.png, /images/account-book-with-notion-and-zapier/6.png 1.5x, /images/account-book-with-notion-and-zapier/6.png 2x"
-        sizes="auto"
-        alt="Zapier Nanonets OCR Output Mapping to Notion Database"
-        title="Zapier Nanonets OCR Output Mapping to Notion Database" ></figure></p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/account-book-with-notion-and-zapier/6.png   alt="Zapier Nanonets OCR Output Mapping to Notion Database"  ></p>
 <p>필요한 값중 매핑이 정상적으로 되지 않을 수 있으므로, Content 값에 필요한 값이 입력되도록 매핑하였습니다.</p>
 <h2 id="마무리하며" class="headerLink">
     <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac%ed%95%98%eb%a9%b0" class="header-mark"></a>마무리하며</h2><p>최대한 코딩을 하지 않고 인프라도 구성하지 않으며 사용하고 싶었습니다.</p>
@@ -123,5 +80,4 @@ Nanonets 자체에서 OCR 처리 이후 Database(Mysql, MsSql, MariaDB 등)에 �
 </ul>
 <p>위와 같은 이유로 OCR을 지원하고 있던 Zapier를 선택하여 nanonets를 연동하였으나, nanonets의 한글 인식 미흡한점은 감안할 수 있었으나<!-- raw HTML omitted -->
 Zapier/Nanonets의 API Limit으로 일주일만에 절반 이상을 사용하여 해당 방식으로는 어려울것 같아, NCloud OCR이 300회를 제공하고 있어 해당 방식을 연동할 계획을 가지고 있습니다.</p>
-<p>최근들어 각종 금융사 및 핀테크 서비스에서 마이데이터 서비스를 이용하여 자산 관리를 제공하고 있는데, 해당 서비스에서 관리한 데이터를 API로 받아 볼 수 있는날이 언젠가 오길 고대합니다.</p>
-]]></description></item></channel></rss>
+<p>최근들어 각종 금융사 및 핀테크 서비스에서 마이데이터 서비스를 이용하여 자산 관리를 제공하고 있는데, 해당 서비스에서 관리한 데이터를 API로 받아 볼 수 있는날이 언젠가 오길 고대합니다.</p>]]></description></item></channel></rss>

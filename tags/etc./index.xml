@@ -1,1 +1,59 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Etc. - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/etc./</link><description>Etc. - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><atom:link href="http://blog.hodory.dev/tags/etc./" rel="self" type="application/rss+xml"/></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Etc. - Tag - Web Developer Hodory</title><link>http://blog.hodory.dev/tags/etc./</link><description>Etc. - Tag - Web Developer Hodory</description><generator>Hugo -- gohugo.io</generator><language>ko</language><managingEditor>master@hodory.dev (hodory)</managingEditor><webMaster>master@hodory.dev (hodory)</webMaster><lastBuildDate>Tue, 30 Jul 2019 18:50:11 +0000</lastBuildDate><atom:link href="http://blog.hodory.dev/tags/etc./" rel="self" type="application/rss+xml"/><item><title>애드센스-테러를-당하다</title><link>http://blog.hodory.dev/2019/07/30/%EC%95%A0%EB%93%9C%EC%84%BC%EC%8A%A4-%ED%85%8C%EB%9F%AC%EB%A5%BC-%EB%8B%B9%ED%95%98%EB%8B%A4/</link><pubDate>Tue, 30 Jul 2019 18:50:11 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2019/07/30/%EC%95%A0%EB%93%9C%EC%84%BC%EC%8A%A4-%ED%85%8C%EB%9F%AC%EB%A5%BC-%EB%8B%B9%ED%95%98%EB%8B%A4/</guid><description><![CDATA[<p>아침에 눈을 떠서 메일을 확인 하는데,
+구글 애드센스팀으로부터 아래와 같은 메일이 도착하였습니다.</p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/adsense/1-0e957f3c-84f9-419b-904a-a4029dae2826.jpg     ></p>
+<p>애드센스 계정이 30일동안 정지 되었다는 메일이였는데,
+하루 수입이 $0.01도 안 됐기 때문에 그냥 그런가보다 했습니다.</p>
+<p>그래도 왜 그럴까 싶어 알아보다가 GA를 확인해보니 해당 시간대에 155 세션이 잡혔고,
+모두 디바이스가 데스크탑인 국가 정보가 없는 경우 였습니다.</p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/adsense/2-3b20d3d3-f9c5-413f-986e-6c2c71a8a677.jpg     ></p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/adsense/3-5795a69b-9d9b-4ad1-ada0-31a0a45cff3f.jpg     ></p>
+<p>슬프게도 제 블로그는 일 조회수가 155가 안되기 때문에 이럴일이 없었죠&hellip;.😂</p>
+<p>애드센스 관리 페이지를 확인 하였을때도 이와 같이 <code>무효 클릭: 직접 클릭</code> 으로 정지를 당했습니다.</p>
+<p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/adsense/4-3e56548b-9cf1-4bf0-8a04-65b3d4f1644b.jpg     ></p>
+<p>혹시나 <code>애드센스 테러</code> 라는 키워드로 구글에 검색을 해보았더니 유사 사례가 꽤나 있었습니다.</p>
+<p>다른분들의 코멘트를 참조하여 이의제기는 신청 했지만, 메일에 기재되어 있듯이 이의제기가 받아 들여질거 같진 않습니다&hellip;</p>
+<p>그래도 가끔 애드센스 눌리는 재미도 쏠쏠 했는데 아쉽습니다&hellip;</p>
+]]></description></item><item><title>［ETC］Triple DES(3-DES)를 사용하지 않는 이유</title><link>http://blog.hodory.dev/2018/04/18/why-not-use-3des/</link><pubDate>Wed, 18 Apr 2018 18:27:20 +0000</pubDate><author><name>hodory</name></author><guid>http://blog.hodory.dev/2018/04/18/why-not-use-3des/</guid><description><![CDATA[<p>대학교 프로젝트에서 T-DES 암호화 알고리즘을 사용하여 소켓 기반 채팅 프로그램을 만든 적이 있습니다.</p>
+<p>DES 암호화 알고리즘을 보완하기위해 DES를 3번 수행하는 방식입니다.</p>
+<p>그렇다면 왜 3DES 암호화 알고리즘의 사용이 줄어들었을까요?</p>
+<ul>
+<li>암호화키가 DES 표준에 따라 56비트로 제한됩니다.</li>
+<li>AES(Advanced Encryption Standard)가 미국 표준으로 승인되어 AES 암호화 알고리즘이 더 많이 쓰이고 있습니다.</li>
+<li>암호화를 세번 하면서 생기는 속도의 문제점 (AES가 훨씬 빠르다고 합니다.)</li>
+</ul>
+<p>결론적으로 대칭키 암호화 알고리즘에서는 DES 암호화 알고리즘을 AES 암호화 알고리즘이 대체하게 되어 없어졌다 할 수 있습니다.</p>
+<p>기존에는 SHA-2 알고리즘이 나와 없어진 줄 알았으나,</p>
+<p>SHA(Secure Hash Algorithm) Encryption(암호화)과 Hash(해쉬)는 다른 의미였습니다.</p>
+<p>Encryption(암호화)는 양방향 통신을 위해 특정 키를 가지고 복호화가 가능한 출력을 만들어 내는 것입니다.</p>
+<p>대표적으로는 아래와 같이 있습니다.</p>
+<ul>
+<li>대칭 암호화
+<ul>
+<li>DES(Data Encryption Standard)
+<ul>
+<li>T-DES(Triple Data Encryption Standard)</li>
+</ul>
+</li>
+<li>AES(Advanced Encryption Standard)</li>
+</ul>
+</li>
+<li>비대칭 암호화
+<ul>
+<li>RSA</li>
+</ul>
+</li>
+</ul>
+<p>Hash(해시)는 임의의 길이의 입력을 고정된 길이의 출력으로 바꾸어주고, 복호화가 되지않아 원문을 알 수 없으나, 같은 입력은 같은 출력을 보장합니다.</p>
+<p>대표적으로는 아래와 같이 있습니다.</p>
+<ul>
+<li>MD5(Message Digest)</li>
+<li>SHA(Secure Hash Algorithm)</li>
+</ul>
+<blockquote>
+  <p>참고자료</p>
+
+</blockquote><ul>
+<li><a href="https://www.chaijeom.com/3/919.html" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">AES와 3DES의 차이점</a></li>
+<li><a href="https://egloos.zum.com/dextermg/v/305974" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">대칭키 암호화 - AES, 3DES</a></li>
+<li><a href="https://brownbears.tistory.com/73" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">AES와 SHA 차이</a></li>
+</ul>]]></description></item></channel></rss>

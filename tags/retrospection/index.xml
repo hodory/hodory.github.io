@@ -203,11 +203,106 @@ X-Ray를 활용
     <a href="#%ec%bd%94%eb%93%9c%ea%b8%b0%eb%b0%98-%ec%9d%b8%ed%94%84%eb%9d%bc%ec%9d%98-%eb%aa%a9%ec%a0%81" class="header-mark"></a>코드기반 인프라의 목적</h2><p>인프라 변경 사항을 반복적이고 예측 가능하게 함.</p>
 <h2 id="cloudformation" class="headerLink">
     <a href="#cloudformation" class="header-mark"></a>CloudFormation</h2><p>클라우드 인프라 템플릿을 정의하기 위한 언어 - JSON | YAML</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-perl" data-lang="perl"><span class="line"><span class="cl">    <span class="nv">$</span> <span class="nv">cdk</span> <span class="n">init</span>
+<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">perl</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-1" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl">    <span class="nv">$</span> <span class="nv">cdk</span> <span class="n">init</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">$</span> <span class="nv">cdk</span> <span class="n">diff</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">$</span> <span class="nv">cdk</span> <span class="n">deploy</span> <span class="p">[</span><span class="n">paramter</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># if you type &#34;y&#34;, deploy the app</span>
-</span></span></code></pre></div><p>CDK Deploy 를 활용하면 Cloudformation을 활용해 배포하게됨</p>
+</span></span><span class="line"><span class="cl">    <span class="c1"># if you type &#34;y&#34;, deploy the app</span></span></span></code></pre>
+</div>
+<p>CDK Deploy 를 활용하면 Cloudformation을 활용해 배포하게됨</p>
 <p>cdk를 사용하면 <code>table.grantReadWriteData(fn);</code> 과 같은 함수를 통해 권한을 얻을 수 있음<!-- raw HTML omitted -->
 <code>APIGateway.LambdaRestApi()</code>를 사용하면 API Gateway에 대한 IAM 권한을 가질 수 있음.<!-- raw HTML omitted -->
 → serverless framework 사용시 serverless.yml 파일에 iam을 설정하던 부분을 함수로 명시 하는거였음.</p>
@@ -222,24 +317,10 @@ X-Ray를 활용
 <p>배포환경은 동일하게 로컬환경은 개발자 본인만을 위한것이다.<!-- raw HTML omitted -->
 클라우드9이나 CloudFormation, 도커등 동일한 환경을 제공할 수 있어야함.</p>
 <h2 id="점심-도시락" class="headerLink">
-    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><figure><img
-        
-        loading="lazy"
-        src="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
-        srcset="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 1.5x, /images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg 2x"
-        sizes="auto"
-        alt="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg"
-        title="/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg" ></figure>
+    <a href="#%ec%a0%90%ec%8b%ac-%eb%8f%84%ec%8b%9c%eb%9d%bd" class="header-mark"></a>점심 도시락</h2><p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/ae7fa212-27d7-4005-aeb3-45f11e4dfc1d.jpg     >
 닭강정, 새우튀김, 갈비찜?돼지고기찜? + 된장국 (나머진 안 먹어봐서 모르겠습니다)</p>
 <h2 id="굿즈swags" class="headerLink">
-    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><figure><img
-        
-        loading="lazy"
-        src="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
-        srcset="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 1.5x, /images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg 2x"
-        sizes="auto"
-        alt="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg"
-        title="/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg" ></figure></p>
+    <a href="#%ea%b5%bf%ec%a6%88swags" class="header-mark"></a>굿즈(SWAGS)</h2><p><img class="tw-inline" loading="lazy" src=http://blog.hodory.dev/images/7668d682-dc06-4683-ab15-c6c51e81a1e6.jpg     ></p>
 <ul>
 <li>티셔츠</li>
 <li>머그컵</li>
@@ -262,8 +343,7 @@ X-Ray를 활용
 RDS 콘솔 상에서 IOPS 쓰기가 1000 이상이 되는 경우가 발생했습니다.</p>
 <p>해당 데이터를 레디스(Elastic Cache)나 noSQL(DynamoDB)에 쌓은 후, 다시 RDS로 옮기는 것도 검토해보았지만, 실제 구현할 경우 관리 포인트가 너무 많이 발생하게 되어 연동 속도를 줄이더라도 Lambda의 동시성을 조절하는 것으로 처리하였습니다.</p>
 <h2 id="02월03월" class="headerLink">
-    <a href="#02%ec%9b%9403%ec%9b%94" class="header-mark"></a>02월~03월</h2><!-- raw HTML omitted -->
-<h3 id="on-the-fly-동적-이미지-리사이징-구현" class="headerLink">
+    <a href="#02%ec%9b%9403%ec%9b%94" class="header-mark"></a>02월~03월</h2><h3 id="on-the-fly-동적-이미지-리사이징-구현" class="headerLink">
     <a href="#on-the-fly-%eb%8f%99%ec%a0%81-%ec%9d%b4%eb%af%b8%ec%a7%80-%eb%a6%ac%ec%82%ac%ec%9d%b4%ec%a7%95-%ea%b5%ac%ed%98%84" class="header-mark"></a>On-The-Fly 동적 이미지 리사이징 구현</h3><hr>
 <p>기존 서비스에서는 이미지 파일을 올릴 때 도메인별로 고정된 크기로 이미지를 리사이징하고 있었습니다.</p>
 <p>다양한 해상도에 대한 대응이 어려웠고, 서버에서 동기식으로 이미지를 리사이징 하다 보니 파일 업로드의 응답 시간이 느려지는 문제가 있었습니다.</p>
@@ -316,14 +396,7 @@ Spring Application Context에서 관리되는 Bean들이 싱글톤으로 관리 
 <p><a href="http://daily-devblog.com/" target="_blank" rel="noopener noreferrer">국내 개발자들 블로그를 구독</a>하고 있었는데, 내 포스팅도 많이 노출되어서 많은 피드백을 받았으면 좋겠다 싶어서, 해당 서비스가 <a href="https://awesome-devblog.netlify.com/" target="_blank" rel="noopener noreferrer">어썸데브블로그</a>의 피드를 사용하기때문에 국내 개발자로 등록을 하였습니다.</p>
 <p>등록하고 바로 포스팅을 올렸는데 어날리틱스 기준으로 처음으로 블로그 1일 방문자수가 20을 넘었습니다.
 해당 그래프를 보는게 재밌어서 포스팅을 계속해서 올렸었고, 아래와 같은 그래프를 그릴 수 있었습니다.</p>
-<p><figure><img
-        
-        loading="lazy"
-        src="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png"
-        srcset="/d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 1.5x, /d827fdd6-2288-4586-bee3-808d291dbc28_9617068682682423268.png 2x"
-        sizes="auto"
-        alt="블로그 GA 통계"
-        title="블로그 GA 통계" height="505"   width="663" ></figure></p>
+<p><img class="tw-inline" loading="lazy" src=https://blog.hodory.dev/images/d827fdd6-2288-4586-bee3-808d291dbc28.png   alt="블로그 GA 통계"  ></p>
 <p>노출 수가 많아질수록 더 읽고 싶은글, 읽기 좋은 글 또는 관심가질만한 글들을 써야겠다고 생각하게 되었습니다.</p>
 <h2 id="블로그-배포-방식-변경" class="headerLink">
     <a href="#%eb%b8%94%eb%a1%9c%ea%b7%b8-%eb%b0%b0%ed%8f%ac-%eb%b0%a9%ec%8b%9d-%eb%b3%80%ea%b2%bd" class="header-mark"></a>블로그 배포 방식 변경</h2><p>기존에 hexo-cli를 이용해서 배포를 하다가 매번 커맨드를 치는것도 귀찮다 생각하여, <code>package.json</code>에 스크립트를 작성해두었습니다.</p>
@@ -336,9 +409,9 @@ Spring Application Context에서 관리되는 Bean들이 싱글톤으로 관리 
 <a href="https://blog.hodory.dev/2019/06/06/hexo-travis-ci-with-no-contents/" target="_blank" rel="noopener noreferrer">빈 파일이 올라가는 문제</a>도 겪었지만 블로그 소스 코드 관리 및 배포를 조금 더 간결하게 할 수 있어서
 의미있는 작업이였다고 생각합니다.</p>
 <blockquote>
-<p>Github Actions 서비스가 현재 베타 서비스중이여서 나중에는 이걸로 갈아타지 않을까 생각합니다</p>
-</blockquote>
-<h2 id="도메인-연결과-깃허브-아이디-변경" class="headerLink">
+  <p>Github Actions 서비스가 현재 베타 서비스중이여서 나중에는 이걸로 갈아타지 않을까 생각합니다</p>
+
+</blockquote><h2 id="도메인-연결과-깃허브-아이디-변경" class="headerLink">
     <a href="#%eb%8f%84%eb%a9%94%ec%9d%b8-%ec%97%b0%ea%b2%b0%ea%b3%bc-%ea%b9%83%ed%97%88%eb%b8%8c-%ec%95%84%ec%9d%b4%eb%94%94-%eb%b3%80%ea%b2%bd" class="header-mark"></a>도메인 연결과 깃허브 아이디 변경</h2><hr>
 <p>기존에 Github Page를 이용하여 <a href="http://github.io" target="_blank" rel="noopener noreferrer">github.io</a> 도메인을 사용했는데, 지인의 추천을 받아 그날 바로 dev 도메인(hodory.dev)을 구매한 후 <a href="https://blog.hodory.dev/2019/06/09/github-pages-blog-migration/" target="_blank" rel="noopener noreferrer">엄청난 삽질</a>을 진행하였습니다.</p>
 <p>원래는 서브 도메인(blog.hodory.dev)으로 블로그임을 더 확실히 하고 싶어서 서브도메인만 쓰려 했는데, 구글 애드센스때문에 루트도메인도 리디렉션 처리를 했습니다.</p>
@@ -368,5 +441,4 @@ Spring Application Context에서 관리되는 Bean들이 싱글톤으로 관리 
 이정도 년차에 잘 하시는 분들은 이미 위의 세개중 하나에서 두개정도는 하시는것 같아서 더 분발해야할 것 같습니다.</p>
 <p>알고리즘과 자료구조, 네트워크 지식 등 기본 지식들을 <code>공부해야지... 공부해야지...</code> 라고 말만 3년째 하고 있는것 같습니다. 물론 실무를 경험하며, 면접을 준비 하며, 블로그를 보다가 배우는 것들도 있긴한데 하나를 알아도 제대로 알아야 할 것 같습니다.</p>
 <p>최근에  <code>블로그를 찾아서 아는것만으로는 공부가 아니다</code>라는 말씀을 들어 저처럼 본인이 아는걸 작성하고 공유한 글인데, 무분별하게 받아 들이던 제 자신을 반성하게 되었습니다.
-출판 서적으로 공부하는게 정석이라고는 생각은 하면서 실천하지 못해, 하반기에는 노력해야 할 것 같습니다.</p>
-]]></description></item></channel></rss>
+출판 서적으로 공부하는게 정석이라고는 생각은 하면서 실천하지 못해, 하반기에는 노력해야 할 것 같습니다.</p>]]></description></item></channel></rss>

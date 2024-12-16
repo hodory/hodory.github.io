@@ -5,7 +5,6 @@
 <li>PHP CLI 버전이 <code>cli/php.exe</code> 에서 주 디렉토리로 변경되었습니다.</li>
 <li>PHP CLI 버전은 <code>php.ini</code> 지시어 설정과 상관없이 항상 전역 <code>$argv</code>(Array of arguments passed to script) 와 <code>$argc</code>(The number of arguments passed to script) 변수를 가지며, <code>register_argc_argv</code>(argv와 argc 변수를 선언할지 여부 설정)를 <code>off</code>로 설정해도 영향을 미치지 않습니다.</li>
 </ul>
-<!-- raw HTML omitted -->
 <ul>
 <li>ISAPI 모듈들의 이름이 php4xxx에서 php5xxx로 바뀌었습니다.</li>
 <li>프로퍼티가 없는 객체를 &ldquo;빈&rdquo; 것으로 판단하지 않습니다.</li>
@@ -100,9 +99,8 @@
 </ul>
 <h5 id="기타-자세한-사항은-해당링크httpsphpnetmanualkrmigration5php에서-확인-하실-수-있습니다" class="headerLink">
     <a href="#%ea%b8%b0%ed%83%80-%ec%9e%90%ec%84%b8%ed%95%9c-%ec%82%ac%ed%95%ad%ec%9d%80-%ed%95%b4%eb%8b%b9%eb%a7%81%ed%81%achttpsphpnetmanualkrmigration5php%ec%97%90%ec%84%9c-%ed%99%95%ec%9d%b8-%ed%95%98%ec%8b%a4-%ec%88%98-%ec%9e%88%ec%8a%b5%eb%8b%88%eb%8b%a4" class="header-mark"></a>기타 자세한 사항은 <a href="https://php.net/manual/kr/migration5.php" target="_blank" rel="noopener noreferrer">해당링크</a>에서 확인 하실 수 있습니다.</h5><blockquote>
-<p>참고자료</p>
-</blockquote>
-<ul>
+  <p>참고자료</p>
+
+</blockquote><ul>
 <li><a href="https://php.net/manual/kr/migration5.php" title="해당 링크로 이동" target="_blank" rel="noopener noreferrer">PHP 공식문서 - PHP4에서 PHP 5.0.x로 이행</a></li>
-</ul>
-]]></description></item></channel></rss>
+</ul>]]></description></item></channel></rss>
